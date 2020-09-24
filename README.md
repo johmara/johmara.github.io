@@ -1,4 +1,4 @@
-# johmara.dev
+# [johmara.dev](https://johmara.dev)
 ![Build and Deploy](https://github.com/johmara/johmara.github.io/workflows/Build%20and%20Deploy/badge.svg?branch=master)
 
 ## Project setup
