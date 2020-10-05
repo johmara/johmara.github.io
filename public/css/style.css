@@ -42,7 +42,7 @@ p, a, .v-application a, button {
     text-decoration: none;
 }
 
-a, .logo, .icon{
+a, .logo, .icon .links{
     cursor: pointer;
 }
 
@@ -62,20 +62,16 @@ nav {
     height: 120px;
 }
 
-.links {
-    margin-left: auto;
-}
-
-.links a, .links button {
+.links p, .links a, .links button {
     font-size: 1.5rem;
     font-weight: 400;
 }
 
-.links a {
+.links p, .links a {
     margin-right: 50px;
 }
 
-.links a:hover {
+.links p:hover, .links a:hover {
     color: var(--accent);
 }
 
