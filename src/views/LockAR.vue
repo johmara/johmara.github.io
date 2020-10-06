@@ -49,6 +49,9 @@ export default {
 </script>
 
 <style>
+.project_body{
+    background: none;
+}
 .lockar_header{
     height: 300px;
 }
@@ -57,4 +60,7 @@ export default {
     height: auto;
 }
 
+.information {
+    grid-column: 2 / span 6;
+}
 </style>
