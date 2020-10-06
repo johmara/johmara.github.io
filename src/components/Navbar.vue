@@ -1,6 +1,6 @@
 <template>
 <nav>
-<v-toolbar flat>
+<v-toolbar dark flat class="toolbar" color="transparent">
     <v-toolbar-title>
         <div v-if="this.$vuetify.breakpoint.xsOnly">
             <img class="logo"  @click="mobile = !mobile" src="../assets/johmara.svg" alt="Johan Martinson">
@@ -14,13 +14,15 @@
     <v-spacer></v-spacer>
     <v-toolbar-items v-if="$vuetify.breakpoint.smAndUp">
         <div class="links">
-            <a href="#" style="color: #202531">About</a>
+            <router-link :to="{name:'About'}">
+                About
+            </router-link>
             <v-menu offset-y>
                 <template v-slot:activator="{ on, attrs }">
-                    <a color="dark_space" v-bind="attrs" v-on="on">Projects</a>
+                    <a v-bind="attrs" v-on="on">Projects</a>
                 </template>
                 <v-list>
-                    <router-link :to="'/LockAR/'">
+                    <router-link :to="{name:'LockAR'}">
                         <v-list-item> 
                             <v-list-item-title>LockAR</v-list-item-title>
                         </v-list-item>
@@ -35,30 +37,36 @@
     <div class="links">
     <v-list dense>
         <v-list-item>
-        <router-link :to="'/'">
-            <p>Home</p>
-        </router-link>
+            <router-link :to="'/'">
+            
+            <v-list-item-avatar>
+                <v-img src="../assets/Profile.png"></v-img>
+            </v-list-item-avatar>
+            
+            <v-list-item-content>
+                <v-list-item-title>johmara.dev</v-list-item-title>
+            </v-list-item-content>
+            </router-link>
+        </v-list-item>
+        
+        <v-divider/>
+        
+        <v-list-item>
+        <router-link :to="{name:'About'}">About</router-link>
         </v-list-item>
         <v-list-item>
-        <router-link :to="'/About'">
-        <p>About</p>
-        </router-link>
-        </v-list-item>
-        <v-list-item>
-        <p>
         <v-menu offset-y>
             <template v-slot:activator="{ on, attrs }">
-                <a color="dark_space" v-bind="attrs" v-on="on">Projects</a>
+                <p v-bind="attrs" v-on="on">Projects</p>
             </template>
             <v-list>
-                <router-link :to="'/LockAR/'">
+                <router-link :to="{name:'LockAR'}">
                     <v-list-item> 
                         <v-list-item-title>LockAR</v-list-item-title>
                     </v-list-item>
                 </router-link>
             </v-list>
         </v-menu>
-        </p>
         </v-list-item>
     </v-list>
     </div>
