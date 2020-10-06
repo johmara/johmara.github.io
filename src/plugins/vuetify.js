@@ -22,7 +22,7 @@ export default new Vuetify({
                 accent: '#1B998B',
                 space_cadet: '#2D3047',
                 fire: '#FF7033',
-                primary: '#202531',
+                primary: '#F0F7EE',
             }
         }
     }
