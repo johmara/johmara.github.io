@@ -13,20 +13,12 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Kulim Park", sans-serif;
 }
 
 html, body {
     height: 100%;
     overflow: auto;
-}
-
-body {
-    background: 
-        url(../../src/assets/background.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: "Kulim Park", sans-serif;
 }
 
 .v-list-item__title {
@@ -38,7 +30,6 @@ body {
 }
 
 p, a, .v-application a, button {
-    font-family: "Kulim Park", sans-serif;
     text-decoration: none;
 }
 
@@ -46,20 +37,8 @@ a, .logo, .icon .links{
     cursor: pointer;
 }
 
-main {
-    height: 90%; /*Height of the grid*/
-    display: grid;
-    grid-template-columns: minmax(60px, 1fr) repeat(6, minmax(50px, 190px)) minmax(60px, 1fr);
-}
-
-header{
-    grid-column: 2 / span 6;
-}
-
 nav {
-    display: flex;
     align-items: center;
-    height: 120px;
 }
 
 .links p, .links a, .links button {
@@ -73,10 +52,6 @@ nav {
 
 .links p:hover, .links a:hover {
     color: var(--accent);
-}
-
-.information {
-    grid-column: 2 / span 4;
 }
 
 .hero_font {
@@ -93,7 +68,7 @@ nav {
     font-size: 2.25rem;
 }
 
-.icons {
+/*.icons {
     display: flex;
     margin-top: 10px;
 }
@@ -110,7 +85,7 @@ nav {
     font-size: 1.5rem;
     font-weight: 400;
     margin-bottom: 5px;
-}
+}*/
 
 @media only screen and (max-width:1100px) {
     .logo{
