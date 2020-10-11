@@ -1,12 +1,10 @@
 <template>
-<body> 
-<main>
+<div class="about">
     <header> 
         <NavBar/>
     </header>
 
-</main>
-</body>
+</div>
 </template>
 
 <script>

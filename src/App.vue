@@ -1,15 +1,9 @@
 <template>
   <v-app>
-    <!--
-      <NavBar/>
-    -->
     <v-main>
-      <!--
-      <v-container fluid>
+      <v-content>
         <router-view/>
-      </v-container>
-      -->
-      <router-view/>
+      </v-content>
     </v-main>
   </v-app>
 </template>

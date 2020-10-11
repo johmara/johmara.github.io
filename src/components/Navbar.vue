@@ -1,37 +1,40 @@
 <template>
 <nav>
-<v-toolbar dark flat class="toolbar" color="transparent">
-    <v-toolbar-title>
-        <div v-if="this.$vuetify.breakpoint.xsOnly">
-            <img class="logo"  @click="mobile = !mobile" src="../assets/johmara.svg" alt="Johan Martinson">
-        </div>
-        <div v-else>
-        <router-link :to="'/'">
-            <img class="logo" src="../assets/johmara.svg" alt="Johan Martinson">
-        </router-link>
-        </div>
-    </v-toolbar-title>
-    <v-spacer></v-spacer>
-    <v-toolbar-items v-if="$vuetify.breakpoint.smAndUp">
-        <div class="links">
-            <router-link :to="{name:'About'}">
-                About
-            </router-link>
-            <v-menu offset-y>
-                <template v-slot:activator="{ on, attrs }">
-                    <a v-bind="attrs" v-on="on">Projects</a>
-                </template>
-                <v-list>
-                    <router-link :to="{name:'LockAR'}">
-                        <v-list-item> 
-                            <v-list-item-title>LockAR</v-list-item-title>
-                        </v-list-item>
-                    </router-link>
-                </v-list>
-            </v-menu>
-        </div>
-    </v-toolbar-items>
-</v-toolbar>
+    <v-container >
+        <v-app-bar flat extended class="pa-5" color="transparent">
+            <v-app-bar-nav-icon></v-app-bar-nav-icon>
+            <v-toolbar-title>
+                <div v-if="this.$vuetify.breakpoint.xsOnly">
+                    <img class="logo"  @click="mobile = !mobile" src="../assets/johmara.svg" alt="Johan Martinson">
+                </div>
+                <div v-else>
+                <router-link :to="'/'">
+                    <img class="logo" src="../assets/johmara.svg" alt="Johan Martinson">
+                </router-link>
+                </div>
+            </v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-items v-if="$vuetify.breakpoint.smAndUp">
+            <div class="links">
+                <router-link :to="{name:'About'}">
+                    About
+                </router-link>
+                <v-menu offset-y>
+                    <template v-slot:activator="{ on, attrs }">
+                        <a v-bind="attrs" v-on="on">Projects</a>
+                    </template>
+                    <v-list>
+                        <router-link :to="{name:'LockAR'}">
+                            <v-list-item> 
+                                <v-list-item-title>LockAR</v-list-item-title>
+                            </v-list-item>
+                        </router-link>
+                    </v-list>
+                </v-menu>
+            </div>
+        </v-toolbar-items>
+        </v-app-bar>
+    </v-container>
 
 <v-navigation-drawer v-model="mobile" app temporary bottom>
     <div class="links">
