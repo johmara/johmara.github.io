@@ -1,13 +1,29 @@
 <template>
-<body class="project_body"> 
-<main class="project">
+<div class="lockar">
     <header class="lockar_header"> 
-        <NavBar/>
-        <h1>LockAR</h1>
-        <h3>An Augmented Reality Authentication system</h3>  
+                <Navbar/>
     </header>
-    <section class="information">
-        <v-timeline :dense="$vuetify.breakpoint.smAndDown">
+    <v-parallax src="../assets/BackgroundParallax.png" height=800>
+        <v-container class="my-5">
+            <v-row>
+            <v-col align-self="center">
+                <v-img src="../assets/lockar.svg" min-height="70" max-height="380" contain center></v-img>           
+            </v-col>
+            </v-row>
+            <v-row> 
+            <v-col cols="12">
+                <div class="introduction">
+                    <h1>LockAR</h1>
+                    <h3>An Augmented Reality Authentication System</h3> 
+                    <span class="caption">LockAR is a smart phone APP that provides virtual AR keys for users to pinpoint and unlock connected doors.</span> 
+                </div>
+            </v-col> 
+            </v-row>
+    </v-container>
+    </v-parallax>
+    <v-container>
+
+    <v-timeline :dense="$vuetify.breakpoint.smAndDown">
             <v-timeline-item>
                 <span slot="opposite">Project Start</span>
                 <v-card class="elevation-2">
@@ -27,19 +43,19 @@
                 </v-card>
             </v-timeline-item>
         </v-timeline>
-    </section>
-</main>
-</body>
+
+    </v-container>
+</div>
 </template>
 
 <script>
-import NavBar from '../components/Navbar'
+import Navbar from '../components/Navbar'
 
 export default {
     name: 'LockAR',
 
     components:{
-        NavBar,
+        Navbar,
     },
 
     data: () => ({
@@ -49,18 +65,14 @@ export default {
 </script>
 
 <style>
-.project_body{
-    background: none;
-}
-.lockar_header{
-    height: 300px;
+
+.lockar{
+    height: 100%;
+    background: white;
 }
 
-.project{
-    height: auto;
+.introduction{
+    text-align: center;
 }
 
-.information {
-    grid-column: 2 / span 6;
-}
 </style>
