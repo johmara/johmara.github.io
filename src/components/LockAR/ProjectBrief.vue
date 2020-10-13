@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <v-row>
-            <v-col md="4" offset-md="8" cols="6" offset="6" align-self="right">
+            <v-col md="4" offset-md="8" cols="6" offset="6">
                 <h1 class="text-right">Project Brief</h1>
                 
             </v-col>
