@@ -24,19 +24,24 @@
     <v-container>
         <PB/>
     </v-container>
+    <v-container>
+        <ProjStruct/>
+    </v-container>
 </div>
 </template>
 
 <script>
 import Navbar from '../components/Navbar'
 import PB from '../components/LockAR/ProjectBrief'
+import ProjStruct from '../components/LockAR/ProjectStructure'
 
 export default {
     name: 'LockAR',
 
     components:{
         Navbar,
-        PB
+        PB,
+        ProjStruct
     },
 
     data: () => ({
