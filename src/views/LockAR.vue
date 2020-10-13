@@ -29,6 +29,9 @@
     <v-container>
         <ProjectDefine/>
     </v-container>
+    <v-container>
+        <Eval1/>
+    </v-container>
 </div>
 </template>
 
@@ -37,6 +40,7 @@ import Navbar from '../components/Navbar'
 import ProjectBrief from '../components/LockAR/ProjectBrief'
 import ProjectStructure from '../components/LockAR/ProjectStructure'
 import ProjectDefine from '../components/LockAR/ProjectDefine'
+import Eval1 from '../components/LockAR/Evaluation1'
 
 export default {
     name: 'LockAR',
@@ -46,6 +50,7 @@ export default {
         ProjectBrief,
         ProjectStructure,
         ProjectDefine,
+        Eval1,
     },
 
     data: () => ({
