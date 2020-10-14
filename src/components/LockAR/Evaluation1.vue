@@ -28,8 +28,77 @@
                             </v-carousel-item>
                         </v-carousel>
                 </v-col>
-
             </v-row>
+
+            <v-card flat class="pa-4"> 
+            <v-row>
+                <v-col cols="4" md="2" v-for="(item,i) in items" :key="i">
+                    <v-hover v-slot:default="{ hover }">
+                        <v-card flat :elevation="hover ? 12 : 0" :class="{ 'on-hover': hover }">
+                            <v-dialog v-model="dialog" width="400">
+                                <template v-slot:activator="{ on, attrs }">
+                                <v-img contain :src="item.src" v-bind="attrs" v-on="on"></v-img>
+                                
+                                </template>
+
+                                <v-card dark rounded="xl">
+                                    <v-img contain :src="item.src">
+
+                                    </v-img>
+                                </v-card>
+                            </v-dialog>
+                        </v-card>
+                        
+                    </v-hover>
+                    
+                </v-col>
+                <p class="caption">Wireframe prototype for Evaluation 1</p>
+            </v-row>
+            </v-card>
+
+            <v-row>
+                <v-col cols="12" md="6">
+                    <h4 class="headline text-center">Strength:</h4>
+                    <v-row>
+                        <v-col cols="3" offset="1" align-self="top">
+                            <v-img height=70 contain :src= 'require("@/assets/LockAR/strength.png")' ></v-img>
+                        </v-col>
+                        <v-col cols="8" align-self="center">
+                            <v-list flat>
+                                <v-list-item>
+                                    <p class="body-1">The workflow is intuitive</p>
+                                </v-list-item>
+                                <v-list-item>
+                                    <p class="body-1">Easy to find the door</p>
+                                </v-list-item>
+                            </v-list>
+                        </v-col>
+                    </v-row>
+                    
+                </v-col>
+                <v-col cols="12" md="6">
+                    <h4 class="headline text-center">Weakness:</h4>
+                    <v-row>
+                        <v-col cols="3" offset="1" align-self="top">
+                            <v-img height=70 contain :src= 'require("@/assets/LockAR/weakness.png")' ></v-img>
+                        </v-col>
+                        <v-col cols="8" align-self="center">
+                            <v-list flat>
+                                <v-list-item>
+                                    <p class="body-1">Function about adding new doors not covered</p>
+                                </v-list-item>
+                                <v-list-item>
+                                    <p class="body-1">Hard to get the feeling of using a camera since it’s only drawing </p>
+                                </v-list-item>
+                                <v-list-item>
+                                    <p class="body-1">Similar to a normal map </p>
+                                </v-list-item>
+                            </v-list>
+                        </v-col>
+                    </v-row>
+                </v-col>
+            </v-row>
+            
 
     </v-container>
 </template>
@@ -39,6 +108,7 @@ export default {
     name: 'Evaluation1',
 
     data: () => ({
+        dialog: false,
         items: [
             {
                 src: require('@/assets/LockAR/carousel1/1.png')
