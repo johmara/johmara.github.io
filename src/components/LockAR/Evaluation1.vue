@@ -27,6 +27,7 @@
                             <v-carousel-item contain v-for="(item,i) in items" :key="i" :src="item.src">
                             </v-carousel-item>
                         </v-carousel>
+                        <p class="caption text-center">One wireframeme prototype for key workflow</p>
                 </v-col>
             </v-row>
 
