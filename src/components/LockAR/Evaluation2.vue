@@ -7,14 +7,14 @@
                         <v-col cols="12" md="6"> 
                             <v-carousel hide-delimiters cycle progress progress-color="accent" 
                                             touch show-arrows-on-hover next-icon=">" prev-icon="<" >
-                                    <v-carousel-item contain v-for="(item,i) in items" :key="i" :src="item.src">
+                                    <v-carousel-item contain v-for="(item,i) in hotel" :key="i" :src="item.src">
                                     </v-carousel-item>
                             </v-carousel>
                         </v-col>
                         <v-col cols="12" md="6"> 
                             <v-carousel hide-delimiters cycle progress progress-color="accent" 
                                             touch show-arrows-on-hover next-icon=">" prev-icon="<" >
-                                    <v-carousel-item contain v-for="(item,i) in items" :key="i" :src="item.src">
+                                    <v-carousel-item contain v-for="(item,i) in campus" :key="i" :src="item.src">
                                     </v-carousel-item>
                             </v-carousel>
                         </v-col>
@@ -47,7 +47,7 @@
             <v-card flat class="pa-4"> 
                 <p class="display-2 text-right accent--text" >Prototype for a Hotel</p>
             <v-row>
-                <v-col cols="4" md="2" v-for="(item,i) in items" :key="i">
+                <v-col cols="4" md="2" v-for="(item,i) in hotel" :key="i">
                     <v-hover v-slot:default="{ hover }">
                         <v-card flat :elevation="hover ? 12 : 0" :class="{ 'on-hover': hover }">
                             <v-dialog v-model="dialog" width="400">
@@ -67,7 +67,7 @@
                     </v-hover>
                     
                 </v-col>
-                <p class="caption">Wireframe prototype for Evaluation 1</p>
+                <p class="caption">Wireframe prototype for Evaluation 2</p>
             </v-row>
             </v-card>
 
@@ -129,7 +129,7 @@
             <v-card flat class="pa-4"> 
                 <p class="display-2 text-left fire--text" >Prototype for a Campus</p>
             <v-row>
-                <v-col cols="4" md="2" v-for="(item,i) in items" :key="i">
+                <v-col cols="4" md="2" v-for="(item,i) in campus" :key="i">
                     <v-hover v-slot:default="{ hover }">
                         <v-card flat :elevation="hover ? 12 : 0" :class="{ 'on-hover': hover }">
                             <v-dialog v-model="dialog" width="400">
@@ -149,7 +149,7 @@
                     </v-hover>
                     
                 </v-col>
-                <p class="caption">Wireframe prototype for Evaluation 1</p>
+                <p class="caption">Wireframe prototype for Evaluation 2</p>
             </v-row>
             </v-card>
 
@@ -220,24 +220,44 @@ export default {
 
     data: () => ({
         dialog: false,
-        items: [
+        campus: [
             {
-                src: require('@/assets/LockAR/carousel1/1.png')
+                src: require('@/assets/LockAR/campus/1.png')
             },
             {
-                src: require('@/assets/LockAR/carousel1/2.png'),
+                src: require('@/assets/LockAR/campus/2.png'),
             },
             {
-                src: require('@/assets/LockAR/carousel1/3.png'),
+                src: require('@/assets/LockAR/campus/3.png'),
             },
             {
-                src: require('@/assets/LockAR/carousel1/4.png'),
+                src: require('@/assets/LockAR/campus/4.png'),
             },
             {
-                src: require('@/assets/LockAR/carousel1/5.png'),
+                src: require('@/assets/LockAR/campus/5.png'),
             },
             {
-                src: require('@/assets/LockAR/carousel1/6.png'),
+                src: require('@/assets/LockAR/campus/6.png'),
+            },
+        ],
+        hotel: [
+            {
+                src: require('@/assets/LockAR/hotel/1.png')
+            },
+            {
+                src: require('@/assets/LockAR/hotel/2.png'),
+            },
+            {
+                src: require('@/assets/LockAR/hotel/3.png'),
+            },
+            {
+                src: require('@/assets/LockAR/hotel/4.png'),
+            },
+            {
+                src: require('@/assets/LockAR/hotel/5.png'),
+            },
+            {
+                src: require('@/assets/LockAR/hotel/6.png'),
             },
         ]
       })
