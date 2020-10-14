@@ -31,6 +31,10 @@
     </v-container>
     <v-container>
         <Eval1/>
+        <v-divider></v-divider>
+    </v-container>
+    <v-container>
+        <Eval2/>
     </v-container>
 </div>
 </template>
@@ -41,6 +45,7 @@ import ProjectBrief from '../components/LockAR/ProjectBrief'
 import ProjectStructure from '../components/LockAR/ProjectStructure'
 import ProjectDefine from '../components/LockAR/ProjectDefine'
 import Eval1 from '../components/LockAR/Evaluation1'
+import Eval2 from '../components/LockAR/Evaluation2'
 
 export default {
     name: 'LockAR',
@@ -51,6 +56,7 @@ export default {
         ProjectStructure,
         ProjectDefine,
         Eval1,
+        Eval2,
     },
 
     data: () => ({

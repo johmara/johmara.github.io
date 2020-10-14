@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <h1 class="display-3 text-center">Evaluation 1</h1>
-            <v-row>
+            <v-row class="pt-3">
                 <v-col cols="12" md="6"> 
                     <v-card flat class="pa-6 my-10">
                         <v-card-title class="headline">Observation</v-card-title>
