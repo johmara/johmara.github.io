@@ -98,7 +98,18 @@
                     </v-row>
                 </v-col>
             </v-row>
-            
+            <v-divider></v-divider>
+            <div class="py-5">
+                <h1 class="display-3 text-center">Conclusion</h1>
+                <v-row>
+                    <v-col offset="2" cols="8">
+                        <p class="headline text-center">AR does well to help people navigate new places, like a new school building or a hotel for example</p>
+                    </v-col>
+                </v-row>
+            </div>
+            <v-card class="py-5 my-10 text-center" flat>
+                <h1 class="display-4">...</h1>
+            </v-card>
 
     </v-container>
 </template>
