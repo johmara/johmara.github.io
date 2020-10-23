@@ -12,7 +12,7 @@
                         </template>
                         <template >
                             <v-card class="pa-5" elevation="6" > 
-                                <p class="font-weight-bold">What is the process of how this project came?</p>
+                                <p class="font-weight-bold">What was the process of how this project came to be?</p>
                             </v-card>
                         </template>
                     </v-timeline-item>
