@@ -1,8 +1,8 @@
 <template>
-    <v-container class="py-16 my-16">
+    <v-container class="py-10 my-16">
         <h1 class="text-center display-2">Discussion & Future works</h1>
             
-                <v-timeline large reverse>
+                <v-timeline large reverse class="mt-5">
 
                     <v-timeline-item >
                         <template v-slot:icon>
