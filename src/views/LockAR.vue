@@ -7,7 +7,7 @@
         <v-container class="my-5">
             <v-row>
             <v-col align-self="center">
-                <v-img src="../assets/lockar.svg" min-height="70" max-height="300" contain center></v-img>           
+                <v-img src="../assets/LockAR/lockar.svg" min-height="70" max-height="300" contain center></v-img>           
             </v-col>
             </v-row>
             <v-row> 
@@ -29,12 +29,15 @@
     <v-container>
         <ProjectDefine/>
     </v-container>
-    <v-container>
+    <v-container fluid>        
         <Eval1/>
         <v-divider></v-divider>
     </v-container>
     <v-container>
         <Eval2/>
+    </v-container>
+    <v-container>
+        <Integration/>
     </v-container>
 </div>
 </template>
@@ -46,6 +49,7 @@ import ProjectStructure from '../components/LockAR/ProjectStructure'
 import ProjectDefine from '../components/LockAR/ProjectDefine'
 import Eval1 from '../components/LockAR/Evaluation1'
 import Eval2 from '../components/LockAR/Evaluation2'
+import Integration from '../components/LockAR/Integration'
 
 export default {
     name: 'LockAR',
@@ -57,6 +61,7 @@ export default {
         ProjectDefine,
         Eval1,
         Eval2,
+        Integration,
     },
 
     data: () => ({

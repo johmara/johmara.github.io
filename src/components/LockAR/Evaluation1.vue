@@ -22,12 +22,12 @@
                     </v-card>
                 </v-col>
                 <v-col cols="12" md="6">
-                        <v-carousel hide-delimiters cycle progress progress-color="accent" 
-                                    touch show-arrows-on-hover next-icon=">" prev-icon="<" >
-                            <v-carousel-item contain v-for="(item,i) in items" :key="i" :src="item.src">
-                            </v-carousel-item>
-                        </v-carousel>
-                        <p class="caption text-center">One wireframeme prototype for key workflow</p>
+                    <v-carousel hide-delimiters cycle progress progress-color="accent"
+                                touch show-arrows-on-hover next-icon=">" prev-icon="<" >
+                        <v-carousel-item contain v-for="(item,i) in items" :key="i" :src="item.src">
+                        </v-carousel-item>
+                    </v-carousel>
+                    <p class="caption text-center">One wireframeme prototype for key workflow</p>
                 </v-col>
             </v-row>
 
