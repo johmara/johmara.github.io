@@ -3,7 +3,7 @@
         <h1 class="text-right display-4">Project Brief</h1>
         <v-row >
             <v-col cols="12" md="6"  align-self="center">
-                <v-img :src= 'require("@/assets/LockAR/home_screen.png")' contain max-height="500"></v-img>
+                <v-img :src='require("@/assets/LockAR/home_screen.png")' contain max-height="500"></v-img>
             </v-col>
             <v-col cols="12" md="6" align-self="center">
                 <p class="text-right"> Authentication has to do with proving one’s identity. Access has to do with permission to reach certain information, places, or a things. Even though the two are different concepts, in many applications they are closely related.</p>
