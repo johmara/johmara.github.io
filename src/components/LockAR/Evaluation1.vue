@@ -43,7 +43,7 @@
                                 </template>
 
                                 <v-card dark rounded="xl">
-                                    <v-img contain :src="item.src">
+                                    <v-img contain v-for="(item,i) in items" :key="i" :src="item.src">
 
                                     </v-img>
                                 </v-card>
