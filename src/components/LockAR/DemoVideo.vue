@@ -15,7 +15,20 @@
                 <v-spacer></v-spacer>
             </v-row>
 
-        <p class="text-center">Due to time budget and ARcore’s special device requirements, instead of implementing a fully functioned APP, this peorototype is aimed for demostrating the core experience and conducting further evaluations.</p>
+        <p class="text-center">Due to time budget and ARcore’s special device requirements, instead of implementing a fully functioned APP, this prototype is aimed for demostrating the core experience and conducting further evaluations.</p>
+        <p class="text-center">Instead of ARcore we have used OpenCV. However OpenCV is a complicated software which takes a long time to learn, time that was sadly limited.</p>
+
+        <v-row>
+            <v-spacer></v-spacer>
+            <v-col cols="2">
+                <a class="text-center fire--text" href="https://github.com/johmara/lockar"> Code on GitHub</a>
+            </v-col>
+            <v-col cols="2">
+                <a class="text-center fire--text" href="https://opencv.org/"> OpenCVs Website</a>
+            </v-col>
+            <v-spacer></v-spacer>
+        </v-row>
+
     </v-container>
 </template>
 
