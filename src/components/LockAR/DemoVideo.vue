@@ -4,7 +4,6 @@
             <v-row>
                 <v-spacer></v-spacer>
                 <v-col cols="3">
-                    <!--TODO: fix center alignment-->
                     <video height="500" controls class="justify-center">
 
                     <source :src='require("@/assets/LockAR/impl/demo.mp4")' type="video/mp4">
@@ -15,10 +14,6 @@
                 </v-col>
                 <v-spacer></v-spacer>
             </v-row>
-                
-            
-                
-        
 
         <p class="text-center">Due to time budget and ARcore’s special device requirements, instead of implementing a fully functioned APP, this peorototype is aimed for demostrating the core experience and conducting further evaluations.</p>
     </v-container>
