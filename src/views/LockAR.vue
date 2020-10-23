@@ -47,6 +47,11 @@
     <v-container>
         <Discussion/>
     </v-container>
+    <v-container fluid>
+        <v-card color="accent" dark elevation="10" class="py-10">
+            <References/>
+        </v-card>
+    </v-container>
 </div>
 </template>
 
@@ -60,6 +65,7 @@ import Eval2 from '../components/LockAR/Evaluation2'
 import Integration from '../components/LockAR/Integration'
 import DemoVideo from '../components/LockAR/DemoVideo'
 import Discussion from '../components/LockAR/Discussion'
+import References from '../components/LockAR/References'
 
 export default {
     name: 'LockAR',
@@ -74,6 +80,7 @@ export default {
         Integration,
         DemoVideo,
         Discussion,
+        References,
     },
 
     data: () => ({
