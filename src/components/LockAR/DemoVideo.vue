@@ -15,7 +15,7 @@
                 <v-spacer></v-spacer>
             </v-row>
 
-        <p class="text-center">Due to time budget and ARcore’s special device requirements, instead of implementing a fully functioned APP, this prototype is aimed for demostrating the core experience and conducting further evaluations.</p>
+        <p class="text-center">Due to time budget and ARcore’s special device requirements, instead of implementing a fully functioning APP, this prototype is aimed to demostrate the core experience and conducting further evaluations.</p>
         <p class="text-center">Instead of ARcore we have used OpenCV. However OpenCV is a complicated software which takes a long time to learn, time that was sadly limited.</p>
 
         <v-row>
