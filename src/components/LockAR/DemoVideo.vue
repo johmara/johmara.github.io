@@ -1,6 +1,6 @@
 <template>
-    <v-container > 
-        <h1 class="display-2 text-center">Demo Video</h1>
+    <v-container> 
+        <h1 class="display-2 text-center pb-5">Demo Video</h1>
             <v-row>
                 <v-spacer></v-spacer>
                 <v-col cols="3">

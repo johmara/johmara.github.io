@@ -40,9 +40,12 @@
         <Integration/>
     </v-container>
     <v-container fluid>
-        <v-card color="accent" dark elevation="10">
+        <v-card color="accent" dark elevation="10" class="py-10">
             <DemoVideo/>
         </v-card>
+    </v-container>
+    <v-container>
+        <Discussion/>
     </v-container>
 </div>
 </template>
@@ -56,6 +59,7 @@ import Eval1 from '../components/LockAR/Evaluation1'
 import Eval2 from '../components/LockAR/Evaluation2'
 import Integration from '../components/LockAR/Integration'
 import DemoVideo from '../components/LockAR/DemoVideo'
+import Discussion from '../components/LockAR/Discussion'
 
 export default {
     name: 'LockAR',
@@ -69,6 +73,7 @@ export default {
         Eval2,
         Integration,
         DemoVideo,
+        Discussion,
     },
 
     data: () => ({
