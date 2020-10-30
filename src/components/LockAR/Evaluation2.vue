@@ -177,8 +177,8 @@
             <v-row>
                 <v-col>
                     <v-card elevation="10" color="mint_cream">
-                        <v-btn @click="showHotelFlow = !showHotelFlow; arrowCampus = activated(arrowCampus);" color="transparent" elevation="0">{{arrowCampus}} Flowchart</v-btn>
-                        <template v-if="showHotelFlow">
+                        <v-btn @click="showCampusFlow = !showCampusFlow; arrowCampus = activated(arrowCampus);" color="transparent" elevation="0">{{arrowCampus}} Flowchart</v-btn>
+                        <template v-if="showCampusFlow">
                             <v-img :src="require('@/assets/LockAR/campus/Campus-Flowchart.svg')"></v-img>
                         </template>
                     </v-card>
@@ -302,6 +302,7 @@ export default {
             },
         ],
         showHotelFlow:false,
+        showCampusFlow:false,
         arrowHotel:'>',
         arrowCampus:'>',
       }),
