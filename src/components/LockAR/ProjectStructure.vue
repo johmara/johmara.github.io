@@ -82,7 +82,7 @@
             
             <v-col cols="6" md="3">
                 <v-chip color="accent" class="text-center headline" >
-                    IMPLEMENTATION
+                    INTEGRATION
                 </v-chip>
                 <v-timeline dense clipped>
 

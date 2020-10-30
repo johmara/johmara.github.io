@@ -24,7 +24,7 @@
                         <p class="pt-4">Instantly locate all of the bookings and check the schedule at the very start through Mobile Direct Access design pattern[4]</p>
                     </v-card> 
                     <v-card v-if="n == 3" flat >
-                        <v-img :src='require("@/assets/LockAR/campus/4.png")' contain max-height="500"></v-img>
+                        <v-img :src='require("@/assets/LockAR/impl/hotelWithI.png")' contain max-height="500"></v-img>
                     </v-card> 
                     <v-card v-if="n == 4" flat class="pa-6 my-10">
                         <h1 class="display-2 accent--text"> Easy to Unlock
