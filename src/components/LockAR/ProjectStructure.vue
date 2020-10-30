@@ -105,7 +105,7 @@
 
                     <v-timeline-item small color="dark_space" fill-dot>
                         <p class="title">Conclusion</p>
-                        <p class="font-weight-light">Not yet found</p>
+                        <p class="font-weight-light">Technology limitation in implementing a fully functioning app. Verification needs to be integrated to users’ workflow.</p>
                     </v-timeline-item>
 
                 </v-timeline>
