@@ -72,6 +72,17 @@
             </v-card>
 
             <v-row>
+                <v-col>
+                    <v-card elevation="10" color="mint_cream">
+                        <v-btn @click="showHotelFlow = !showHotelFlow; arrowHotel = activated(arrowHotel);" color="transparent" elevation="0">{{arrowHotel}} Flowchart</v-btn>
+                        <template v-if="showHotelFlow">
+                            <v-img :src="require('@/assets/LockAR/hotel/Hotel-Flowchart.svg')"></v-img>
+                        </template>
+                    </v-card>
+                </v-col>
+            </v-row>
+
+            <v-row>
                 <v-col cols="12" md="6">
                     <h4 class="headline text-center">Strength:</h4>
                     <v-row>
@@ -152,6 +163,17 @@
                 <p class="caption">Wireframe prototype for Evaluation 2</p>
             </v-row>
             </v-card>
+
+            <v-row>
+                <v-col>
+                    <v-card elevation="10" color="mint_cream">
+                        <v-btn @click="showHotelFlow = !showHotelFlow; arrowCampus = activated(arrowCampus);" color="transparent" elevation="0">{{arrowCampus}} Flowchart</v-btn>
+                        <template v-if="showHotelFlow">
+                            <v-img :src="require('@/assets/LockAR/campus/Campus-Flowchart.svg')"></v-img>
+                        </template>
+                    </v-card>
+                </v-col>
+            </v-row>
 
             <v-row>
                 <v-col cols="12" md="6">
@@ -259,8 +281,30 @@ export default {
             {
                 src: require('@/assets/LockAR/hotel/6.png'),
             },
-        ]
-      })
+        ],
+        items: [
+            {
+            id: 1,
+            name: 'Flowchart:',
+            children: [
+                { id:2, name: 'kjhg' },
+            ],
+            },
+        ],
+        showHotelFlow:false,
+        arrowHotel:'>',
+        arrowCampus:'>',
+      }),
+      methods: {
+          activated(input){
+              if (input == '>'){
+                  return 'v'
+              }else if(input == 'v'){
+                  return '>'
+              }
+          }
+      }
+
 
 };
 </script>
