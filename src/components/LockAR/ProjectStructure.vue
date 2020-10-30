@@ -82,7 +82,7 @@
             
             <v-col cols="6" md="3">
                 <v-chip color="accent" class="text-center headline" >
-                    INTEGRATION
+                    IMPLEMENTATION
                 </v-chip>
                 <v-timeline dense clipped>
 
@@ -94,13 +94,7 @@
                     <v-timeline-item small color="dark_space" fill-dot>
                         <p class="title">Prototyping</p>
                         <p class="font-weight-light">Native prototypes</p>
-
-                    </v-timeline-item>
-
-                    <v-timeline-item small color="dark_space" fill-dot>
-                        <p class="title"> Observation </p>
-                        <p class="font-weight-light">Participants try the prototypes to fullfill certain tasks</p>
-                        <p class="font-weight-light">Simple questions asked afterwards</p>
+                        <p class="font-weight-light">Finding solutions to unexpected implementation problems</p>
                     </v-timeline-item>
 
                     <v-timeline-item small color="dark_space" fill-dot>
