@@ -47,6 +47,11 @@
             <v-card flat class="pa-4"> 
                 <p class="display-2 text-right accent--text" >Prototype for a Hotel</p>
             <v-row>
+                <v-col offset-sm="2" sm="10">
+                    <p class="text-right">The Hotel context is all about providing a key to you hotel room with AR instead of using a physical key like a card or a tag. To play on the strengths that the previous itteration concluded a way to navigate to your room with either entering a room number or scanning a QR code was also added to the prototype. </p>
+                </v-col>
+            </v-row>
+            <v-row>
                 <v-col cols="4" md="2" v-for="(item,i) in hotel" :key="i">
                     <v-hover v-slot:default="{ hover }">
                         <v-card flat :elevation="hover ? 12 : 0" :class="{ 'on-hover': hover }">
@@ -139,6 +144,11 @@
             <v-divider></v-divider>
             <v-card flat class="pa-4"> 
                 <p class="display-2 text-left fire--text" >Prototype for a Campus</p>
+            <v-row>
+                <v-col sm="10">
+                    <p class="text-left">The Campus context is about providing a key to help you find and unlock your booked group room with AR instead of wandering in the campus building with a physical card. Based on the conclusion of the previous iteration that AR does well to help people navigate new places.  </p>
+                </v-col>
+            </v-row>
             <v-row>
                 <v-col cols="4" md="2" v-for="(item,i) in campus" :key="i">
                     <v-hover v-slot:default="{ hover }">
