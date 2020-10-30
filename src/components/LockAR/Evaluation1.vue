@@ -108,9 +108,6 @@
                     </v-col>
                 </v-row>
             </div>
-            <v-card class="py-5 my-10 text-center" flat>
-                <h1 class="display-4">...</h1>
-            </v-card>
 
     </v-container>
 </template>
