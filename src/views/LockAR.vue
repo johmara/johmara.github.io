@@ -43,7 +43,9 @@
     <v-container fluid>
         <v-card color="accent" dark elevation="10" class="py-10">
             <DemoVideo/>
+            <IntFlow/>
         </v-card>
+
     </v-container>
     <v-container>
         <Discussion/>
@@ -65,6 +67,7 @@ import Eval1 from '../components/LockAR/Evaluation1'
 import Eval2 from '../components/LockAR/Evaluation2'
 import Integration from '../components/LockAR/Integration'
 import DemoVideo from '../components/LockAR/DemoVideo'
+import IntFlow from '../components/LockAR/Flowchart'
 import Discussion from '../components/LockAR/Discussion'
 import References from '../components/LockAR/References'
 
@@ -80,6 +83,7 @@ export default {
         Eval2,
         Integration,
         DemoVideo,
+        IntFlow,
         Discussion,
         References,
     },
