@@ -5,11 +5,11 @@
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
             <v-toolbar-title>
                 <div v-if="this.$vuetify.breakpoint.xsOnly">
-                    <img class="logo"  @click="mobile = !mobile" src="../assets/johmara.svg" alt="Johan Martinson">
+                    <v-img class="logo"  @click="mobile = !mobile" :src="imgs[0].src" contain max-height="100" alt="Johan Martinson"></v-img>
                 </div>
                 <div v-else>
                 <router-link :to="'/'">
-                    <img class="logo" src="../assets/johmara.svg" alt="Johan Martinson">
+                    <v-img class="logo" :src="imgs[0].src" contain max-height="100" alt="Johan Martinson"></v-img>
                 </router-link>
                 </div>
             </v-toolbar-title>
@@ -43,7 +43,7 @@
             <router-link :to="'/'">
             
             <v-list-item-avatar>
-                <v-img src="../assets/Profile.png"></v-img>
+                <v-img :src="imgs[1].src"></v-img>
             </v-list-item-avatar>
             
             <v-list-item-content>
@@ -82,7 +82,12 @@ export default {
     name: 'NavBar',
 
     data: () => ({
-        mobile: false   
+        mobile: false,
+        imgs: [
+            {src: require("@/assets/johmara.svg")},
+            {src: require("@/assets/Profile.png")}
+        ],
+
     }),
 };
 </script>

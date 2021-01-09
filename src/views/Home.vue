@@ -15,7 +15,7 @@
             <v-row no-gutters>
             <v-col class="pa-0 ma-0" align-self="center">
                 <a class="pa-0 ma-0" href="mailto:johan.t.martinson@gmail.com">
-                <v-img class="pa-0 ma-0" height="60" contain src="../assets/EmailIcon.svg" alt="Email" />
+                <v-img class="pa-0 ma-0" height="60" contain :src="icons[0].src" alt="Email" />
                 </a>
             </v-col>
             <v-col align-self="center" >
@@ -29,7 +29,7 @@
         <v-row no-gutters> 
             <v-col class="pa-0 ma-0" align-self="center">
                 <a class="pa-0 ma-0" href="https://github.com/johmara/">
-                    <v-img class="pa-0 ma-0" height="60" contain src="../assets/GithubIcon.svg" alt="Github"/>
+                    <v-img class="pa-0 ma-0" height="60" contain :src="icons[1].src" alt="Github"/>
                 </a>
             </v-col>
             <v-col align-self="center">
@@ -42,7 +42,7 @@
             <v-row no-gutters>
                 <v-col class="pa-0 ma-0" align-self="center">
                     <a class="pa-0 ma-0" href="https://www.linkedin.com/in/johanmartinson/">
-                    <v-img class="pa-0 ma-0" height="60" contain src="../assets/LinkedInIcon.svg" alt="linkedin" />
+                    <v-img class="pa-0 ma-0" height="60" contain :src="icons[2].src" alt="linkedin" />
                     </a>
                 </v-col>
                 <v-col align-self="center">
@@ -66,7 +66,11 @@ export default {
     },
 
     data: () => ({
-        //
+        icons: [
+            {src: require("@/assets/email_icon.svg")},
+            {src: require("@/assets/github_icon.svg")},
+            {src: require("@/assets/linkedin_icon.svg")},
+        ]
     }),
 };
 </script>
