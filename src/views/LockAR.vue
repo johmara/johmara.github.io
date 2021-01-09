@@ -7,14 +7,14 @@
         <v-container class="my-5">
             <v-row>
             <v-col align-self="center">
-                <v-img src="../assets/LockAR/lockar.svg" min-height="70" max-height="300" contain center></v-img>           
+                <v-img :src="logo" min-height="70" max-height="300" contain center></v-img>           
             </v-col>
             </v-row>
             <v-row> 
             <v-col cols="12">
                 <div class="introduction">
-                    <h1 class="display-2">LockAR</h1>
-                    <span class="subtitle-2">A smart phone app that provides virtual Augmented Reality keys for users to pinpoint and unlock connected doors.</span> 
+                    <h1 class="display-2">{{title}}</h1>
+                    <span class="subtitle-2">{{subtitle}}</span> 
                 </div>
             </v-col> 
             </v-row>
@@ -89,7 +89,15 @@ export default {
     },
 
     data: () => ({
-        
+        logo: require("@/assets/LockAR/lockar.svg"),
+        title: "LockAR",
+        subtitle: "A smart phone app that provides virtual Augmented Reality keys for users to pinpoint and unlock connected doors.",
+        imgs: ProjectBrief.data(),
+        background: '',
+        desc: `LockAR was a design project with the main purpose to create a mobile design for a novel idea.
+         The theme for the project was to create something with regards to access and authentication.
+         My partner and I came up with a lock for a hotel room or a campus grouproom were you would use you phone
+         to locate unlock and lock the door you wished to gain access to. Thereby eliminating the use for plastic access cards.`,
     }),
 };
 </script>
