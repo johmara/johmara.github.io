@@ -4,12 +4,22 @@
         <NavBar/>
     </header>       
     <v-container class="my-5">
-    <v-row class="ma-5"> 
-        <v-col cols="12" >
-            <h1 class="hero_font pt-16">Johan Martinson</h1>
-            <h3 class="sub_header"> Project Manager | Developer </h3>
-        </v-col>
-    </v-row>
+    <div v-if="this.$vuetify.breakpoint.xsOnly">
+        <v-row class="mx-5"> 
+            <v-col cols="12" >
+                <h1 class="hero_font pt-16">{{title}}</h1>
+                <h3 class="sub_header"> {{sub_header}} </h3>
+            </v-col>
+        </v-row>
+    </div>
+    <div v-else>
+        <v-row class="ma-5 pt-16"> 
+            <v-col cols="12" >
+                <h1 class="hero_font pt-16">{{title}}</h1>
+                <h3 class="sub_header"> {{sub_header}} </h3>
+            </v-col>
+        </v-row>
+    </div>
     <v-row justify="space-evenly" dense class="mb-16 pb-16">
         <v-col class="px-5 mx-1" cols="8" sm="2" v-for="(icon) in icons" :key="icon">                 
             <v-row no-gutters>
@@ -56,7 +66,9 @@ export default {
                 href: "https://www.linkedin.com/in/johanmartinson/",
                 txt: "LinkedIn"
             },
-        ]
+        ],
+        title: "Johan Martinson",
+        sub_header: "Project Manager | Developer"
     }),
 };
 </script>
