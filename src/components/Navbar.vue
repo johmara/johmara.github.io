@@ -59,7 +59,8 @@
         <router-link :to="{name:'About'}">About</router-link>
         </v-list-item>
         <v-list-item>
-        <v-menu offset-y>
+        <router-link :to="{name:'Projects'}">About</router-link>
+        <!--<v-menu offset-y>
             <template v-slot:activator="{ on, attrs }">
                 <p v-bind="attrs" v-on="on">Projects</p>
             </template>
@@ -70,7 +71,7 @@
                     </v-list-item>
                 </router-link>
             </v-list>
-        </v-menu>
+        </v-menu>-->
         </v-list-item>
     </v-list>
     </div>
