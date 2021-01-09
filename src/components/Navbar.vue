@@ -18,9 +18,11 @@
                 <router-link :to="{name:'About'}">
                     About
                 </router-link>
-                <v-menu offset-y>
+                <v-menu offset-y open-on-hover>
                     <template v-slot:activator="{ on, attrs }">
-                        <a v-bind="attrs" v-on="on">Projects</a>
+                        <a v-bind="attrs" v-on="on">
+                            <router-link :to="{name:'Projects'}"> Projects</router-link>
+                        </a>
                     </template>
                     <v-list>
                         <router-link :to="{name:'LockAR'}">
