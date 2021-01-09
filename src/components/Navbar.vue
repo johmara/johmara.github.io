@@ -2,7 +2,6 @@
 <nav>
     <v-container >
         <v-app-bar flat extended class="pa-5" color="transparent">
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
             <v-toolbar-title>
                 <div v-if="this.$vuetify.breakpoint.xsOnly">
                     <v-img class="logo"  @click="mobile = !mobile" :src="imgs[0].src" contain max-height="100" alt="Johan Martinson"></v-img>
@@ -85,7 +84,7 @@ export default {
         mobile: false,
         imgs: [
             {src: require("@/assets/johmara.svg")},
-            {src: require("@/assets/Profile.png")}
+            {src: require("@/assets/profile.png")}
         ],
 
     }),

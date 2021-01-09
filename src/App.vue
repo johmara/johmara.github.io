@@ -7,19 +7,15 @@
 </template>
 
 <script>
-/*
-import NavBar from './components/Navbar'
 
-export default {
-    name: 'app',
-
-    components:{
-        NavBar,
-    },
-
-    data: () => ({
-        
-    }),
-};
-*/
 </script>
+
+<style>
+  #app{
+    background: 
+        url(../src/assets/background.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
