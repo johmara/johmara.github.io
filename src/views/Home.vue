@@ -4,7 +4,7 @@
         <NavBar/>
     </header>       
     <v-container class="my-5">
-    <v-row class="ma-5 pt-16"> 
+    <v-row class="ma-5"> 
         <v-col cols="12" >
             <h1 class="hero_font pt-16">Johan Martinson</h1>
             <h3 class="sub_header"> Project Manager | Developer </h3>
