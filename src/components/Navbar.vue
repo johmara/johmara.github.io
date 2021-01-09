@@ -59,7 +59,7 @@
         <router-link :to="{name:'About'}">About</router-link>
         </v-list-item>
         <v-list-item>
-        <router-link :to="{name:'Projects'}">About</router-link>
+        <router-link :to="{name:'Projects'}">Projects</router-link>
         <!--<v-menu offset-y>
             <template v-slot:activator="{ on, attrs }">
                 <p v-bind="attrs" v-on="on">Projects</p>
