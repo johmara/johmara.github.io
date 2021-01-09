@@ -5,7 +5,7 @@
     </header>
     <v-container>
         <v-row>
-            <v-col cols=4 v-for="(project) in projects" :key="project">
+            <v-col cols=12 md="4" v-for="(project) in projects" :key="project">
                 <v-card class="pa-5">
                     <v-img :src="project.background" :lazy-src="default_background" height="200">
                         <div v-if="project.title = 'LockAR'">
