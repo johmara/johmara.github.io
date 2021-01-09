@@ -21,7 +21,7 @@
         </v-row>
     </div>
     <v-row justify="space-evenly" dense class="mb-16 pb-16">
-        <v-col class="px-5 mx-1" cols="8" sm="2" v-for="(icon) in icons" :key="icon">                 
+        <v-col class="px-5 mx-1" cols="5" sm="2" v-for="(icon) in icons" :key="icon">                 
             <v-row no-gutters>
                 <v-col>
                     <v-hover v-slot:default="{ hover }">
