@@ -10,46 +10,20 @@
             <h3 class="sub_header"> Project Manager | Developer </h3>
         </v-col>
     </v-row>
-    <v-row align-content="start" align="baseline" class="mb-16 pb-16">
-        <v-col cols="12" sm="3" align-self="center">                 
+    <v-row justify="space-evenly" dense class="mb-16 pb-16">
+        <v-col class="px-5 mx-1" cols="8" sm="2" v-for="(icon) in icons" :key="icon">                 
             <v-row no-gutters>
-            <v-col class="pa-0 ma-0" align-self="center">
-                <a class="pa-0 ma-0" href="mailto:johan.t.martinson@gmail.com">
-                <v-img class="pa-0 ma-0" height="60" contain :src="icons[0].src" alt="Email" />
-                </a>
-            </v-col>
-            <v-col align-self="center" >
-                <a class="pa-0 ma-0" href="mailto:johan.t.martinson@gmail.com" style="color: #202531">Email</a>
-            </v-col>
-
-            </v-row>
-        </v-col>
-
-        <v-col cols="12" sm="3" align-self="center">
-        <v-row no-gutters> 
-            <v-col class="pa-0 ma-0" align-self="center">
-                <a class="pa-0 ma-0" href="https://github.com/johmara/">
-                    <v-img class="pa-0 ma-0" height="60" contain :src="icons[1].src" alt="Github"/>
-                </a>
-            </v-col>
-            <v-col align-self="center">
-                <a class="pa-0 ma-0" href="https://github.com/johmara/" style="color: #202531">Github</a>
-            </v-col>
-        </v-row>
-        </v-col>
-
-        <v-col cols="12" sm="3" align-self="center">
-            <v-row no-gutters>
-                <v-col class="pa-0 ma-0" align-self="center">
-                    <a class="pa-0 ma-0" href="https://www.linkedin.com/in/johanmartinson/">
-                    <v-img class="pa-0 ma-0" height="60" contain :src="icons[2].src" alt="linkedin" />
-                    </a>
-                </v-col>
-                <v-col align-self="center">
-                    <a class="pa-0 ma-0" href="https://www.linkedin.com/in/johanmartinson/" style="color: #202531">LinkedIn</a>
+                <v-col>
+                    <v-hover v-slot:default="{ hover }">
+                        <v-card class="pt-2 text-center rounded-circle" height="120" width="120" :elevation="hover ? 4 : 0" :class="{ 'on-hover': hover }" :href="icon.href">
+                            <v-img height="60" contain :src="icon.src" :alt="icon.txt" />
+                            <v-card-text class="pb-2">{{icon.txt}}</v-card-text>
+                        </v-card>
+                    </v-hover>
+                    
                 </v-col>
             </v-row>
-        </v-col>
+        </v-col>        
     </v-row>
     </v-container>
 </div>
@@ -67,9 +41,21 @@ export default {
 
     data: () => ({
         icons: [
-            {src: require("@/assets/email_icon.svg")},
-            {src: require("@/assets/github_icon.svg")},
-            {src: require("@/assets/linkedin_icon.svg")},
+            {
+                src: require("@/assets/email_icon.svg"),
+                href: "mailto:johan.t.martinson@gmail.com",
+                txt: "Email"
+            },
+            {
+                src: require("@/assets/github_icon.svg"),
+                href: "https://github.com/johmara/",
+                txt: "Github"
+            },
+            {
+                src: require("@/assets/linkedin_icon.svg"),
+                href: "https://www.linkedin.com/in/johanmartinson/",
+                txt: "LinkedIn"
+            },
         ]
     }),
 };
