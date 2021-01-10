@@ -30,6 +30,9 @@
                                 <v-list-item-title>LockAR</v-list-item-title>
                             </v-list-item>
                         </router-link>
+                        <v-list-item href="https://github.com/CloudsColors/Gretzl" target="_blank"> 
+                            <v-list-item-title>Gretzl</v-list-item-title>
+                        </v-list-item>
                     </v-list>
                 </v-menu>
             </div>

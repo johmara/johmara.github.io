@@ -89,6 +89,7 @@ export default {
     },
 
     data: () => ({
+        link: '#/lockar',
         logo: require("@/assets/LockAR/lockar.svg"),
         title: "LockAR",
         subtitle: "A smart phone app that provides virtual Augmented Reality keys for users to pinpoint and unlock connected doors.",
