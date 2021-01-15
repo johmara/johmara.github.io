@@ -2,9 +2,9 @@ module.exports = {
     data: () => (
         [
             {
-            date: '14-01-2021',
+            date: '15-01-2021',
             title: "Getting Started!",
-            subtitle: "-",
+            subtitle: "",
             image: "",
             text: [
                 ` 

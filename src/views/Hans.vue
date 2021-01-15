@@ -27,7 +27,11 @@
                         <v-card class="my-2" v-for="(i) in nrOfPosts" :key="i">
                             {{blog_data(--i)}}
                             <v-card-title>{{bps.title}}</v-card-title>
-                            <v-card-subtitle>{{bps.subtitle}}</v-card-subtitle>
+                            <v-card-subtitle >
+                                {{bps.subtitle}}
+                                <v-spacer/>
+                                {{bps.date}}
+                            </v-card-subtitle>
                         </v-card>
                     </div>
                 </v-card>

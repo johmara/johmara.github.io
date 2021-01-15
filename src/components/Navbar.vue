@@ -35,7 +35,7 @@
                         </v-list-item>
                         <router-link :to="{name:'HANS'}">
                             <v-list-item> 
-                                <v-list-item-title>HANS</v-list-item-title>
+                                <v-list-item-title>HAnS</v-list-item-title>
                             </v-list-item>
                         </router-link>
                     </v-list>

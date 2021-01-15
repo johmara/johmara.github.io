@@ -4,16 +4,14 @@
     <v-card class="my-5" v-for="(post, i) in visiblePages" :key="i">
         <v-row no-gutters>
             <v-col>
-                <v-card-title>{{post.title}}</v-card-title>
+                <v-card-title v-if="post.title != ''">{{post.title}}</v-card-title>
             </v-col>
             <v-col cols="3">
-                <v-card-subtitle>{{post.date}}</v-card-subtitle>
+                <v-card-subtitle v-if="post.date != ''">{{post.date}}</v-card-subtitle>
             </v-col>
         </v-row>
-        <v-card-subtitle>{{post.subtitle}}</v-card-subtitle>
-        <div v-if="post.image != ''">
-            <v-img :src="post.image" height="150" contain>        </v-img>
-        </div>
+        <v-card-subtitle v-if="post.subtitle != ''">{{post.subtitle}}</v-card-subtitle>
+        <v-img v-if="post.image != ''" :src="post.image" height="150" contain>        </v-img>
         <div class="px-8"><v-divider/></div>
         <div  v-for="(paragraph) in post.text" :key="paragraph">
             <v-card-text>{{paragraph}}</v-card-text>
