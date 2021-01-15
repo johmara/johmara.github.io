@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import LockAR from './views/LockAR.vue'
+import Hans from './views/Hans.vue'
 import About from './views/About.vue'
 import Projects from './views/Projects.vue'
 
@@ -17,11 +18,6 @@ export default new Router({
         component: Home
       },
       {
-          path: '/lockar',
-          name: 'LockAR',
-          component: LockAR
-      },
-      {
         path:'/about',
         name: 'About',
         component: About
@@ -31,6 +27,17 @@ export default new Router({
         name: 'Projects',
         component: Projects
       },
+      {
+        path: '/lockar',
+        name: 'LockAR',
+        component: LockAR
+      },
+      {
+        path: '/hans',
+        name: 'HANS',
+        component: Hans
+      }
+
 
 
     ],

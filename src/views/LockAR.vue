@@ -18,7 +18,7 @@
                 </div>
             </v-col> 
             </v-row>
-    </v-container>
+        </v-container>
     </v-parallax>
     <v-container>
         <ProjectBrief/>

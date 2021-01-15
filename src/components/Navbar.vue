@@ -33,6 +33,11 @@
                         <v-list-item href="https://github.com/CloudsColors/Gretzl" target="_blank"> 
                             <v-list-item-title>Gretzl</v-list-item-title>
                         </v-list-item>
+                        <router-link :to="{name:'HANS'}">
+                            <v-list-item> 
+                                <v-list-item-title>HANS</v-list-item-title>
+                            </v-list-item>
+                        </router-link>
                     </v-list>
                 </v-menu>
             </div>

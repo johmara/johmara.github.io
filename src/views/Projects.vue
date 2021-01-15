@@ -5,11 +5,11 @@
     </header>
     <v-container>
         <v-row>
-            <v-col cols=12 md="4" v-for="(project) in projects" :key="project">
+            <v-col cols=12 md="4" v-for="(project, i) in projects" :key="i">
                 <v-card class="pa-5">
                     <a :href="project.link">
                         <v-img :src="project.background" :lazy-src="default_background" height="200">
-                            <div v-if="project.title = 'LockAR'">
+                            <div v-if="project.title == 'LockAR'">
                                 <v-row>
                                     <v-col cols="4" v-for="(img) in project.imgs.items" :key="img">
                                         <v-img :src="img" contain height="100px">
@@ -46,6 +46,7 @@
 <script>
 import NavBar from '../components/Navbar'
 import LockAR from '@/views/LockAR'
+import Hans from '@/views/Hans'
 import Gretzl from '@/components/Gretzl/Gretzl'
 
 export default {
@@ -59,14 +60,10 @@ export default {
         projects: [
             LockAR.data(),
             Gretzl.data(),
+            Hans.data(),
         ],
         default_background: require("@/assets/projectbackground_standard.png"),
     }),
-    methods: () => ({
-        gretzl: () => ({
-                
-            })
-    })
 };
 </script>
 
