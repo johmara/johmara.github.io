@@ -24,17 +24,10 @@
                 <v-card>
                     <v-card-title>Latest Posts</v-card-title>
                     <div class="pa-3">
-                        <v-card class="my-2" v-for="(i) in 5" :key="i">
+                        <v-card class="my-2" v-for="(i) in nrOfPosts" :key="i">
                             {{blog_data(--i)}}
-                            <v-row>
-                                <v-col>
-                                    <v-card-title>{{bps.title}}</v-card-title>
-                                    <v-card-subtitle>{{bps.subtitle}}</v-card-subtitle>
-                                </v-col>
-                                <v-col class="mx-3" cols="6">
-                                    <v-img :src="bps.image" contain height="100"></v-img>
-                                </v-col>
-                            </v-row>
+                            <v-card-title>{{bps.title}}</v-card-title>
+                            <v-card-subtitle>{{bps.subtitle}}</v-card-subtitle>
                         </v-card>
                     </div>
                 </v-card>
@@ -42,7 +35,7 @@
         </v-row>
     </v-container>
 </div>
-</template>
+</template> 
 
 <script>
 import Navbar from '../components/Navbar'
@@ -73,6 +66,18 @@ export default {
             
         blog: Blog.data().blogposts,
     }),
+
+    computed: {
+        nrOfPosts: function(){
+            var data = this.blog
+            var len = Object.keys(data).length
+            if (len > 5){
+                return 5
+            } else {
+                return len
+            }
+        },
+    },
 
     methods: {
         blog_data: function(x) {

@@ -4,7 +4,7 @@ module.exports = {
             {
             date: '14-01-2021',
             title: "Getting Started!",
-            subtitle: "",
+            subtitle: "-",
             image: "",
             text: [
                 ` 
