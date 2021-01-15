@@ -58,7 +58,7 @@ export default {
         link: '#/hans',
         logo: '',
         title: "HAnS",
-        subtitle: "A Master thesis about creating am IntelliJ plugin that helps with annotating software",
+        subtitle: "A master thesis about creating an IntelliJ plugin that helps with annotating software",
         imgs: "",
         background: '',
         desc: 
