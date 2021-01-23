@@ -12,7 +12,7 @@
                 </router-link>
                 </div>
             </v-toolbar-title>
-            <v-spacer></v-spacer>
+            <v-spacer/>
             <v-toolbar-items v-if="$vuetify.breakpoint.smAndUp">
             <div class="links">
                 <router-link :to="{name:'About'}">
@@ -68,18 +68,6 @@
         </v-list-item>
         <v-list-item>
         <router-link :to="{name:'Projects'}">Projects</router-link>
-        <!--<v-menu offset-y>
-            <template v-slot:activator="{ on, attrs }">
-                <p v-bind="attrs" v-on="on">Projects</p>
-            </template>
-            <v-list>
-                <router-link :to="{name:'LockAR'}">
-                    <v-list-item> 
-                        <v-list-item-title>LockAR</v-list-item-title>
-                    </v-list-item>
-                </router-link>
-            </v-list>
-        </v-menu>-->
         </v-list-item>
     </v-list>
     </div>
@@ -101,3 +89,7 @@ export default {
     }),
 };
 </script>
+
+<style>
+
+</style>
