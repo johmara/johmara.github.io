@@ -9,7 +9,7 @@
                                 {{personal_info.name}}
                             </v-card-title>
                             <v-card-text> 
-                                <div v-for="(occ) in personal_info.occupation" :key="occ">
+                                <div v-for="(occ, i) in personal_info.occupation" :key="i">
                                 {{occ.desc}}
                                 <a :href="occ.href" target="_blank">
                                     <v-icon> mdi-open-in-new </v-icon>
@@ -31,13 +31,11 @@
                             </v-avatar>
                         </v-col>
                     </v-row>
-                    <v-row>   
-                        <v-col>
-                            <v-card-title class="headline font-weight-light">Short Bio</v-card-title>
-                            <v-card-text v-for="(bio) in bio" :key="bio">
-                                {{bio}}
-                            </v-card-text>
-                        </v-col>                 
+                    <v-card-title class="headline font-weight-light">Short Bio</v-card-title>
+                    <v-row v-for="(b, i) in bio" :key="i">   
+                        <v-card-text>
+                            {{b}}
+                        </v-card-text>
                     </v-row>
                 </v-card>
             </v-col>
@@ -70,7 +68,7 @@ export default {
             ]
         },
         img: require("@/assets/profile.png"),
-        bio: require("@/assets/bio.js").bio,
+        bio: require("@/assets/bio.js").data(),
     }),
 };
 </script>
