@@ -55,10 +55,6 @@
     </v-container>
     </v-img>
 
-    <v-container class="my-5">
-        <About/>
-    </v-container>
-
     <v-footer>
 
     </v-footer>
@@ -68,14 +64,12 @@
 
 <script>
 import NavBar from '@/components/Navbar'
-import About from '@/components/About'
 
 export default {
     name: 'Home',
 
     components:{
         NavBar,
-        About,
     },
 
     data: () => ({
