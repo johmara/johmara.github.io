@@ -25,17 +25,17 @@
                         </a>
                     </template>
                     <v-list>
-                        <router-link :to="{name:'LockAR'}">
+                        <router-link :to="{name:'HANS'}">
                             <v-list-item> 
-                                <v-list-item-title>LockAR</v-list-item-title>
+                                <v-list-item-title>HAnS</v-list-item-title>
                             </v-list-item>
                         </router-link>
                         <v-list-item href="https://github.com/CloudsColors/Gretzl" target="_blank"> 
                             <v-list-item-title>Gretzl</v-list-item-title>
                         </v-list-item>
-                        <router-link :to="{name:'HANS'}">
+                        <router-link :to="{name:'LockAR'}">
                             <v-list-item> 
-                                <v-list-item-title>HAnS</v-list-item-title>
+                                <v-list-item-title>LockAR</v-list-item-title>
                             </v-list-item>
                         </router-link>
                     </v-list>

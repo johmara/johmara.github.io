@@ -58,9 +58,9 @@ export default {
 
     data: () => ({
         projects: [
-            LockAR.data(),
-            Gretzl.data(),
             Hans.data(),
+            Gretzl.data(),
+            LockAR.data(),
         ],
         default_background: require("@/assets/projectbackground_standard.png"),
     }),
