@@ -3,9 +3,7 @@
     <header>
         <NavBar/>
     </header>
-       
     <v-container class="mt-5 mb-16 pb-16">
-
     <div>
         <v-row class="ma-5 pt-16"> 
             <v-col cols="12" >
@@ -54,18 +52,20 @@
         </v-col>
     </v-row>
     </v-container>
-    <footer></footer>
+    <footer><Footer/></footer>
 </div>
 </template>
 
 <script>
 import NavBar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 export default {
     name: 'Home',
 
     components:{
         NavBar,
+        Footer,
     },
 
     data: () => ({
