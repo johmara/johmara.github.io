@@ -20,14 +20,28 @@
         <v-row class="ma-5 pt-16"> 
             <v-col cols="12" >
                 <div class="pt-16">
-                    <!--<v-row>
-                        <v-hover v-for="(l, i) in title" :key="i">
-                        <h1 slot-scope="{ hover }"
-                            :class="`${hover? 'end': 'start'}`" >{{l}}</h1>
-                        </v-hover>
-                    </v-row> -->
+                    <v-row dense>
+                        <v-col cols="2">
+                            <v-row dense>
+                                <v-hover  v-for="(f,i) in fname" :key="i">
+                                <h1 slot-scope="{ hover }"
+                                    :class="`${hover? 'end': 'start'}`">{{f}}</h1>
+                                </v-hover>
+                            </v-row>
+                        </v-col>
                         
-                    <h1 class="cadet--text font-weight-bold display-3 pt-16"> Johan Martinson</h1>
+                        <v-col class="ps-7">
+                            <v-row dense>
+                                <v-hover v-for="(l,i) in lname" :key="i">'
+                            <h1 slot-scope="{ hover }"
+                                :class="`${hover? 'end': 'start'}`" >{{l}}</h1>
+                            </v-hover>
+                            </v-row>
+                        </v-col>
+                        <v-spacer/>
+                    </v-row>
+                        
+                    <!--<h1 class="cadet--text font-weight-bold display-3 pt-16"> Johan Martinson</h1>-->
                     
                 </div>
                 <h3 class="sub_header"> {{sub_header}} </h3>
@@ -90,7 +104,8 @@ export default {
                 txt: "LinkedIn"
             },
         ],
-        title: 'Johan Martinson',
+        fname: "Johan",
+        lname: " Martinson",
         sub_header: "Project Manager | Developer",
         animateLetter: false,
     }),
@@ -98,7 +113,7 @@ export default {
 </script>
 
 <style>
-/*.start {
+.start {
     color: var(--cadet);
     font-weight: 700;
     font-size: 4.5rem;
@@ -127,7 +142,7 @@ export default {
         opacity: 1;
     }
 }
-*/
+
 
 .home{
     height: inherit;
