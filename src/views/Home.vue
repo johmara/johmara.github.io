@@ -23,7 +23,7 @@
                     <v-row dense>
                         <v-col cols="2">
                             <v-row dense>
-                                <v-hover  v-for="(f,i) in fname" :key="i">
+                                <v-hover v-for="(f,i) in fname" :key="i">
                                 <h1 slot-scope="{ hover }"
                                     :class="`${hover? 'end': 'start'}`">{{f}}</h1>
                                 </v-hover>
@@ -39,10 +39,7 @@
                             </v-row>
                         </v-col>
                         <v-spacer/>
-                    </v-row>
-                        
-                    <!--<h1 class="cadet--text font-weight-bold display-3 pt-16"> Johan Martinson</h1>-->
-                    
+                    </v-row>                    
                 </div>
                 <h3 class="sub_header"> {{sub_header}} </h3>
             </v-col>
@@ -115,6 +112,9 @@ export default {
 <style>
 .start {
     color: var(--cadet);
+    background: -webkit-linear-gradient(var(--cadet), var(--space_cadet));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-weight: 700;
     font-size: 4.5rem;
 }
@@ -122,6 +122,7 @@ export default {
     color: var(--fire);
     font-weight: 700;
     font-size: 4.5rem;
+    text-shadow: 4px 4px 0 var(--cadet);
 }
 .colour-change-enter-active {
     animation: colourchange .5s;
