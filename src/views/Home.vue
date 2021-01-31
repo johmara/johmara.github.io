@@ -1,40 +1,30 @@
 <template class="back">
 <div class="home">
-    <v-img src="@/assets/background.svg">
     <header>
         <NavBar/>
-    </header>   
-    
-
-    
+    </header>
+       
     <v-container class="mt-5 mb-16 pb-16">
-    <div v-if="this.$vuetify.breakpoint.xsOnly">
-        <v-row class="mx-5"> 
-            <v-col cols="12" >
-                <h1 class="hero_font pt-16">{{title}}</h1>
-                <h3 class="sub_header"> {{sub_header}} </h3>
-            </v-col>
-        </v-row>
-    </div>
-    <div v-else>
+
+    <div>
         <v-row class="ma-5 pt-16"> 
             <v-col cols="12" >
                 <div class="pt-16">
                     <v-row dense>
-                        <v-col cols="2">
+                        <v-col cols="12" lg="2">
                             <v-row dense>
                                 <v-hover v-for="(f,i) in fname" :key="i">
-                                <h1 slot-scope="{ hover }"
-                                    :class="`${hover? 'end': 'start'}`">{{f}}</h1>
+                                <h1 slot-scope="{ hover }" text-h1
+                                    :class="`${hover? 'hero_font end': 'hero_font start'}`">{{f}}</h1>
                                 </v-hover>
                             </v-row>
                         </v-col>
                         
-                        <v-col class="ps-7">
+                        <v-col cols="12" lg="6" :class="{'ms-0': $vuetify.breakpoint.smAndDown, 'ms-7': $vuetify.breakpoint.lgAndUp}" xs12 sm6 md4>
                             <v-row dense>
                                 <v-hover v-for="(l,i) in lname" :key="i">'
                             <h1 slot-scope="{ hover }"
-                                :class="`${hover? 'end': 'start'}`" >{{l}}</h1>
+                                :class="`${hover? 'hero_font end': 'hero_font start'}`" >{{l}}</h1>
                             </v-hover>
                             </v-row>
                         </v-col>
@@ -64,12 +54,7 @@
         </v-col>
     </v-row>
     </v-container>
-    </v-img>
-
-    <v-footer>
-
-    </v-footer>
-    
+    <footer></footer>
 </div>
 </template>
 
@@ -115,41 +100,14 @@ export default {
     background: -webkit-linear-gradient(var(--cadet), var(--space_cadet));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: 700;
-    font-size: 4.5rem;
 }
 .end {
     color: var(--fire);
-    font-weight: 700;
-    font-size: 4.5rem;
     text-shadow: 4px 4px 0 var(--cadet);
 }
-.colour-change-enter-active {
-    animation: colourchange .5s;
-}
-.colour-change-leave-active {
-    animation: colourchange .5s reverse;
-}
-@keyframes colourchange {
-    0% {
-        color: var(--cadet);
-        opacity: 1;
-    }
-    50%{
-        opacity: .5;
-    }
-    100% {
-        color: var(--fire);
-        opacity: 1;
-    }
-}
-
 
 .home{
     height: inherit;
-    background: white;
-    /*background: 
-        url(../../src/assets/home-parallax.png);*/
     background-position: bottom right;
     background-repeat: no-repeat;
     background-size: contain;
