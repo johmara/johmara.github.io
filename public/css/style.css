@@ -29,6 +29,10 @@ a, .logo, .icon .links{
     cursor: pointer;
 }
 
+.no-hand{
+    cursor: default !important;
+}
+
 nav {
     padding-top: 1.5rem;
     align-items: center;
@@ -48,8 +52,6 @@ nav {
 }
 
 .hero_font {
-    color: var(--cadet);
-    font-family: "Kulim Park", sans-serif;
     font-weight: 700;
     font-size: 4.5rem;
 }

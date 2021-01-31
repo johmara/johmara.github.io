@@ -55,6 +55,9 @@
             <References/>
         </v-card>
     </v-container>
+    <footer>
+        <Footer/>
+    </footer>
 </div>
 </template>
 
@@ -70,12 +73,14 @@ import DemoVideo from '../components/LockAR/DemoVideo'
 import IntFlow from '../components/LockAR/Flowchart'
 import Discussion from '../components/LockAR/Discussion'
 import References from '../components/LockAR/References'
+import Footer from '../components/Footer.vue'
 
 export default {
     name: 'LockAR',
 
     components:{
         Navbar,
+        Footer,
         ProjectBrief,
         ProjectStructure,
         ProjectDefine,

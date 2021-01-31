@@ -38,6 +38,9 @@
             </v-col>
         </v-row>
     </v-container>
+    <footer>
+        <Footer/>
+    </footer>
 </div>
 </template> 
 
@@ -45,6 +48,7 @@
 import Navbar from '../components/Navbar'
 import Hanstoolbar from '../components/HANS/Hans_toolbar'
 import Blog from '../components/HANS/Blog'
+import Footer from '../components/Footer.vue'
 
 
 export default {
@@ -54,6 +58,7 @@ export default {
 
     components:{
         Navbar,
+        Footer,
         Hanstoolbar,
         Blog,
     },

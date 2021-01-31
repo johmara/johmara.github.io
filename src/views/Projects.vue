@@ -40,6 +40,9 @@
             </v-col>
         </v-row>        
     </v-container>
+    <footer>
+        <Footer/>
+    </footer>
 </div>
 </template>
 
@@ -48,12 +51,14 @@ import NavBar from '../components/Navbar'
 import LockAR from '@/views/LockAR'
 import Hans from '@/views/Hans'
 import Gretzl from '@/components/Gretzl/Gretzl'
+import Footer from '../components/Footer.vue'
 
 export default {
     name: 'Projects',
 
     components:{
         NavBar,
+        Footer,
     },
 
     data: () => ({

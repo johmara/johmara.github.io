@@ -1,7 +1,6 @@
 <template>
-  <div class="footer">
-      <v-card color="mint_cream">
-          <v-container>
+  <v-footer class="footer mt-6" color="mint_cream" elevation="4">
+      <v-container>
               <v-row>
                 <v-col cols="1" class="pa-5 ma-5">
                     <v-avatar size="50">
@@ -10,16 +9,21 @@
                 </v-col>
                 <v-col v-for="(info, i) in contact_info" :key="i">
                     <v-row dense>
-                        <v-card-text :href="info[2]" class="font-weight-bold">{{info[0]}}</v-card-text>
+                        <v-card-text class="font-weight-bold">{{info[0]}}:</v-card-text>
                     </v-row>
-                    <v-row dense class="mt-n6">
-                        <v-card-text :href="info[2]" class="font-weight-bold">{{info[1]}}</v-card-text>
+                    <v-row dense class="mt-n7">
+                        <v-card-text  class="font-weight-bold">
+                            <a :href="info[2]">{{info[1]}}</a>
+                            </v-card-text>
+                        <v-card-text class="mt-n9 font-weight-bold" v-if="info[0] == 'Address'">
+                            {{info[2]}}
+                        </v-card-text>
                     </v-row>
                 </v-col>
             </v-row>
+            <v-divider></v-divider>
           </v-container>
-      </v-card>
-  </div>
+  </v-footer>
 </template>
 
 <script>
@@ -31,8 +35,8 @@ export default {
         contact_info: {
             address: [
                 'Address',
-                'Richertsgatan 2F lgh 1402, 412 81 Göteborg, Sverige',
-                ''
+                'Richertsgatan 2F lgh 1402',
+                '412 81 Göteborg, Sverige'
             ],
             phone: [
                 'Phone Number',
