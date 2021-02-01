@@ -1,22 +1,33 @@
 <template>
 <div class="about">
     <header> 
-        <NavBar/>
+        <!--<NavBar/>-->
+        >
     </header>
-    <AboutComponent/>
+    <div class="mt-10">
+        <CV/>
+    </div>
+
+    <footer>
+        <Footer/>
+    </footer>
 </div>
 </template>
 
 <script>
-import NavBar from '@/components/Navbar'
-import AboutComponent from '@/components/About'
+//import NavBar from '@/components/Navbar'
+//import AboutComponent from '@/components/About'
+import CV from '@/components/Cv'
+import Footer from '../components/Footer.vue'
 
 export default {
     name: 'About',
 
     components:{
-        NavBar,
-        AboutComponent,
+        //NavBar,
+        Footer,
+  //      AboutComponent,
+        CV
     },
 
     data: () => ({
