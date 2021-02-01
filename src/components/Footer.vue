@@ -33,11 +33,6 @@ export default {
     data: () => ({
         img: require("@/assets/profile.png"),
         contact_info: {
-            address: [
-                'Address',
-                'Richertsgatan 2F lgh 1402',
-                '412 81 Göteborg, Sverige'
-            ],
             phone: [
                 'Phone Number',
                 '+46(0) 763 750 667',
@@ -46,12 +41,17 @@ export default {
             email: [
                 'E-mail',
                 'johan.t.martinson@gmail.com',
-                'mailto:johan.t.martinson@gmail.com'
+                'mailto:johan.t.martinson@gmail.com?subject=%5Bjohmara.dev%5D'
             ],
             linkedin: [
                 'LinkedIn',
                 '/in/johanmartinson',
                 'https://www.linkedin.com/in/johanmartinson'
+            ],
+            github: [
+                'GitHub',
+                '/johmara/',
+                'https://github.com/johmara/'
             ]
         }
 

@@ -12,7 +12,7 @@
                         <v-col cols="12" lg="2">
                             <v-row dense>
                                 <v-hover v-for="(f,i) in fname" :key="i">
-                                <h1 slot-scope="{ hover }" text-h1
+                                <h1 slot-scope="{ hover }"
                                     :class="`${hover? 'hero_font end': 'hero_font start'}`">{{f}}</h1>
                                 </v-hover>
                             </v-row>
