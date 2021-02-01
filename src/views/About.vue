@@ -1,12 +1,9 @@
 <template>
 <div class="about">
     <header> 
-        <!--<NavBar/>-->
-        >
+        <NavBar/>
     </header>
-    <div class="mt-10">
         <CV/>
-    </div>
 
     <footer>
         <Footer/>
@@ -15,7 +12,7 @@
 </template>
 
 <script>
-//import NavBar from '@/components/Navbar'
+import NavBar from '@/components/Navbar'
 //import AboutComponent from '@/components/About'
 import CV from '@/components/Cv'
 import Footer from '../components/Footer.vue'
@@ -24,7 +21,7 @@ export default {
     name: 'About',
 
     components:{
-        //NavBar,
+        NavBar,
         Footer,
   //      AboutComponent,
         CV

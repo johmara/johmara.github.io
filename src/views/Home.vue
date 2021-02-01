@@ -99,6 +99,7 @@ export default {
     color: var(--cadet);
     background: -webkit-linear-gradient(var(--cadet), var(--space_cadet));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .end {
