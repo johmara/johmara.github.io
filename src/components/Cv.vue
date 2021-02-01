@@ -1,10 +1,10 @@
 <template>
   <div class="cv">
-    <v-container>
+    <v-container width="210mm">
         <v-card class="header" dark color="dark_space">
             <v-row>
                 <v-col cols="3" class="px-5 mx-5">
-                    <v-card class="rounded-circle no-hand" hover  color="accent" height="209" width="209">
+                    <v-card class="rounded-circle no-hand" hover  color="transparent" outlined height="209" width="209">
                         <v-row class="pa-1" dense justify="center">
                             <v-avatar size="200">
                                 <v-img class="rounded-circle" :src="img" contain/>
@@ -15,7 +15,7 @@
                 <v-col>
                     <v-card-title class="text-h2">Johan Martinson</v-card-title>
                     <v-row dense>
-                        <v-col v-for="(info, i) in contact_info" :key="i">
+                        <v-col cols="6" v-for="(info, i) in contact_info" :key="i">
                             <v-card-text class="mb-n7 font-weight-bold">{{info[0]}} </v-card-text>
                             <v-card-text  class="font-weight-light">
                                 <a style="color: var(--mint_cream);" :href="info[2]">{{info[1]}}</a>
@@ -29,7 +29,7 @@
         </v-card>
 
         <v-row>
-            <v-col cols="12" lg="8">
+            <v-col cols="12" lg="7">
                 <v-card class="mt-5">
                     <v-card-title>Goals and Profile</v-card-title>
                     <v-card-text> I am a person that likes to work in teams and have played sports in teams my 
@@ -56,6 +56,56 @@
                     </v-row>
 
                 </v-card>
+                
+            </v-col>
+
+            <v-col cols="12" lg="5">
+                <v-card class="mt-5">
+                    <v-card-title class="mb-5">Languages and Data skills</v-card-title>
+                    <v-card-subtitle>Languages</v-card-subtitle>
+                    <v-row class="mt-n10" align="center" v-for="(skill, i) in languageSkills" :key="i">
+                        <v-col cols="5" offset="0">
+                            <v-card-text>{{skill.name}}</v-card-text>
+                        </v-col>
+                        <v-col cols="6">
+                            <v-progress-linear :value="skill.value" color="accent" height="10" rounded></v-progress-linear>
+                        </v-col>                    
+                    </v-row>
+                    <v-card-subtitle class="font-weight-bold">Data Skills</v-card-subtitle>
+                    <v-row class="mt-n10" align="center" v-for="(skill, i) in computerSkills" :key="i">
+                        <v-col cols="5" offset="0">
+                            <v-card-text>{{skill.name}}</v-card-text>
+                        </v-col>
+                        <v-col cols="6">
+                            <v-progress-linear :value="skill.value" :color="skill.colour" height="10" rounded></v-progress-linear>
+                        </v-col>                    
+                    </v-row>
+
+                </v-card>
+                
+                <!-- <v-card class="mt-5">
+                    <v-card-title>Publications</v-card-title>
+                </v-card> -->
+                
+                <v-card class="mt-5">
+                    <v-card-title>Other Merits</v-card-title>
+                    <v-row v-for="(om, i) in otherMerits" :key="i">
+                        <v-col>
+                            <v-row>
+                                <v-col>
+                                    <p class="ms-4 font-weight-black text-subtitle-1">{{om.title}}</p>
+                                    <v-card-subtitle class="mt-n9">at {{om.at}}</v-card-subtitle>
+                                    <v-card-subtitle class="mt-n9 font-italic">{{om.date}}</v-card-subtitle>
+                                </v-col>
+                            </v-row>
+                            <v-divider class="mx-5"/>
+                        </v-col>
+                    </v-row>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col cols="12">
                 <v-card class="mt-5">
                     <v-card-title>Work Experience</v-card-title>
                     <v-row v-for="(wExp, i) in workexp" :key="i">
@@ -110,51 +160,6 @@
                         </v-col>
                     </v-row>
                     
-                </v-card>
-            </v-col>
-
-            <v-col cols="12" lg="4">
-                <v-card class="mt-5">
-                    <v-card-title class="mb-5">Languages and Data skills</v-card-title>
-                    <v-card-subtitle>Languages</v-card-subtitle>
-                    <v-row class="mt-n10" align="center" v-for="(skill, i) in languageSkills" :key="i">
-                        <v-col cols="5" offset="0">
-                            <v-card-text>{{skill.name}}</v-card-text>
-                        </v-col>
-                        <v-col cols="6">
-                            <v-progress-linear :value="skill.value" color="accent" height="10" rounded></v-progress-linear>
-                        </v-col>                    
-                    </v-row>
-                    <v-card-subtitle class="font-weight-bold">Data Skills</v-card-subtitle>
-                    <v-row class="mt-n10" align="center" v-for="(skill, i) in computerSkills" :key="i">
-                        <v-col cols="5" offset="0">
-                            <v-card-text>{{skill.name}}</v-card-text>
-                        </v-col>
-                        <v-col cols="6">
-                            <v-progress-linear :value="skill.value" :color="skill.colour" height="10" rounded></v-progress-linear>
-                        </v-col>                    
-                    </v-row>
-
-                </v-card>
-                
-                <!-- <v-card class="mt-5">
-                    <v-card-title>Publications</v-card-title>
-                </v-card> -->
-                
-                <v-card class="mt-5">
-                    <v-card-title>Other Merits</v-card-title>
-                    <v-row v-for="(om, i) in otherMerits" :key="i">
-                        <v-col>
-                            <v-row>
-                                <v-col>
-                                    <p class="ms-4 font-weight-black text-subtitle-1">{{om.title}}</p>
-                                    <v-card-subtitle class="mt-n9">at {{om.at}}</v-card-subtitle>
-                                    <v-card-subtitle class="mt-n9 font-italic">{{om.date}}</v-card-subtitle>
-                                </v-col>
-                            </v-row>
-                            <v-divider class="mx-5"/>
-                        </v-col>
-                    </v-row>
                 </v-card>
             </v-col>
         </v-row>
@@ -429,5 +434,7 @@ export default {
 </script>
 
 <style>
-
+.container {
+  max-width: 210mm;
+}
 </style>
