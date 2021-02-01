@@ -33,11 +33,6 @@ export default {
     data: () => ({
         img: require("@/assets/profile.png"),
         contact_info: {
-            phone: [
-                'Phone Number',
-                '+46(0) 763 750 667',
-                'tel:+46763750667'
-            ],
             email: [
                 'E-mail',
                 'johan.t.martinson@gmail.com',
