@@ -223,17 +223,16 @@ export default {
             mpsofThesis: {
                 title: 'Master Thesis Software Engineering',
                 at: 'Chalmers University of Technology',
-                desc: `Helping Anotating Software or HAnS is a plugin for IntelliJ IDE that is being
-                     developed as part of a master thesis. The The purpose of the study is to engineer
-                     and evaluate a tool that will support developers when recording feature annotations.
-                     The evaluation will consist of both user studies, for qualitative data, and an 
-                     empirical study on the effectiveness of the tool. The intention is that the tool, 
-                     consequently, will aid developers with adding embedded annotations to the code. 
-                     The tool will use embedded annotations since they have been shown to be cheap to apply 
-                     and less intrusive with regular development activity. Editing support will be facilitated 
-                     by the application’s use of techniques that can be expected from a modern editing tool. 
-                     Among these, support for code completion, error markers, syntax highlighting, consistency 
-                     checks and refactoring are features to consider.`,
+                desc: `The purpose of the study is to engineer and evaluate a 
+                    plugin for IntelliJ IDE that support developers when recording 
+                    feature annotations. The intention is that the tool, consequently, 
+                    will aid developers with adding embedded annotations to the code 
+                    in order to at a later date have a less complicated time while 
+                    locating features at a later date. The editing support for the 
+                    annotations will be facilitated by the application’s use of 
+                    techniques that can be expected from a modern editing tool. Among 
+                    these, support for code completion, error markers, syntax highlighting,
+                    consistency checks and refactoring are features to consider. `,
                 date: 'Jan 2021 - Ongoing',
                 whid: '',
             },
@@ -436,9 +435,8 @@ export default {
 
     mounted() {
         
-    }
+    },
     
-
 }
 </script>
 
