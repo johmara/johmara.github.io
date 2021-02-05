@@ -2,6 +2,41 @@ module.exports = {
     data: () => (
         [
             {
+                date: '05-02-2021',
+                title: "Object model and grammar",
+                subtitle: "The realisation that will help continued development",
+                image: require("@/assets/HANS/Blog/ObjectModel.png"),
+                text: [
+                    ` 
+                    During the week we had three things on the agenda, creating the object model, specifying the requirements
+                    and going to Charm (Chalmers jobfair). The object model is a mix of the model described by Tobias Schwarz in
+                    the FAXE specification and how we have found IntelliJ to work during the tutorial and through the documentation.
+                    In IntelliJ IDE plugins you have to specify a .bnf (Bachus Normal Form) file and a .flex file to be able to 
+                    generate a parser for the context free grammar and the lexer to recognise the lexical patterns of the grammar. 
+                    The object model it self can be split in to 3 parts. One describes the in file annotations in the form of
+                    a line key, a block key, a value (the feature to be mapped) and the separators (opening and closing bracket). The
+                    following parts describe the mapping from a .feature-to-folder file and a .feature-to-file file, but they are all 
+                    comprised of keys, values and separators. 
+                    `,
+                    `  
+                    After creating the model, with insight from our supervisor Mukelabai, we started trying to implement a mockup of the
+                    syntax highlighting. From that we have taken with us that we need to get the grammar correct first so that it can 
+                    be used successfully in the continued development of the plugin.
+                    `,
+                    `  
+                    As mentioned last time, we have spent some time this week on specifying requirements by rewriting them as user 
+                    stories with definitions of done. Later, when implementing these user stories we will split them up into smaller 
+                    tasks that need to be done in order to finish the feature. After that we can compare the result with the definition 
+                    of done and ultimately evaluate the features in our user studies.
+                    `,
+                    `
+                    The comming week we will focus on using the definition of a feature and the language and file type of the 
+                    .feature-model. With the reasoning that it will aid following user stories.
+                    `,
+                    `< Johan & Herman >`
+                ]
+            },
+            {
                 date: '29-01-2021',
                 title: "Two steps forwards one step back",
                 subtitle: "Finishing tutorials, defining requirements & missunderstanding supervisors",
@@ -37,8 +72,8 @@ module.exports = {
                     ,
                     `Peace out homies!`,
                     `< Johan & Herman >`
-                    ]
-                },
+                ]
+            },
             {
             date: '22-01-2021',
             title: "Gaining domain knowledge",
