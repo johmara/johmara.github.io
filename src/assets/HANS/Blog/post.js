@@ -3,6 +3,41 @@ module.exports = {
         [
             {
                 date: '05-02-2021',
+                title: "Three languages and a half",
+                subtitle: "Implementing the object model by specifying languages to IntelliJ",
+                image: "",
+                text: [
+                    ` 
+                    Time is moving quickly and it is weekend again already! The current week has consisted mostly of coding
+                    in order to make IntelliJ recognise the grammar and language of the embedded annotations. To acheive this, 
+                    the IntelliJ plugin development tutorial has been a great resource. We managed to specify the languages 
+                    for the three file types that will be used, namely .feature-model, .feature-to-folder and .feature-to-file. 
+                    These files are now indentified by IntelliJ with the proper elements and syntax, using the PSI that will 
+                    crucial further on. 
+                    `,
+                    `
+                    The reason for "three and a half" and not four languages is that the embedded annotations within comments 
+                    has been a bit trickier to implement. Since these annotations will exist within other file types we must 
+                    find a way to inject a language in comments, independent of file type. For this, we have specified the 
+                    language in a bnf and flex file as mentioned last week, so that it is its own language. For language
+                    injection, we have intial ideas about extending the PSI comment object or possibly to parse the comments 
+                    manually.    
+                    `,
+                    `
+                    Our plan for next week is partly to find a way to inject code annotations in comments of any file type. 
+                    When this is working we will have the basis to continue with features that depend on these code annotations.
+                    Alongside this, we will start working on connecting PSI elements between files so features in the feature
+                    model may be associated with their implementations. In contrast to the code tasks mentioned we also intend 
+                    to design a logotype for the plugin and start preparing the user studies. 
+                    `,
+                    `
+                    Cheers! 
+                    `,
+                    `< Johan & Herman >`
+                ]
+            },
+            {
+                date: '05-02-2021',
                 title: "Object model and grammar",
                 subtitle: "The realisation that will help continued development",
                 image: require("@/assets/HANS/Blog/ObjectModel.png"),
@@ -30,7 +65,7 @@ module.exports = {
                     of done and ultimately evaluate the features in our user studies.
                     `,
                     `
-                    The comming week we will focus on using the definition of a feature and the language and file type of the 
+                    The coming week we will focus on using the definition of a feature and the language and file type of the 
                     .feature-model. With the reasoning that it will aid following user stories.
                     `,
                     `< Johan & Herman >`
