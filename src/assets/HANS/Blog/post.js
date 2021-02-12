@@ -2,7 +2,7 @@ module.exports = {
     data: () => (
         [
             {
-                date: '05-02-2021',
+                date: '12-02-2021',
                 title: "Three languages and a half",
                 subtitle: "Implementing the object model by specifying languages to IntelliJ",
                 image: "",
