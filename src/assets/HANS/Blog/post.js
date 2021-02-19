@@ -2,6 +2,27 @@ module.exports = {
     data: () => (
         [
             {
+                date: '19-02-2021',
+                title: "One of those weeks",
+                subtitle: "Turtling forwards",
+                image: "",
+                text: [
+                    ` 
+                    This week has gone by slower than expected as the sense of progress has been low. We set out find a 
+                    way to inject code but have not come further than ideas for investigation. Instead, we have looked a bit 
+                    into testing and also discussed the logotypes which a friend will help design. We believe the reason for
+                    the week going slow has largely been due to the fact that we did not have a structured approach for the 
+                    tasks we set out to do. 
+                    `,
+                    `
+                    For the upcoming week, we therefore have defined more concretely what subtasks we intend to accomplish. 
+                    Hopefully, this will help to facilitate a productive work week. Our plan is to work on the report, define
+                    the user studies and to finally solve how to add elements to PSIComments in IntelliJ. 
+                    `,
+                    `< Johan & Herman >`
+                ]
+            },
+            {
                 date: '12-02-2021',
                 title: "Three languages and a half",
                 subtitle: "Implementing the object model by specifying languages to IntelliJ",
