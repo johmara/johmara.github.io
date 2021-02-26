@@ -2,6 +2,37 @@ module.exports = {
     data: () => (
         [
             {
+                date: '26-02-2021',
+                title: "A Face to Show the World",
+                subtitle: "",
+                image: require("@/assets/HANS/Blog/HANSLogoFull.png"),
+                text: [
+                    ` 
+                    This week the planning has been good to fall back on we have created a logo, started contructing
+                    the user studies, written the start of the report and kept a time-box structure for writing code.
+                    The code comment feature annotations are still not moving forward. However, we have found two 
+                    ways different that we could work around the problem with elements inside PSIComments which would 
+                    provide some sort of solution. The report is now set up correctly with all the information that the
+                    university requires and we have started writing it. 
+                    `,
+                    `
+                    The user studies have, after discussion, been decided to be done in the following way. A software
+                    project will be given to the subjects with a specific set of tasks aiming for the students to 
+                    test out all the implemented, and not yet implemented, features of the plugin. After the subject
+                    have completed the tests they will fill out a form describing or rating how well the features 
+                    worked and if there are any features that they would like to have seen which are not there. 
+                    `,
+                    `
+                    Next week will involve a lot of coding as we will prepare a demo to present at the end of the week 
+                    to the supervisors. The idea is to show what is implemented and working so far. To do this we have 
+                    come up with a potential solution for feature annotations in comments, if we cannot inject language 
+                    in comments. The plan is to manually parse comments for code completion and highlighting and use 
+                    FAXE for refactoring. 
+                    `,
+                    `< Johan & Herman >`
+                ]
+            },
+            {
                 date: '19-02-2021',
                 title: "One of those weeks",
                 subtitle: "Turtling forwards",
