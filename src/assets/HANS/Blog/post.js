@@ -2,6 +2,27 @@ module.exports = {
     data: () => (
         [
             {
+                date: '5-03-2021',
+                title: "Partial code completion",
+                subtitle: "",
+                image: "",
+                text: [
+                    `As planned, this week has been spent coding the plugin for the demo that was shown to the 
+                    supervisors. So far all the grammars are working as expected with the exception of the code annotations
+                    that we still need to figure out how to recognise in the code. Many attempts have been made to fix this
+                    and we still have a few tricks up our sleeves to try. We have, however, added code completion for certain
+                    contexts and will implement it for the other contexts in the time to come. In short, the demo showed the 
+                    plugin as it is now, how we implemented it and how we will proceed.
+                    `,
+                    `As the project now is approaching the time for the first iteration of our user studies, the nearest 
+                    future will consist of making the plugin ready for evaluation and specifying the studies. The plugin
+                    will not by any means be complete but the core functionality will be there to get the optimal feedback.
+                    Next week we hope to write about a working solution for detecting code annotations!
+                    `,
+                    `< Johan & Herman >`
+                ]
+            },
+            {
                 date: '26-02-2021',
                 title: "A Face to Show the World",
                 subtitle: "",
