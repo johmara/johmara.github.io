@@ -2,6 +2,23 @@ module.exports = {
     data: () => (
         [
             {
+                date: '12-03-2021',
+                title: "Finally weekend",
+                subtitle: "",
+                image: "",
+                text: [
+                    `After a long week we welcome the weekend with open arms! During the week we worked with implementing
+                    code completion and syntax highlighting. We also prepped a github repo for a Snake game that will be used
+                    for the user studies and came up with a couple of questions to ask and tasks to be completed. At the end
+                    of the week, during supervision, we got valueable feedback on our work so far and the plan for the coming 
+                    few weeks. 
+                    `,
+                    `We'll keep you updated, but right now we're signing off for the week!
+                    `,
+                    `< Johan & Herman >`
+                ]
+            },
+            {
                 date: '5-03-2021',
                 title: "Partial code completion",
                 subtitle: "",
