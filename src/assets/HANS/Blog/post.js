@@ -2,6 +2,24 @@ module.exports = {
     data: () => (
         [
             {
+                date: '16-04-2021',
+                title: "A month Later",
+                subtitle: "",
+                image: "",
+                text: [
+                    `A lot of the parts that are absolutley crucial for the plugin is now functional. However, there are still features
+                    that are needed before the plugin could be deemed good enough to publish. At the moment we are working on referencing
+                    the features from all different parts of the embedded feature annotation language and creating a structure view where 
+                    adding new features and removing features are enabled. In short the first user study was postponed for a bit but we 
+                    are now back on track and soon ready for it to be conducted.
+                    `,
+                    `
+                    Allting gott!
+                    `,
+                    `< Johan & Herman >`
+                ]
+            },
+            {
                 date: '12-03-2021',
                 title: "Finally weekend",
                 subtitle: "",
