@@ -1,0 +1,75 @@
+.timeline {
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  .dot {
+    position: absolute;
+    left: 0;
+  }
+  .pl-1{
+    padding-left: 1rem;
+  }
+
+  .pr-1{
+    padding-right: 1rem;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .years{
+    font-weight: lighter;
+    font-style: italic;
+  }
+
+  .content {
+    h3 {
+      margin: 0;
+      font-size: 1.2em;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .tags{
+    font-size: 9pt;
+    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    padding-top: 0.2rem;
+  }
+
+  .language{
+    background-color: green;
+    margin: 0 0.3rem 0 0;
+    padding: 0.2rem;
+    border-radius: 1px;
+  }
+
+  .tech{
+    background-color: blue;
+    margin: 0 0.3rem 0 0;
+    padding: 0.2rem;
+    border-radius: 1px;
+  }
+
+  .tool{
+    background-color: red;
+    margin: 0 0.3rem 0 0;
+    padding: 0.2rem;
+    border-radius: 1px;
+  }
+
+
+}

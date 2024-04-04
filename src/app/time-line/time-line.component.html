@@ -1,1 +1,39 @@
-<p>time-line works!</p>
+<div class="timeline">
+  <ul>
+    <li *ngFor="let event of timelineEvents">
+
+      <fa-icon class="dot" [icon]="event.icon"></fa-icon>
+      <div class=pl-1>
+        <div class="title">
+          {{ event.title }}
+          <span class="years">
+          <span *ngIf="this.subtractYearDate(event.from_date, event.to_date) > 0">
+            for {{ this.subtractYearDate(event.from_date, event.to_date) }} years
+          </span>
+          <span *ngIf="this.subtractYearDate(event.to_date, current_date) > 0">
+            , {{ this.subtractYearDate(event.to_date, current_date) }} years ago.
+          </span>
+        </span>
+        </div>
+        <div class="content">
+          <p class="text-it">{{ event.occupation }}</p>
+          <div class="tags">
+          <span *ngFor="let tech of event.tech">
+            <span class="pr-1 tech">{{ tech }}</span>
+          </span>
+          </div>
+          <div class="tags">
+          <span *ngFor="let language of event.languages">
+            <span class="pr-1 language">{{ language }}</span>
+          </span>
+          </div>
+          <div class="tags">
+          <span *ngFor="let tool of event.tools">
+            <span class="pr-1 tool">{{ tool }}</span>
+          </span>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
