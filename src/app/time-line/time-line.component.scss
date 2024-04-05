@@ -7,26 +7,64 @@
   ul li {
     position: relative;
     padding-left: 20px;
-    margin-bottom: 20px;
+    height: 100%;
+
+  }
+
+  .component {
+    display: flex;
+    height: 100%;
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0.2rem;
   }
 
   .dot {
-    position: absolute;
-    left: 0;
+    padding-bottom: 0.2rem;
+    color: darkslategrey;
   }
-  .pl-1{
+
+  .spin{
+    animation: spin 2s infinite ease;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg); // Start from 0 degrees
+    }
+  to {
+      transform: rotate(360deg); // Rotate 360 degrees (full circle)
+    }
+  }
+
+  .vl {
+    height: 100%;
+    width: 1px; /* Line width */
+    background-color: darkslategrey; /* Line color */
+
+  }
+
+  .pl-1 {
     padding-left: 1rem;
   }
 
-  .pr-1{
+  .pr-1 {
     padding-right: 1rem;
+  }
+
+  .card{
+    padding-bottom: 25px;
   }
 
   .title {
     font-weight: bold;
   }
 
-  .years{
+  .years {
     font-weight: lighter;
     font-style: italic;
   }
@@ -42,7 +80,7 @@
     }
   }
 
-  .tags{
+  .tags {
     font-size: 9pt;
     margin-bottom: 0.2rem;
     margin-top: 0.2rem;
@@ -50,21 +88,21 @@
     padding-top: 0.2rem;
   }
 
-  .language{
+  .language {
     background-color: green;
     margin: 0 0.3rem 0 0;
     padding: 0.2rem;
     border-radius: 1px;
   }
 
-  .tech{
+  .tech {
     background-color: blue;
     margin: 0 0.3rem 0 0;
     padding: 0.2rem;
     border-radius: 1px;
   }
 
-  .tool{
+  .tool {
     background-color: red;
     margin: 0 0.3rem 0 0;
     padding: 0.2rem;

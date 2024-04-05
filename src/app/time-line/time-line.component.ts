@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {faGraduationCap, faSpinner} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -23,7 +23,7 @@ export class TimeLineComponent {
       tech: [],
       languages: ['c#', '.net', 'python', 'typescript', 'kotlin', 'mongoDb', 'sql', 'bigquery-sql'],
       tools: ['git', 'azure devops', 'gcp'],
-      icon: faCoffee
+      icon: faSpinner,
     },
     {
       from_date: new Date('2020-12-07'),
@@ -34,11 +34,15 @@ export class TimeLineComponent {
       tech: [],
       languages: [],
       tools: [],
-      icon: faCoffee
+      icon: faGraduationCap
     },
   ];
 
   subtractYearDate(from_date: Date, to_date: Date): any {
-    return to_date.getFullYear()-from_date.getFullYear();
+    return to_date.getFullYear() - from_date.getFullYear();
+  }
+
+  isCurrent(from_date: Date, to_date: Date): boolean {
+    return 0 == to_date.getFullYear() - from_date.getFullYear();
   }
 }
