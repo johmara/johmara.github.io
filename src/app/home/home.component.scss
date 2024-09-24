@@ -1,0 +1,56 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding-top: 1.25rem; /* 20px converted to rem (20 / 16) */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 65%; /* Limit the width to 65% */
+}
+
+.header {
+  display: flex;
+  align-items: flex-start; /* Align items at the start (top) */
+  justify-content: center; /* Center the content horizontally */
+  width: 100%;
+  padding: 0 1.25rem; /* 20px converted to rem (20 / 16) */
+  margin: 0 auto; /* Center the content */
+}
+
+.text-content {
+  flex: 1;
+  margin-left: 1.25rem; /* Add some space between the image and the text content */
+}
+
+.image-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 5rem;
+  text-align: center; /* Center the title */
+  width: 100%; /* Ensure the title spans the full width */
+}
+
+.profile-img {
+  width: 14.0625rem; /* 225px converted to rem (225 / 16) */
+  height: 14.0625rem; /* 225px converted to rem (225 / 16) */
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 1.25rem 0; /* 20px converted to rem (20 / 16) */
+}
+
+.subtitle {
+  white-space: nowrap; /* Prevent the text from wrapping */
+  width: auto; /* Allow the element to take up the space it needs */
+  font-style: italic; /* Make the subtitle cursive */
+  margin-top: 0.5rem; /* Reduce the space between the name and subtitle */
+}

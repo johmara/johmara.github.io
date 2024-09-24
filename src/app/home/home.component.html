@@ -1,12 +1,17 @@
-<div>
-  <h2>{{title}}</h2>
-  <h1>Johan Martinson</h1>
-  <app-socials></app-socials>
+<div class="container">
+  <h2 class="title">{{ title }}</h2>
+  <div class="header">
+    <div class="image-content">
+      <img [src]="'assets/profileimg.jpg'" alt="Profile" class="profile-img">
+      <app-socials></app-socials>
+    </div>
+    <div class="text-content">
+      <h1>Johan Martinson</h1>
+      <h3 class="subtitle">Researcher and Software Engineer</h3>
+    </div>
+  </div>
 
   <app-time-line></app-time-line>
-
   <app-projects></app-projects>
-
   <app-publications></app-publications>
-
 </div>
