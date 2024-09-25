@@ -7,5 +7,6 @@
         <p class="description">{{ publication.description | slice:0:250 }}...</p>
       </div>
     </a>
+    <button (click)="fetchBibtex(publication.doi)">Get BibTeX</button>
   </div>
 </div>

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthorNamePipe } from '../pipes/author-name.pipe';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { BibtexModalComponent } from '../bibtex-modal/bibtex-modal.component';
 
 @Component({
   selector: 'app-publications',
@@ -37,13 +39,6 @@ export class PublicationsComponent {
         'browse feature definitions and locations, as well as refactor features.\n' +
         'A demo video is available at https://youtu.be/cx_-ZshHLgA.',
       link: 'assets/Publications/HAnS-IDE-Based-Editing-Support-for-Embedded-Feature-Annotations.pdf',
-      bitexRef: '@inproceedings{martinson2021hans,\n' +
-        '  title={Hans: Ide-based editing support for embedded feature annotations},\n' +
-        '  author={Martinson, Johan and Jansson, Herman and Mukelabai, Mukelabai and Berger, Thorsten and Bergel, Alexandre and Ho-Quang, Truong},\n' +
-        '  booktitle={Proceedings of the 25th ACM International Systems and Software Product Line Conference-Volume B},\n' +
-        '  pages={28--31},\n' +
-        '  year={2021}\n' +
-        '}',
       doi: '10.1145/3461002.3473072'
     },
     {
@@ -63,22 +58,42 @@ export class PublicationsComponent {
         'software cloning. The evaluation results indicate that 80% of participants rated the trace database as intuitive, and 100% rated the\n' +
         'notification system as both intuitive and user-friendly.\n',
       link: 'assets/Publications/An-IDE-Plugin-for-Clone-Management.pdf',
-      bibtexRef: '@inproceedings{al2024ide,\n' +
-        '  title={An IDE Plugin for Clone Management},\n' +
-        '  author={Al Shihabi, Ahmad and Sollmann, Jan and Martinson, Johan and Mahmood, Wardah and Berger, Thorsten},\n' +
-        '  booktitle={Proceedings of the 28th ACM International Systems and Software Product Line Conference},\n' +
-        '  pages={42--45},\n' +
-        '  year={2024}\n' +
-        '}',
       doi: '10.1145/3646548.3678298'
     }
   ];
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
     this.sortPublicationsByDate();
   }
 
   sortPublicationsByDate() {
     this.publications.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  }
+
+  async fetchBibtex(doi: string) {
+    const url = `https://api.crossref.org/works/${encodeURIComponent(doi)}/transform/application/x-bibtex`;
+    try {
+      const response = await fetch(url, {
+        headers: {
+          'Accept': 'application/x-bibtex'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error fetching BibTeX: ${response.statusText}`);
+      }
+
+      const bibtex = await response.text();
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = { bibtex };
+      dialogConfig.width = 'auto';
+      dialogConfig.height = 'auto';
+      dialogConfig.position = { top: '10px' };
+      dialogConfig.panelClass = 'custom-dialog-container';
+
+      this.dialog.open(BibtexModalComponent, dialogConfig);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

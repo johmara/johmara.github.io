@@ -27,3 +27,11 @@ body {
   --accent-color-3: #D33E43; /* Second accent color */
   --font-inter: 'Inter', sans-serif; /* Load the Inter font */
 }
+
+.cdk-overlay-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Adjust as needed */
+}
