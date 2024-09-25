@@ -6,11 +6,16 @@
 }
 
 .publication-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
+  padding: 1rem;
+  position: relative;
 }
 
 .publication-card:hover {
@@ -18,7 +23,7 @@
 }
 
 .card-content {
-  padding: 1rem;
+  flex-grow: 1;
 }
 
 .card-content h3 {
@@ -42,3 +47,20 @@ a {
   color: var(--accent-color-2);
   padding: 0.5rem 0;
 }
+
+.cite-btn {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: var(--accent-color-2);
+  cursor: pointer;
+  padding: 0;
+  margin-top: 1rem; /* Add this line to create space above the button */
+}
+
+.cite-btn:hover{
+  text-decoration: underline;
+}
+
+
