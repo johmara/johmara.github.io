@@ -1,1 +1,11 @@
-<p>publications works!</p>
+<div class="publications-container">
+  <div class="publication-card" *ngFor="let publication of publications">
+    <a [href]="publication.link" target="_blank">
+      <div class="card-content">
+        <h3 class="paper-title">{{ publication.title }}</h3>
+        <p class="authors">{{ publication.authors | authorName }}</p>
+        <p class="description">{{ publication.description | slice:0:250 }}...</p>
+      </div>
+    </a>
+  </div>
+</div>

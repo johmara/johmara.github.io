@@ -11,7 +11,7 @@ import {NgOptimizedImage} from "@angular/common";
   standalone: true,
   imports: [TimeLineComponent, SocialsComponent, ProjectsComponent, PublicationsComponent, NgOptimizedImage],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
   title = 'johmara'
