@@ -52,5 +52,10 @@
   white-space: nowrap; /* Prevent the text from wrapping */
   width: auto; /* Allow the element to take up the space it needs */
   font-style: italic; /* Make the subtitle cursive */
-  margin-top: 0.5rem; /* Reduce the space between the name and subtitle */
+  margin-top: 0.2rem; /* Reduce the space between the name and subtitle */
+  margin-bottom: 0.2rem; /* Reduce the space between the name and subtitle */
+}
+
+.name {
+  margin-bottom: 0.2rem;
 }
