@@ -39,7 +39,7 @@
 
 .event-date {
   font-family: -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 0.85rem; /* Make the font size smaller */
+  font-size: 0.8rem; /* Make the font size smaller */
   font-weight: lighter; /* Make the font weight less */
   width: 100px; /* Set a fixed width */
   flex-shrink: 0; /* Prevent the column from shrinking */
@@ -51,12 +51,15 @@
   font-weight: lighter; /* Make the font weight less */
 }
 
+.timeline-card:hover .tags{
+
+}
+
 .tags {
   margin-top: 10px;
 }
 
-
-.tech, .language, .tool {
+.pill {
   display: inline-block;
   background-color: var(--background-color-darker);
   margin: 0 0.2rem 0.2rem 0; /* Smaller margin */
@@ -64,6 +67,18 @@
   border-radius: 3px;
   font-size: 0.75rem; /* Smaller font size */
   color: var(--accent-color-1); /* Use third accent color for text */
+}
+
+.tech {
+  color: var(--accent-color-3);
+}
+
+.language {
+  color: var(--accent-color-2);
+}
+
+.tool {
+  color: var(--accent-color-1);
 }
 
 .card-title {

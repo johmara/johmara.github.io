@@ -1,12 +1,14 @@
 <div class="timeline">
   <div class="timeline-events">
-    <div *ngFor="let event of timelineEvents | slice:0:eventsToShow" class="timeline-card">
+    <div *ngFor="let event of timelineEvents | slice:0:eventsToShow" class="timeline-card"
+         (mouseenter)="onMouseEnter(event)" (mouseleave)="onMouseLeave(event)">
       <div class="event-date">
         <ng-container *ngIf="(event.from_date | date: 'yyyy') === (event.to_date | date: 'yyyy'); else differentYears">
           {{ event.from_date | date: 'MMM' }} – {{ event.to_date | date: 'MMM yyyy' }}
         </ng-container>
         <ng-template #differentYears>
-          {{ event.from_date | date: 'yyyy' }} – {{ event.to_date != this.current_date ? (event.to_date | date: 'yyyy') : 'PRESENT' }}
+          {{ event.from_date | date: 'yyyy' }}
+          – {{ event.to_date != this.current_date ? (event.to_date | date: 'yyyy') : 'PRESENT' }}
         </ng-template>
       </div>
       <div class="timeline-card-right">
@@ -20,13 +22,11 @@
           {{ event.description }}
         </div>
         <div class="tags">
-          <span *ngFor="let tech of event.tech" class="tech">{{ tech }}</span>
-        </div>
-        <div class="tags">
-          <span *ngFor="let language of event.languages" class="language">{{ language }}</span>
-        </div>
-        <div class="tags">
-          <span *ngFor="let tool of event.tools" class="tool">{{ tool }}</span>
+          <span *ngFor="let tag of event.isHovered?getTotalTags(event):getLimitedTags(event)"
+                [ngClass]="getTagClass(tag, event)"
+                class="pill">{{ tag }}</span>
+          <span *ngIf="getTotalTags(event).length > 4 && !event.isHovered"
+                class="pill">+{{ getTotalTags(event).length - 4 }} more</span>
         </div>
       </div>
     </div>

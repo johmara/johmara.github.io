@@ -31,7 +31,8 @@ export class TimeLineComponent {
       tech: [],
       languages: [],
       tools: [],
-      link: 'https://se.ruhr-uni-bochum.de/'
+      link: 'https://se.ruhr-uni-bochum.de/',
+      isHovered: false
     },
     {
       from_date: new Date('2021-08-01'),
@@ -42,7 +43,8 @@ export class TimeLineComponent {
       tech: [],
       languages: ['c#', '.net', 'python', 'typescript', 'kotlin', 'mongoDb', 'sql', 'bigquery-sql'],
       tools: ['git', 'azure devops', 'gcp'],
-      link: 'https://centiro.com/'
+      link: 'https://centiro.com/',
+      isHovered: false
     },
     {
       from_date: new Date('2021-01-01'),
@@ -53,7 +55,8 @@ export class TimeLineComponent {
       tech: ['Plugin Development', 'Intellij Platform'],
       languages: ['Java', 'Kotlin'],
       tools: [],
-      link: ''
+      link: '',
+      isHovered: false
     },
     {
       from_date: new Date('2018-06-01'),
@@ -64,7 +67,8 @@ export class TimeLineComponent {
       tech: ['Full stack', 'Microservices'],
       languages: ['Java', 'SQL', 'C#', '.NET'],
       tools: [],
-      link: 'https://www.waya.se/en/'
+      link: 'https://www.waya.se/en/',
+      isHovered: false
     },
     {
       from_date: new Date('2019-09-01'),
@@ -75,7 +79,8 @@ export class TimeLineComponent {
       tech: [],
       languages: [],
       tools: [],
-      link: 'https://www.chalmers.se/en/education/find-masters-programme/software-engineering-and-technology-msc/'
+      link: 'https://www.chalmers.se/en/education/find-masters-programme/software-engineering-and-technology-msc/',
+      isHovered: false
     },
     {
       from_date: new Date('2015-09-01'),
@@ -86,7 +91,8 @@ export class TimeLineComponent {
       tech: [],
       languages: [],
       tools: [],
-      link: 'https://www.chalmers.se/utbildning/hitta-program/datateknik-hogskoleingenjor/'
+      link: 'https://www.chalmers.se/utbildning/hitta-program/datateknik-hogskoleingenjor/',
+      isHovered: false
     },
   ];
 
@@ -111,5 +117,32 @@ export class TimeLineComponent {
   toggleEvents() {
     this.showAllEvents = !this.showAllEvents;
     this.eventsToShow = this.showAllEvents ? this.timelineEvents.length : 3;
+  }
+
+  getTotalTags(event: any): string[] {
+    return [...event.languages, ...event.tools, ...event.tech];
+  }
+
+  getLimitedTags(event: any): string[] {
+    return this.getTotalTags(event).slice(0, 4);
+  }
+
+  getTagClass(tag: string, event: any): string {
+    if (event.tech.includes(tag)) {
+      return 'tech';
+    } else if (event.languages.includes(tag)) {
+      return 'language';
+    } else if (event.tools.includes(tag)) {
+      return 'tool';
+    }
+    return '';
+  }
+
+  onMouseEnter(event: any) {
+    event.isHovered = true;
+  }
+
+  onMouseLeave(event: any) {
+    event.isHovered = false;
   }
 }
