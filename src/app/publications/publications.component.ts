@@ -91,6 +91,11 @@ export class PublicationsComponent {
       dialogConfig.position = { top: '10px' };
       dialogConfig.panelClass = 'custom-dialog-container';
 
+      // Close any open dialogs before opening a new one
+      if (this.dialog.openDialogs.length > 0) {
+        this.dialog.closeAll();
+      }
+
       this.dialog.open(BibtexModalComponent, dialogConfig);
     } catch (error) {
       console.error(error);
