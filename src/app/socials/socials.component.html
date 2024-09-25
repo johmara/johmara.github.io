@@ -1,17 +1,5 @@
 <div class="socials">
-  <a href="https://www.linkedin.com/in/johanmartinson" target="_blank">
-    <i class="fab fa-linkedin"></i>
-  </a>
-  <a href="https://scholar.google.com/citations?user=ayfeHCEAAAAJ&hl=en" target="_blank">
-    <i class="fas fa-graduation-cap"></i>
-  </a>
-  <a href="https://orcid.org/0000-0002-4097-4374" target="_blank">
-    <i class="fab fa-orcid"></i>
-  </a>
-  <a href="https://twitter.com/JohanMartinson" target="_blank">
-    <i class="fab fa-twitter"></i>
-  </a>
-  <a href="https://github.com/johmara" target="_blank">
-    <i class="fab fa-github"></i>
+  <a *ngFor="let link of socialLinks" [href]="link.url" target="_blank">
+    <i [class]="link.icon"></i>
   </a>
 </div>
