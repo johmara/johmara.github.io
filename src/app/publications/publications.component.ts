@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AuthorNamePipe } from '../pipes/author-name.pipe';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { BibtexModalComponent } from '../bibtex-modal/bibtex-modal.component';
+import {formatBibTeX} from "../utils/bibtex-formatter";
 
 @Component({
   selector: 'app-publications',
@@ -59,7 +60,16 @@ export class PublicationsComponent {
         'notification system as both intuitive and user-friendly.\n',
       link: 'assets/Publications/An-IDE-Plugin-for-Clone-Management.pdf',
       doi: '10.1145/3646548.3678298'
-    }
+    },
+    {
+      date: '2021-06-24',
+      title: 'MSc Thesis -->' +
+        ' Hans: Ide-based editing support for embedded feature annotations',
+      authors: 'Johan Martinson, Herman Jansson',
+      description: 'One of the most common and widespread activities among software developers is locating features (Krüger, Berger, & Leich, 2019). However, feature location is a costly activity that is challenging and takes considerable effort to perform, as records of a features’ explicit location are rarely kept. In this thesis, HAnS is presented, a plugin for IntelliJ with editing support for embedding feature annotations in source code during development, as embedding feature annotations is shown to be a cheap and reliable way to keep track of feature locations. To implement the plugin, a design science methodology was adopted where we performed user studies to find what features would make HAnS effective. The results of the user studies show that the most important functionality of HAnS is its support for writing feature annotations through convenient code completion, refactoring and navigation of features. The user studies also found that HAnS was effective at reducing the errors created during development that require correction later on. The major drawback of HAnS is its refactoring performance which is slow in larger projects. From these results, we draw the conclusion that the plugin is effective for its purpose, but that further research is needed in the form of a longitudinal study where long term use data is gathered. We also suggest further development to extend the plugin’s functionality.',
+      link: 'assets/Publications/MSCThesis-Jansson-Martinsson.pdf',
+      doi: '10.1145/3461002.3473072'
+    },
   ];
 
   constructor(private dialog: MatDialog) {
@@ -84,8 +94,9 @@ export class PublicationsComponent {
       }
 
       const bibtex = await response.text();
+      const formattedBibTex = formatBibTeX(bibtex);
       const dialogConfig = new MatDialogConfig();
-      dialogConfig.data = { bibtex };
+      dialogConfig.data = { bibtex: formattedBibTex };
       dialogConfig.width = 'auto';
       dialogConfig.height = 'auto';
       dialogConfig.position = { top: '10px' };
