@@ -1,44 +1,34 @@
 <div class="timeline">
-  <ul>
-    <li *ngFor="let event of timelineEvents">
-      <div class="component">
-        <div class="flex">
-            <fa-icon class="dot" [ngClass]="{'spin': this.isCurrent(event.to_date, current_date)}"
-                     [icon]="event.icon"></fa-icon>
-          <div class="vl"></div>
+  <div class="timeline-events">
+    <div *ngFor="let event of timelineEvents" class="timeline-card">
+      <div class="event-date">
+        <ng-container *ngIf="(event.from_date | date: 'yyyy') === (event.to_date | date: 'yyyy'); else differentYears">
+          {{ event.from_date | date: 'MMM' }} – {{ event.to_date | date: 'MMM yyyy' }}
+        </ng-container>
+        <ng-template #differentYears>
+          {{ event.from_date | date: 'yyyy' }} – {{ event.to_date != this.current_date ? (event.to_date | date: 'yyyy') : 'PRESENT' }}
+        </ng-template>
+      </div>
+      <div class="timeline-card-right">
+        <a [href]="event.link" class="card-title">
+          <span class="occupation">{{ event.occupation }}</span>
+          <i class="fa-solid fa-circle"></i>
+          <span class="title">{{ event.title }}</span>
+          <fa-icon [icon]="faArrowUpRight" class="arrow-icon"></fa-icon>
+        </a>
+        <div *ngIf="event.description" class="description">
+          {{ event.description }}
         </div>
-        <div class="pl-1 card">
-          <div class="title">
-            {{ event.title }}
-            <span class="years">
-          <span *ngIf="this.subtractYearDate(event.from_date, event.to_date) > 0">
-            for {{ this.subtractYearDate(event.from_date, event.to_date) }} years
-          </span>
-          <span *ngIf="this.subtractYearDate(event.to_date, current_date) > 0">
-            , {{ this.subtractYearDate(event.to_date, current_date) }} years ago.
-          </span>
-        </span>
-          </div>
-          <div class="content">
-            <p class="text-it">{{ event.occupation }}</p>
-            <div class="tags">
-          <span *ngFor="let tech of event.tech">
-            <span class="pr-1 tech">{{ tech }}</span>
-          </span>
-            </div>
-            <div class="tags">
-          <span *ngFor="let language of event.languages">
-            <span class="pr-1 language">{{ language }}</span>
-          </span>
-            </div>
-            <div class="tags">
-          <span *ngFor="let tool of event.tools">
-            <span class="pr-1 tool">{{ tool }}</span>
-          </span>
-            </div>
-          </div>
+        <div class="tags">
+          <span *ngFor="let tech of event.tech" class="tech">{{ tech }}</span>
+        </div>
+        <div class="tags">
+          <span *ngFor="let language of event.languages" class="language">{{ language }}</span>
+        </div>
+        <div class="tags">
+          <span *ngFor="let tool of event.tools" class="tool">{{ tool }}</span>
         </div>
       </div>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>

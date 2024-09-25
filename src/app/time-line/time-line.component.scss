@@ -1,113 +1,99 @@
 .timeline {
-  ul {
-    list-style: none;
-    padding: 0;
-  }
+  padding: 20px;
+}
 
-  ul li {
-    position: relative;
-    padding-left: 20px;
-    height: 100%;
+.timeline-events {
+  display: flex;
+  flex-direction: column;
+}
 
-  }
+.timeline-card {
+  display: flex;
+  margin-bottom: 20px;
+  border: 1px solid transparent; /* Initially transparent */
+  border-radius: 5px;
+  padding: 10px;
+  transition: border-color 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+  position: relative; /* Create positioning context */
+}
 
-  .component {
-    display: flex;
-    height: 100%;
-  }
+.timeline-card:hover {
+  border-color: #ccc; /* Show border on hover */
+  box-shadow: 0 4px 8px var(--main-color); /* Add shadow effect */
+}
 
-  .flex {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 0.2rem;
-  }
+.timeline-card:hover ~ .timeline-card {
+  opacity: 0.5; /* Set opacity of subsequent cards to 75% */
+}
 
-  .dot {
-    padding-bottom: 0.2rem;
-    color: darkslategrey;
-  }
+.timeline-card-left {
+  flex: 1;
+  text-align: left;
+  padding-right: 10px;
+}
 
-  .spin{
-    animation: spin 2s infinite ease;
-  }
+.timeline-card-right {
+  flex: 3;
+  padding-left: 10px;
+}
 
-  @keyframes spin {
-    from {
-      transform: rotate(0deg); // Start from 0 degrees
-    }
-  to {
-      transform: rotate(360deg); // Rotate 360 degrees (full circle)
-    }
-  }
+.event-date {
+  font-family: -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.85rem; /* Make the font size smaller */
+  font-weight: lighter; /* Make the font weight less */
+  width: 100px; /* Set a fixed width */
+  flex-shrink: 0; /* Prevent the column from shrinking */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
 
-  .vl {
-    height: 100%;
-    width: 1px; /* Line width */
-    background-color: darkslategrey; /* Line color */
+.description {
+  font-size: 0.85rem; /* Make the font size smaller */
+  font-weight: lighter; /* Make the font weight less */
+}
 
-  }
+.tags {
+  margin-top: 10px;
+}
 
-  .pl-1 {
-    padding-left: 1rem;
-  }
+.tech, .language, .tool {
+  display: inline-block;
+  background-color: #e0e0e0;
+  margin: 0 0.3rem 0.3rem 0;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+}
 
-  .pr-1 {
-    padding-right: 1rem;
-  }
+.card-title {
+  color: var(--accent-color-1); /* Inherit the color from the parent element */
+  font-weight: normal;
+  text-decoration: none; /* Remove underline */
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap; /* Allow the entire line to wrap */
+}
 
-  .card{
-    padding-bottom: 25px;
-  }
+.timeline-card:hover .card-title {
+  color: var(--accent-color-2); /* Use second accent color for the card title */
+}
 
-  .title {
-    font-weight: bold;
-  }
+.occupation, .title {
+  margin: 0 5px; /* Add a small margin between elements */
+}
 
-  .years {
-    font-weight: lighter;
-    font-style: italic;
-  }
+.fa-solid.fa-circle {
+  margin: 0 5px; /* Add a small margin around the circle icon */
+  font-size: 0.2rem;
+}
 
-  .content {
-    h3 {
-      margin: 0;
-      font-size: 1.2em;
-    }
+.arrow-icon {
+  position: absolute; /* Position the arrow icon absolutely */
+  top: 10px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
+  transition: transform 0.3s ease;
+  transform: rotate(-45deg); /* Rotate the icon by 45 degrees */
+  font-size: 0.75rem; /* Adjust the size of the icon */
+}
 
-    p {
-      margin: 0;
-    }
-  }
-
-  .tags {
-    font-size: 9pt;
-    margin-bottom: 0.2rem;
-    margin-top: 0.2rem;
-    padding-bottom: 0.2rem;
-    padding-top: 0.2rem;
-  }
-
-  .language {
-    background-color: green;
-    margin: 0 0.3rem 0 0;
-    padding: 0.2rem;
-    border-radius: 1px;
-  }
-
-  .tech {
-    background-color: blue;
-    margin: 0 0.3rem 0 0;
-    padding: 0.2rem;
-    border-radius: 1px;
-  }
-
-  .tool {
-    background-color: red;
-    margin: 0 0.3rem 0 0;
-    padding: 0.2rem;
-    border-radius: 1px;
-  }
-
-
+.timeline-card:hover .arrow-icon {
+  transform: translateY(-5px) rotate(-45deg); /* Maintain the rotation on hover */
 }
