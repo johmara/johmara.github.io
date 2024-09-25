@@ -1,0 +1,47 @@
+.custom-dialog-container .mat-dialog-container {
+  position: fixed;
+  top: 10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 1000 !important; /* Ensure it is on top of other content */
+}
+
+.bibtex-modal {
+  max-width: 25rem;
+  height: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bibtex-modal h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #333; /* Darker color for the title */
+}
+
+.bibtex-modal pre {
+  background-color: #f5f5f5; /* Light grey background for the BibTeX content */
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+  white-space: pre-wrap; /* Allow text wrapping */
+}
+
+.bibtex-modal button {
+  margin-top: 20px;
+  background-color: #007bff; /* Primary color for the button */
+  color: #fff; /* White text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.bibtex-modal button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}

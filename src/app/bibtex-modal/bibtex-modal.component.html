@@ -1,0 +1,7 @@
+<!-- src/app/bibtex-modal/bibtex-modal.component.html -->
+<div class="bibtex-modal">
+  <h2>Bibliography Entry</h2>
+  <pre>{{ data.bibtex }}</pre>
+  <button mat-button (click)="copyToClipboard()">Copy</button>
+  <button mat-button (click)="closeDialog()">Close</button>
+</div>
