@@ -1,6 +1,6 @@
 <div class="timeline">
   <div class="timeline-events">
-    <div *ngFor="let event of timelineEvents" class="timeline-card">
+    <div *ngFor="let event of timelineEvents | slice:0:eventsToShow" class="timeline-card">
       <div class="event-date">
         <ng-container *ngIf="(event.from_date | date: 'yyyy') === (event.to_date | date: 'yyyy'); else differentYears">
           {{ event.from_date | date: 'MMM' }} – {{ event.to_date | date: 'MMM yyyy' }}
@@ -30,5 +30,10 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="button-container">
+    <button (click)="toggleEvents()">
+      <fa-icon [icon]="showAllEvents ? faChevronUp : faChevronDown"></fa-icon>
+    </button>
   </div>
 </div>

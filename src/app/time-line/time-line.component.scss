@@ -18,8 +18,8 @@
 }
 
 .timeline-card:hover {
-  border-color: #ccc; /* Show border on hover */
-  box-shadow: 0 4px 8px var(--main-color); /* Add shadow effect */
+  border-color: var(--background-color-darker);
+  box-shadow: 0 4px 8px var(--background-color-darker);
 }
 
 .timeline-card:hover ~ .timeline-card {
@@ -55,12 +55,15 @@
   margin-top: 10px;
 }
 
+
 .tech, .language, .tool {
   display: inline-block;
-  background-color: #e0e0e0;
-  margin: 0 0.3rem 0.3rem 0;
-  padding: 0.2rem 0.5rem;
+  background-color: var(--background-color-darker);
+  margin: 0 0.2rem 0.2rem 0; /* Smaller margin */
+  padding: 0.1rem 0.3rem; /* Smaller padding */
   border-radius: 3px;
+  font-size: 0.75rem; /* Smaller font size */
+  color: var(--accent-color-1); /* Use third accent color for text */
 }
 
 .card-title {
@@ -96,4 +99,19 @@
 
 .timeline-card:hover .arrow-icon {
   transform: translateY(-5px) rotate(-45deg); /* Maintain the rotation on hover */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.1rem;
+}
+
+button {
+  background: none;
+  border: none;
+  color: var(--accent-color-1);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
 }

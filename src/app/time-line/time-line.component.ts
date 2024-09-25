@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {faArrowRight, faGraduationCap, faSpinner, faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-time-line',
@@ -14,6 +15,11 @@ export class TimeLineComponent {
   current_date = new Date(Date.now());
   selectedEvent: any = null;
   faArrowUpRight = faArrowRight;
+  eventsToShow = 3; // Number of events to display initially
+  showAllEvents = false; // Track whether to show all events
+  faChevronDown = faChevronDown;
+  faChevronUp = faChevronUp;
+
 
   timelineEvents = [
     {
@@ -25,8 +31,7 @@ export class TimeLineComponent {
       tech: [],
       languages: [],
       tools: [],
-      icon: faSpinner,
-      link: 'https://example.com/phd-student'
+      link: 'https://se.ruhr-uni-bochum.de/'
     },
     {
       from_date: new Date('2021-08-01'),
@@ -37,8 +42,7 @@ export class TimeLineComponent {
       tech: [],
       languages: ['c#', '.net', 'python', 'typescript', 'kotlin', 'mongoDb', 'sql', 'bigquery-sql'],
       tools: ['git', 'azure devops', 'gcp'],
-      icon: faSpinner,
-      link: 'https://example.com/phd-student'
+      link: 'https://centiro.com/'
     },
     {
       from_date: new Date('2021-01-01'),
@@ -49,8 +53,7 @@ export class TimeLineComponent {
       tech: ['Plugin Development', 'Intellij Platform'],
       languages: ['Java', 'Kotlin'],
       tools: [],
-      icon: faGraduationCap,
-      link: 'https://example.com/phd-student'
+      link: ''
     },
     {
       from_date: new Date('2018-06-01'),
@@ -61,8 +64,7 @@ export class TimeLineComponent {
       tech: ['Full stack', 'Microservices'],
       languages: ['Java', 'SQL', 'C#', '.NET'],
       tools: [],
-      icon: faBriefcase,
-      link: 'https://example.com/phd-student'
+      link: 'https://www.waya.se/en/'
     },
     {
       from_date: new Date('2019-09-01'),
@@ -73,8 +75,7 @@ export class TimeLineComponent {
       tech: [],
       languages: [],
       tools: [],
-      icon: faGraduationCap,
-      link: 'https://example.com/phd-student'
+      link: 'https://www.chalmers.se/en/education/find-masters-programme/software-engineering-and-technology-msc/'
     },
     {
       from_date: new Date('2015-09-01'),
@@ -85,8 +86,7 @@ export class TimeLineComponent {
       tech: [],
       languages: [],
       tools: [],
-      icon: faGraduationCap,
-      link: 'https://example.com/phd-student'
+      link: 'https://www.chalmers.se/utbildning/hitta-program/datateknik-hogskoleingenjor/'
     },
   ];
 
@@ -106,5 +106,10 @@ export class TimeLineComponent {
 
   selectEvent(event: any) {
     this.selectedEvent = event;
+  }
+
+  toggleEvents() {
+    this.showAllEvents = !this.showAllEvents;
+    this.eventsToShow = this.showAllEvents ? this.timelineEvents.length : 3;
   }
 }
