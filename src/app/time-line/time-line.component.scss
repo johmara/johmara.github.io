@@ -13,13 +13,16 @@
   border: 1px solid transparent; /* Initially transparent */
   border-radius: 5px;
   padding: 10px;
-  transition: border-color 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+  transition: border-color 0.3s ease, opacity 0.3s ease, height 0.3s ease; /* Smooth transition */
   position: relative; /* Create positioning context */
+  width: 100%; /* Set a fixed width */
+  max-width: 600px; /* Optional: Set a maximum width */
 }
 
 .timeline-card:hover {
   border-color: var(--background-color-darker);
   box-shadow: 0 4px 8px var(--background-color-darker);
+  height: auto; /* Allow height to adjust based on content */
 }
 
 .timeline-card:hover ~ .timeline-card {
@@ -62,15 +65,15 @@
 .pill {
   display: inline-block;
   background-color: var(--background-color-darker);
-  margin: 0 0.2rem 0.2rem 0; /* Smaller margin */
-  padding: 0.1rem 0.3rem; /* Smaller padding */
-  border-radius: 3px;
-  font-size: 0.75rem; /* Smaller font size */
-  color: var(--accent-color-1); /* Use third accent color for text */
+  margin: 0 0.2rem 0.2rem 0;
+  padding: 0.2rem 0.6rem; /* Adjust padding to make it look more like a pill */
+  border-radius: 999px; /* Make the corners fully rounded */
+  font-size: 0.75rem;
+  color: var(--accent-color-1);
 }
 
 .tech {
-  color: var(--accent-color-3);
+  color: var(--main-color);
 }
 
 .language {
@@ -78,7 +81,7 @@
 }
 
 .tool {
-  color: var(--accent-color-1);
+  color: var(--main-color);
 }
 
 .card-title {
