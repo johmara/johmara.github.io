@@ -31,9 +31,9 @@
       </div>
     </div>
   </div>
-  <div class="button-container">
-    <button (click)="toggleEvents()">
-      <fa-icon [icon]="showAllEvents ? faChevronUp : faChevronDown"></fa-icon>
-    </button>
+  <div class="button-container" *ngIf="!allEventsShown()">
+    <a href="/resume" class="view-resume-link">View full resumé
+      <fa-icon [icon]="faArrowUpRight" class="arrow"></fa-icon>
+    </a>
   </div>
 </div>

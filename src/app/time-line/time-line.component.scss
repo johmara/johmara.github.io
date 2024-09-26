@@ -1,5 +1,6 @@
 .timeline {
   padding: 20px;
+  margin-bottom: 2rem;
 }
 
 .timeline-events {
@@ -120,16 +121,23 @@
 }
 
 .button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.1rem;
+  position: relative;
 }
 
-button {
-  background: none;
-  border: none;
-  color: var(--accent-color-1);
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0;
+.view-resume-link {
+  text-decoration: none;
+  color: var(--accent-color-2);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.arrow {
+  position: absolute; /* Position the arrow icon absolutely */
+  transition: transform 0.3s ease;
+  transform: rotate(-45deg); /* Rotate the icon by 45 degrees */
+  font-size: 0.75rem; /* Adjust the size of the icon */
+  margin-left: 0.2rem;
+}
+.view-resume-link:hover .arrow {
+  transform: translateY(-5px) rotate(-45deg); /* Maintain the rotation on hover */
 }

@@ -71,3 +71,22 @@ a {
   text-align: center;
   margin-top: 1rem;
 }
+
+
+.view-all-link {
+  text-decoration: none;
+  color: var(--accent-color-2);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.arrow {
+  position: absolute; /* Position the arrow icon absolutely */
+  transition: transform 0.3s ease;
+  transform: rotate(-45deg); /* Rotate the icon by 45 degrees */
+  font-size: 0.75rem; /* Adjust the size of the icon */
+  margin-left: 0.2rem;
+}
+.view-all-link:hover .arrow {
+  transform: translateY(-5px) rotate(-45deg); /* Maintain the rotation on hover */
+}

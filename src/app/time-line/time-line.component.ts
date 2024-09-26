@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowRight, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-time-line',
@@ -16,10 +16,6 @@ export class TimeLineComponent {
   selectedEvent: any = null;
   faArrowUpRight = faArrowRight;
   eventsToShow = 3; // Number of events to display initially
-  showAllEvents = false; // Track whether to show all events
-  faChevronDown = faChevronDown;
-  faChevronUp = faChevronUp;
-
 
   timelineEvents = [
     {
@@ -96,8 +92,15 @@ export class TimeLineComponent {
     },
   ];
 
+  constructor(private route: ActivatedRoute) {}
+
   ngOnInit() {
     this.sortTimelineEvents();
+    this.route.url.subscribe(url => {
+      if (url.some(segment => segment.path === 'resume')) {
+        this.showAllEvents();
+      }
+    });
   }
 
   sortTimelineEvents() {
@@ -112,11 +115,6 @@ export class TimeLineComponent {
 
   selectEvent(event: any) {
     this.selectedEvent = event;
-  }
-
-  toggleEvents() {
-    this.showAllEvents = !this.showAllEvents;
-    this.eventsToShow = this.showAllEvents ? this.timelineEvents.length : 3;
   }
 
   getTotalTags(event: any): string[] {
@@ -144,5 +142,13 @@ export class TimeLineComponent {
 
   onMouseLeave(event: any) {
     event.isHovered = false;
+  }
+
+  showAllEvents() {
+    this.eventsToShow = this.timelineEvents.length;
+  }
+
+  allEventsShown() {
+    return this.eventsToShow === this.timelineEvents.length;
   }
 }

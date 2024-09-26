@@ -6,13 +6,16 @@ import { BibtexModalComponent } from '../bibtex-modal/bibtex-modal.component';
 import {formatBibTeX} from "../utils/bibtex-formatter";
 import {PublicationsService} from "../publications.service";
 import {Publication} from "../models/publication.model";
+import {faArrowRight} from "@fortawesome/free-solid-svg-icons";
+import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 
 @Component({
   selector: 'app-publications',
   standalone: true,
   imports: [
     CommonModule,
-    AuthorNamePipe
+    AuthorNamePipe,
+    FaIconComponent
   ],
   templateUrl: './publications.component.html',
   styleUrls: ['./publications.component.scss']
@@ -77,4 +80,6 @@ export class PublicationsComponent {
       console.error(error);
     }
   }
+
+  protected readonly faArrowUpRight = faArrowRight;
 }
