@@ -1,0 +1,142 @@
+.publications-container {
+  font-family: -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full height of the viewport */
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center; /* Center the table horizontally */
+}
+
+table {
+  width: auto; /* Allow the table to take up only as much width as needed */
+  max-width: 80%; /* Set a maximum width for the table */
+  border-collapse: collapse;
+
+  th, td {
+    padding: 8px;
+    text-align: left; /* Align text to the left by default */
+    border: none; /* Remove borders */
+  }
+
+  th {
+    cursor: pointer;
+    position: relative;
+    background-color: transparent; /* Remove background color */
+    color: var(--accent-color-1); /* Set header text color to accent color 1 */
+  }
+
+  th i {
+    margin-left: 5px;
+  }
+
+  th:first-child, td:first-child {
+    width: 150px; /* Fixed width for Date column */
+  }
+
+  th:nth-child(4), td:nth-child(4) {
+    width: 100px; /* Fixed width for Cite column */
+    text-align: center; /* Center align text in Cite column */
+    vertical-align: top; /* Align text to the top */
+  }
+
+  th:nth-child(2), td:nth-child(2) {
+    width: 50%; /* Larger width for Title column */
+  }
+
+  td {
+    color: var(--main-color); /* Set text color to main color */
+  }
+
+  td:nth-child(2) a {
+    color: var(--accent-color-1); /* Set publication title color to accent color 1 */
+    text-decoration: none; /* Remove underline */
+    cursor: default; /* Change cursor to default */
+  }
+
+  td:nth-child(2) a:hover {
+    color: var(--accent-color-2); /* Change color to accent color 2 on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+}
+
+.cite-btn {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: var(--accent-color-2);
+  cursor: pointer;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.cite-btn:hover {
+  text-decoration: underline;
+}
+
+.header {
+  align-self: flex-start;
+  margin: 0 0 0 10%;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+}
+
+.search-container {
+  align-self: flex-start;
+  margin-left: 10%;
+  margin-bottom: 1rem;
+  width: calc(150px + 50%); /* Stretch to the same width as the first two columns */
+}
+
+.search-container input[type="text"] {
+  width: 100%; /* Full width of the search container */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-container input[type="text"]:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.search-container button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.search-container button:hover {
+  background-color: #45a049;
+}
+
+.title{
+  margin: 0;
+}
+
+.home-link {
+  align-self: flex-start;
+  margin-left: 4%;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: var(--accent-color-1);
+  text-decoration: none;
+}
+
+.home-link:hover {
+  color: var(--accent-color-2);
+  text-decoration: underline;
+}
