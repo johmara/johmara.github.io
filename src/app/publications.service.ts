@@ -7,7 +7,7 @@ import { Publication } from './models/publication.model';
   providedIn: 'root'
 })
 export class PublicationsService {
-  private jsonUrl = 'assets/Publications/publications.json';
+  private jsonUrl = 'assets/publications/publications.json';
 
   constructor(private http: HttpClient) {}
 

@@ -1,0 +1,77 @@
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Add space between project cards */
+  padding: 2rem;
+}
+
+.project-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.project {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem; /* Add space between image and details */
+  padding: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project.reverse {
+  flex-direction: row-reverse; /* Reverse the order for alternate projects */
+}
+
+.project-card {
+  background-color: #fff; /* White background for the card */
+  border: 1px solid #ddd; /* Light border around the card */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
+  padding: 1rem; /* Padding inside the card */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.project-image img {
+  max-width: 150px; /* Limit the image size */
+  border-radius: 8px;
+}
+
+.project-details {
+  flex: 1; /* Allow the details to take up the remaining space */
+}
+
+.project-title h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--accent-color-1);
+}
+
+.project-card p {
+  margin: 0.5rem 0;
+  color: var(--main-color);
+}
+
+.project-card a {
+  color: var(--accent-color-2);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.project-card a i {
+  font-size: 1.5rem; /* Adjust the size of the icon as needed */
+}
+
+.tags {
+  margin-top: 10px;
+}
+
+.pill {
+  display: inline-block;
+  background-color: var(--background-color-darker);
+  margin: 0 0.2rem 0.2rem 0;
+  padding: 0.2rem 0.6rem; /* Adjust padding to make it look more like a pill */
+  border-radius: 999px; /* Make the corners fully rounded */
+  font-size: 0.75rem;
+  color: var(--accent-color-2);
+}
