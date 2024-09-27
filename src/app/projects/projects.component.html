@@ -10,13 +10,18 @@
           <img class="project-logo" [src]="project.logo" alt="{{ project.title }}">
         </div>
         <div class="project-card">
-          <p>{{ project.description }}</p>
-          <a [href]="project.link" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
+          <p [innerHTML]="project.description"></p>
         </div>
         <div class="tags">
           <span *ngFor="let tag of project.tags" class="pill">{{ tag }}</span>
+        </div>
+        <div class="project-links">
+          <a class="project-link" [href]="project.repo" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a class="project-link" [href]="project.link" target="_blank">
+            <i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
       </div>
     </div>

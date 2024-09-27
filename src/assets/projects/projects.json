@@ -1,8 +1,18 @@
 [
   {
     "title": "HAnS: Helping Annotate Software",
+    "description": "HAnS (Helping Annotate Software) is an open-source (Apache 2.0) IntelliJ plugin that simplifies feature annotation. <br> HAnS provides autocompletion, quick fixes, a feature model view, and a metrics view (lines of feature code, scattering degree, tangling degree, and annotated files). HAnS is programming language-agnostic.",
+    "link": "https://plugins.jetbrains.com/plugin/22759-hans",
+    "repo": "https://github.com/isselab/HAnS",
+    "image": "assets/projects/hans/hans.png",
+    "logo": "assets/projects/hans/hans-logo.png",
+    "tags": ["Java", "IntelliJ-plugin", "feature-traceability", "embedded feature traceability"]
+  },
+  {
+    "title": "HAnS: Helping Annotate Software",
     "description": "HAnS - Helping Annotate Software. HAnS is an open-source (Apache 2.0) plugin for IntelliJ that helps you annotate software.",
-    "link": "https://github.com/isselab/HAnS",
+    "link": "https://plugins.jetbrains.com/plugin/22759-hans",
+    "repo": "https://github.com/isselab/HAnS",
     "image": "assets/projects/hans/hans.png",
     "logo": "assets/projects/hans/hans-logo.png",
     "tags": ["Java", "IntelliJ-plugin", "feature-traceability", "embedded feature traceability"]
