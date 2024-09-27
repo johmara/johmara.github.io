@@ -3,8 +3,8 @@
     "title": "HAnS: Helping Annotate Software",
     "description": "HAnS - Helping Annotate Software. HAnS is an open-source (Apache 2.0) plugin for IntelliJ that helps you annotate software.",
     "link": "https://github.com/isselab/HAnS",
-    "image": "assets/projects/hans.png",
-    "logo": "assets/projects/hans.png",
+    "image": "assets/projects/hans/hans.png",
+    "logo": "assets/projects/hans/hans-logo.png",
     "tags": ["Java", "IntelliJ-plugin", "feature-traceability", "embedded feature traceability"]
   }
 ]

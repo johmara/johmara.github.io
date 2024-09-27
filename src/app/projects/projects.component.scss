@@ -5,16 +5,10 @@
   padding-bottom: 2rem;
 }
 
-.project-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
 .project {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1.5rem; /* Add space between image and details */
   padding: 1.5rem;
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -23,43 +17,67 @@
   flex-direction: row-reverse; /* Reverse the order for alternate projects */
 }
 
+.project-image {
+  position: relative; /* Ensure the pseudo-element is positioned correctly */
+  border-radius: 8px;
+  aspect-ratio: 16 / 9;
+  max-width: 50rem;
+  overflow: hidden;
+  width: 100%; /* Make the image take the full width of the container */
+  height: auto; /* Maintain the aspect ratio */
+  object-fit: contain; /* Ensure the image covers the entire container */
+}
+
+.project-image::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color-2);
+  opacity: 30%;
+  pointer-events: none; /* Ensure the overlay doesn't interfere with interactions */
+  transition: opacity 0.3s; /* Smooth transition for opacity change */
+}
+
+.project-image:hover::before {
+  opacity: 0; /* Remove the overlay on hover */
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s; /* Smooth transition for hover effects */
+}
+
+.project-image:hover {
+}
+
+.project-details {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-title img{
+  max-width: 5rem;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s;
+}
+
 .project-card {
   background-color: #fff; /* White background for the card */
-  border: 1px solid #ddd; /* Light border around the card */
+  border: 1px solid var(--background-color-darker); /* Light border around the card */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
   padding: 1rem; /* Padding inside the card */
   transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
-}
-
-.project-image img {
-  max-width: 150px; /* Limit the image size */
-  border-radius: 8px;
-}
-
-.project-details {
-  flex: 1; /* Allow the details to take up the remaining space */
-}
-
-.project-title h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: var(--accent-color-1);
-}
-
-.project-card p {
-  margin: 0.5rem 0;
-  color: var(--main-color);
-}
-
-.project-card a {
-  color: var(--accent-color-2);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.project-card a i {
-  font-size: 1.5rem; /* Adjust the size of the icon as needed */
 }
 
 .tags {
