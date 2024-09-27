@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+/* You can add global styles to this file, and also import other style files */
+body, html {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+body {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-feature-settings: "ss03", "cv02", "cv11";
+  color: var(--main-color); /* Apply the main color to the font */
+  background-color: var(--background-color); /* Apply the background color */
+}
+
+:root {
+  --background-color: #FDFFFC;
+  --background-color-darker: #F4F5F6; /* Slightly darker background color */
+  --main-color: #6c757d; /* Main color set to a black-ish color */
+  --accent-color-1: #333333; /* First accent color */
+  --accent-color-2: #0073b1; /* Second accent color */
+  --accent-color-2-lighter: #47BFFF;
+  --accent-color-3: #4cef99; /* Second accent color */
+  --font-inter: 'Inter', sans-serif; /* Load the Inter font */
+}

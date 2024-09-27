@@ -1,0 +1,24 @@
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socials a {
+  text-decoration: none;
+  color: var(--accent-color-2);
+  font-size: 2rem; /* Increase the size of the icons */
+}
+
+.socials i {
+  margin: 0 5px; /* Add margin between the icons */
+}
+
+.socials a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .socials {
+    justify-content: center; /* Center the icons on smaller screens */
+  }
+}

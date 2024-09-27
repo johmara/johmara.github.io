@@ -1,0 +1,29 @@
+<div class="projects-container">
+  <div *ngFor="let project of projects; let i = index" class="project" [ngClass]="{'reverse': i % 2 !== 0}">
+    <div class="project-image">
+      <a [href]="!isEmpty(project.link)?project.link: project.repo">
+        <img [src]="project.image" alt="{{ project.title }}">
+      </a>
+    </div>
+    <div class="project-details" [ngClass]="{'reverse': i % 2 !== 0}">
+      <div class="project-title">
+        <h4>Featured Project</h4>
+        <h2>{{ project.title }}</h2>
+      </div>
+      <div class="project-card">
+        <p [innerHTML]="project.description"></p>
+      </div>
+      <div class="tags">
+        <span *ngFor="let tag of project.tags" class="pill">{{ tag }}</span>
+      </div>
+      <div class="project-links">
+        <a class="project-link" [href]="project.repo" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a class="project-link" *ngIf="!isEmpty(project.link)" [href]="project.link" target="_blank">
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

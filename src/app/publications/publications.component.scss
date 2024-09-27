@@ -1,0 +1,93 @@
+.publications-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 4rem;
+}
+
+.publication-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  padding: 1rem;
+  position: relative;
+}
+
+.publication-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-content {
+  flex-grow: 1;
+}
+
+.card-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  color: var(--accent-color-1);
+}
+
+.card-content p {
+  margin: 0;
+  color: var(--main-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.authors {
+  font-weight: bold;
+  color: var(--accent-color-2);
+  padding: 0.5rem 0;
+}
+
+.cite-btn {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: var(--accent-color-2);
+  cursor: pointer;
+  padding: 0;
+  margin-top: 1rem; /* Add this line to create space above the button */
+}
+
+.cite-btn:hover {
+  text-decoration: underline;
+}
+
+.date {
+  font-size: 0.8rem;
+}
+
+.view-all-publications {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+
+.view-all-link {
+  text-decoration: none;
+  color: var(--accent-color-2);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.arrow {
+  position: absolute; /* Position the arrow icon absolutely */
+  transition: transform 0.3s ease;
+  transform: rotate(-45deg); /* Rotate the icon by 45 degrees */
+  font-size: 0.75rem; /* Adjust the size of the icon */
+  margin-left: 0.2rem;
+}
+.view-all-link:hover .arrow {
+  transform: translateY(-5px) rotate(-45deg); /* Maintain the rotation on hover */
+}

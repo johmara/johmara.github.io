@@ -1,0 +1,31 @@
+<div class="publications-container">
+  <div class="header">
+    <a [href]="['/']" class="home-link"><i class="fa fa-arrow-left" aria-hidden="true"></i> Johan Martinson</a>
+    <h1 class="search-container title">All Publications</h1>
+  </div>
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchQuery" (input)="search()" placeholder="Search publications..."/>
+  </div>
+  <table>
+    <thead>
+    <tr>
+      <th (click)="setSortField('date')">Date <i class="fa" [ngClass]="getSortIcon('date')"></i></th>
+      <th (click)="setSortField('title')">Title <i class="fa" [ngClass]="getSortIcon('title')"></i></th>
+      <th>Authors</th>
+      <th>BibTex</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let publication of filteredPublications">
+      <td>{{ publication.date | date:'yyyy-MM-dd' }}</td>
+      <td><a [href]="publication.link">{{ publication.title }}</a></td>
+      <td>{{ publication.authors }}</td>
+      <td>
+        <button class="cite-btn" (click)="fetchBibtex(publication.doi)"><i class="fa fa-quote-left"
+                                                                           aria-hidden="true"></i> Cite
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

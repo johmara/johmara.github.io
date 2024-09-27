@@ -1,0 +1,39 @@
+<div class="timeline">
+  <div class="timeline-events">
+    <div *ngFor="let event of timelineEvents | slice:0:eventsToShow" class="timeline-card"
+         (mouseenter)="onMouseEnter(event)" (mouseleave)="onMouseLeave(event)">
+      <div class="event-date">
+        <ng-container *ngIf="(event.from_date | date: 'yyyy') === (event.to_date | date: 'yyyy'); else differentYears">
+          {{ event.from_date | date: 'MMM' }} – {{ event.to_date | date: 'MMM yyyy' }}
+        </ng-container>
+        <ng-template #differentYears>
+          {{ event.from_date | date: 'yyyy' }}
+          – {{ event.to_date != this.current_date ? (event.to_date | date: 'yyyy') : 'PRESENT' }}
+        </ng-template>
+      </div>
+      <div class="timeline-card-right">
+        <a [href]="event.link" class="card-title">
+          <span class="occupation">{{ event.occupation }}</span>
+          <i class="fa-solid fa-circle"></i>
+          <span class="title">{{ event.title }}</span>
+          <fa-icon [icon]="faArrowUpRight" class="arrow-icon"></fa-icon>
+        </a>
+        <div *ngIf="event.description" class="description">
+          {{ event.description }}
+        </div>
+        <div class="tags">
+          <span *ngFor="let tag of event.isHovered?getTotalTags(event):getLimitedTags(event)"
+                [ngClass]="getTagClass(tag, event)"
+                class="pill">{{ tag }}</span>
+          <span *ngIf="getTotalTags(event).length > 4 && !event.isHovered"
+                class="pill">+{{ getTotalTags(event).length - 4 }} more</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-container" *ngIf="!allEventsShown()">
+    <a href="/resume" class="view-resume-link">View full resumé
+      <fa-icon [icon]="faArrowUpRight" class="arrow"></fa-icon>
+    </a>
+  </div>
+</div>

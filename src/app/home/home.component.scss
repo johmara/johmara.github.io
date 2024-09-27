@@ -1,0 +1,114 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding-top: 1.25rem; /* 20px converted to rem (20 / 16) */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 80%; /* Limit the width to 80% */
+  padding: 0 1.25rem 10rem;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  width: 100%;
+  margin: 0 auto; /* Center the content */
+}
+
+.text-content {
+  flex: 2;
+  margin-left: 1.25rem; /* Add some space between the image and the text content */
+}
+
+.image-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex: 1;
+}
+
+.title {
+  color: var(--accent-color-2);
+  margin-bottom: 5rem;
+  text-align: center; /* Center the title */
+  width: 100%; /* Ensure the title spans the full width */
+}
+
+.profile-img {
+  width: 14.0625rem; /* 225px converted to rem (225 / 16) */
+  height: 14.0625rem; /* 225px converted to rem (225 / 16) */
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 1.25rem 0; /* 20px converted to rem (20 / 16) */
+}
+
+.subtitle {
+  white-space: wrap; /* Prevent the text from wrapping */
+  width: auto; /* Allow the element to take up the space it needs */
+  font-style: italic; /* Make the subtitle cursive */
+  margin-top: 0.2rem; /* Reduce the space between the name and subtitle */
+  margin-bottom: 0.2rem; /* Reduce the space between the name and subtitle */
+}
+
+.name {
+  margin-bottom: 0.2rem;
+  color: var(--accent-color-1);
+}
+
+.publications {
+  font-size: 1.5rem;
+}
+
+.projects {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+
+  .header{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items vertically */
+    width: 100%;
+    margin: 0 auto; /* Center the content */
+  }
+
+  .image-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .text-content {
+    margin-left: 0; /* Remove margin on smaller screens */
+    text-align: center; /* Center text on smaller screens */
+  }
+
+  .profile-img {
+    width: 10rem; /* Scale down the image */
+    height: 10rem; /* Scale down the image */
+  }
+
+  .name {
+    font-size: 1.5rem; /* Adjust font size */
+  }
+
+  .subtitle {
+    font-size: 1.25rem; /* Adjust font size */
+  }
+
+  .text {
+    font-size: 0.9rem; /* Adjust font size */
+  }
+}

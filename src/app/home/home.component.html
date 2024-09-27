@@ -1,0 +1,24 @@
+<div class="container">
+  <!--<h2 class="title"><{{ title }}></h2>-->
+  <h2 class="title"></h2>
+  <div class="header">
+    <div class="image-content">
+      <img [src]="'assets/profileimg.jpg'" alt="Profile" class="profile-img">
+    </div>
+    <div class="text-content">
+      <h1 [class]="'name'">Johan Martinson</h1>
+      <h3 class="subtitle">PhD Student Researcher and Software Engineer</h3>
+      <p class="text">Fullstack software developer researching featurization of software systems.</p>
+      <app-socials></app-socials>
+    </div>
+  </div>
+
+  <app-time-line></app-time-line>
+
+  <span class="publications">Publications</span>
+  <app-publications></app-publications>
+
+  <span class="projects">Projects</span>
+  <app-projects></app-projects>
+
+</div>

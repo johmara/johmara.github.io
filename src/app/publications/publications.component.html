@@ -1,0 +1,20 @@
+<div class="publications-container">
+  <div class="publication-card" *ngFor="let publication of getPublications()">
+    <a [href]="publication.link" target="_blank">
+      <div class="card-content">
+        <h3 class="paper-title">{{ publication.title }}</h3>
+        <p class="date">{{ publication.date }}</p>
+        <p class="authors">{{ publication.authors | authorName }}</p>
+        <p class="description">{{ publication.description | slice:0:300 }}...</p>
+      </div>
+    </a>
+    <button (click)="fetchBibtex(publication.doi)" class="cite-btn">
+      <i class="fa fa-quote-left" aria-hidden="true"></i> Cite
+    </button>
+  </div>
+</div>
+<div *ngIf="showAllPublicationsLink" class="view-all-link">
+  <a href="/publications">View all publications
+    <fa-icon [icon]="faArrowUpRight" class="arrow"></fa-icon>
+  </a>
+</div>
