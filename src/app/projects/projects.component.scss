@@ -3,163 +3,366 @@
   flex-direction: column;
   gap: 2rem; /* Add space between project cards */
   padding-bottom: 2rem;
+  padding-top: 2rem;
 }
 
-.project {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 1.5rem;
-  transition: transform 0.3s, box-shadow 0.3s;
+@media (max-width: 767px) {
+  .project {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-image {
+    position: relative; /* Ensure the pseudo-element is positioned correctly */
+    border-radius: 8px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    width: 100%; /* Make the image take the full width of the container */
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: contain; /* Ensure the image covers the entire container */
+    margin-bottom: 1rem;
+    z-index: 1;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s; /* Smooth transition for hover effects */
+  }
+
+  .project-details {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: var(--accent-color-1);
+    opacity: 85%;
+    color: var(--background-color);
+    padding: 1rem;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+
+  .project-title {
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-title h4 {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--accent-color-2-lighter);
+    margin: 0;
+    font-weight: bolder;
+  }
+
+  .project-card {
+    text-align: center;
+  }
+
+
+  .project-links {
+    margin-top: 0.5rem;
+  }
+
+  .project-link {
+    margin-top: 1.5rem;
+    color: var(--accent-color-2-lighter);
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    background-color: var(--background-color-darker);
+    margin: 0 0.2rem 0.2rem 0;
+    padding: 0.2rem 0.6rem; /* Adjust padding to make it look more like a pill */
+    border-radius: 999px; /* Make the corners fully rounded */
+    font-size: 0.8rem;
+    color: var(--accent-color-2);
+  }
 }
 
-.project.reverse {
-  flex-direction: row-reverse; /* Reverse the order for alternate projects */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .project {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .project-image {
+    position: relative; /* Ensure the pseudo-element is positioned correctly */
+    border-radius: 8px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    width: 100%; /* Make the image take the full width of the container */
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: contain; /* Ensure the image covers the entire container */
+    z-index: 1;
+  }
+
+
+  .project-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s; /* Smooth transition for hover effects */
+  }
+
+  .project-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: var(--accent-color-1);
+    opacity: 85%;
+    color: var(--background-color);
+    padding: 1rem;
+    box-sizing: border-box;
+    z-index: 2; /* Lower z-index to slide over the image */
+  }
+
+  .project-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .project-title h4 {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--accent-color-2-lighter);
+    margin: 0;
+    font-weight: bolder;
+  }
+
+  .project-title h2 {
+    font-family: -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin-bottom: 1rem;
+    margin-top: 0;
+    font-weight: bolder;
+  }
+
+  .project-card {
+    font-family: -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: start;
+  }
+
+  .project-links {
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .project-link {
+    color: var(--accent-color-2-lighter);
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+
+  }
+
+  .tags {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    background-color: var(--background-color-darker);
+    margin: 0 0.2rem 0.2rem 0;
+    padding: 0.2rem 0.6rem; /* Adjust padding to make it look more like a pill */
+    border-radius: 999px; /* Make the corners fully rounded */
+    font-size: 0.75rem;
+    color: var(--accent-color-2);
+  }
 }
 
-.project-image {
-  position: relative; /* Ensure the pseudo-element is positioned correctly */
-  border-radius: 8px;
-  aspect-ratio: 16 / 9;
-  max-width: 65%;
-  overflow: hidden;
-  width: 100%; /* Make the image take the full width of the container */
-  height: auto; /* Maintain the aspect ratio */
-  object-fit: contain; /* Ensure the image covers the entire container */
-  z-index: 1;
-  margin-top: -2rem; /* Adjust this value to control the sliding effect */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .projects-container {
+    padding-top: 8rem;
+  }
 }
 
-.project-image::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: var(--main-color);
-  opacity: 40%;
-  pointer-events: none; /* Ensure the overlay doesn't interfere with interactions */
-  transition: opacity 0.3s; /* Smooth transition for opacity change */
-}
+@media (min-width: 1024px) {
+  .projects-container {
+    max-width: 80%;
+    margin: 0 auto;
+  }
 
-.project-image:hover::before {
-  opacity: 0; /* Remove the overlay on hover */
-}
+  .project {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
 
-.project-image img {
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s; /* Smooth transition for hover effects */
-}
+  .project.reverse {
+    flex-direction: row-reverse; /* Reverse the order for alternate projects */
+  }
 
-.project-image:hover {
-}
+  .project-image {
+    position: relative; /* Ensure the pseudo-element is positioned correctly */
+    border-radius: 8px;
+    aspect-ratio: 16 / 9;
+    max-width: 55%;
+    overflow: hidden;
+    width: 100%; /* Make the image take the full width of the container */
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: contain; /* Ensure the image covers the entire container */
+    z-index: 1;
+    margin-top: -2rem; /* Adjust this value to control the sliding effect */
+  }
 
-.project-details {
-  position: absolute;
-  border-radius: 8px;
-  margin-left:40%;
-  margin-right:2%;
-  max-width: 60%;
-  margin-top: -2rem; /* Adjust this value to control the sliding effect */
-  z-index: 2; /* Lower z-index to slide over the image */
-}
+  .project-image::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+    opacity: 40%;
+    pointer-events: none; /* Ensure the overlay doesn't interfere with interactions */
+    transition: opacity 0.3s; /* Smooth transition for opacity change */
+  }
 
-.project-details.reverse{
-  margin-left: 2%;
-  margin-right:40%;
-}
+  .project-image:hover::before {
+    opacity: 0; /* Remove the overlay on hover */
+  }
 
-.project-title{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-}
+  .project-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s; /* Smooth transition for hover effects */
+  }
 
-.project.reverse .project-title{
-  align-items: flex-start;
-}
+  .project-details {
+    background-color: transparent;
+    box-shadow: none;
+    position: absolute;
+    border-radius: 8px;
+    padding: 0 0 0 1rem;
+    margin-left: 40%;
+    margin-right: 2%;
+    max-width: 60%;
+    margin-top: -2rem; /* Adjust this value to control the sliding effect */
+    z-index: 2; /* Lower z-index to slide over the image */
+  }
 
-.project-title h4{
-  font-family: 'Courier New', Courier, monospace;
-  color: var(--accent-color-2);
-  margin: 0;
-  font-weight: bold;
-}
+  .project-details.reverse {
+    margin-left: 2%;
+    margin-right: 40%;
+    padding-right: 1rem;
+    padding-left: 0;
+  }
 
-.project-title h2{
-  font-family: -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  color: var(--accent-color-1);
-  margin-bottom: 1rem;
-  margin-top: 0;
-  font-weight: bold;
-}
+  .project-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+  }
 
-.project-title img{
-  max-width: 5rem;
-  aspect-ratio: 16 / 9;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.3s;
-}
+  .project.reverse .project-title {
+    align-items: flex-start;
+  }
 
-.project-card {
-  background-color: #fff; /* White background for the card */
-  //border: 1px solid var(--background-color-darker); /* Light border around the card */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
-  padding: 0.8rem; /* Padding inside the card */
-  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
-  font-family: -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
-  font-weight: normal;
-  text-align: end;
-}
+  .project-title h4 {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--accent-color-2);
+    margin: 0;
+    font-weight: bold;
+  }
 
-.project.reverse .project-card {
-  text-align: start;
-}
+  .project-title h2 {
+    font-family: -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: var(--accent-color-1);
+    margin-bottom: 1rem;
+    margin-top: 0;
+    font-weight: bold;
+  }
 
-.project-links{
-  font-size: 1.3rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  margin-top: 0.5rem;
-}
+  .project-title img {
+    max-width: 5rem;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s;
+  }
 
-.project-link{
-  color: var(--accent-color-2);
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
+  .project-card {
+    background-color: #fff; /* White background for the card */
+    //border: 1px solid var(--background-color-darker); /* Light border around the card */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
+    padding: 0.8rem; /* Padding inside the card */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+    font-family: -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: end;
+  }
 
-}
+  .project.reverse .project-card {
+    text-align: start;
+  }
 
-.project.reverse .project-links{
-  justify-content: flex-start;
-}
+  .project-links {
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+  }
 
+  .project-link {
+    color: var(--accent-color-2);
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
 
-.tags {
-  display: flex;
-  flex-direction: row;
-  margin-top: 10px;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-}
+  .project.reverse .project-links {
+    justify-content: flex-start;
+  }
 
-.project.reverse .tags{
-  justify-content: flex-start;
-}
+  .tags {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
 
-.pill {
-  background-color: var(--background-color-darker);
-  margin: 0 0.2rem 0.2rem 0;
-  padding: 0.2rem 0.6rem; /* Adjust padding to make it look more like a pill */
-  border-radius: 999px; /* Make the corners fully rounded */
-  font-size: 0.75rem;
-  color: var(--accent-color-2);
+  .project.reverse .tags {
+    justify-content: flex-start;
+  }
 
+  .pill {
+    background-color: var(--background-color-darker);
+    margin: 0 0.2rem 0.2rem 0;
+    padding: 0.2rem 0.6rem; /* Adjust padding to make it look more like a pill */
+    border-radius: 999px; /* Make the corners fully rounded */
+    font-size: 0.75rem;
+    color: var(--accent-color-2);
+  }
 }
