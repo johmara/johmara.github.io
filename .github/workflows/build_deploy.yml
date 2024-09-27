@@ -8,17 +8,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js 🙂‍↕️
+        uses: actions/setup-node@v3
         with:
-          persist-credentials: false
+          node-version: '20.17'
 
       - name: Install and Build 🔧
         run: |
-          npm install
-          npm run-script build
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+            npm install
+            npm run deploy
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: deploy
-          FOLDER: dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
