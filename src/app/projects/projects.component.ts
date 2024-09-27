@@ -27,4 +27,8 @@ export class ProjectsComponent {
       this.projects = data;
     });
   }
+
+  isEmpty(value: string): boolean {
+    return value.trim().length === 0;
+  }
 }

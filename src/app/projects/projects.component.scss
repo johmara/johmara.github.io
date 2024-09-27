@@ -48,7 +48,7 @@
 
 .project-image img {
   width: 100%;
-  height: 100%;
+  height: auto;
   transition: transform 0.3s; /* Smooth transition for hover effects */
 }
 
@@ -71,15 +71,29 @@
 }
 
 .project-title{
-  color: var(--accent-color-2);
   display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .project.reverse .project-title{
-  flex-direction: row;
+  align-items: flex-start;
+}
+
+.project-title h4{
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--accent-color-2);
+  margin: 0;
+  font-weight: bold;
+}
+
+.project-title h2{
+  font-family: -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: var(--accent-color-1);
+  margin-bottom: 1rem;
+  margin-top: 0;
+  font-weight: bold;
 }
 
 .project-title img{

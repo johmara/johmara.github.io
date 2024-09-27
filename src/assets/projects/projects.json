@@ -1,20 +1,20 @@
 [
   {
-    "title": "HAnS: Helping Annotate Software",
+    "title": "HAnS",
     "description": "HAnS (Helping Annotate Software) is an open-source (Apache 2.0) IntelliJ plugin that simplifies feature annotation. <br> HAnS provides autocompletion, quick fixes, a feature model view, and a metrics view (lines of feature code, scattering degree, tangling degree, and annotated files). HAnS is programming language-agnostic.",
     "link": "https://plugins.jetbrains.com/plugin/22759-hans",
     "repo": "https://github.com/isselab/HAnS",
     "image": "assets/projects/hans/hans.png",
     "logo": "assets/projects/hans/hans-logo.png",
-    "tags": ["Java", "IntelliJ-plugin", "feature-traceability", "embedded feature traceability"]
+    "tags": ["Java", "IntelliJ-plugin", "feature-traceability", "embedded feature traceability", "language agnostic annotations"]
   },
   {
-    "title": "HAnS: Helping Annotate Software",
-    "description": "HAnS - Helping Annotate Software. HAnS is an open-source (Apache 2.0) plugin for IntelliJ that helps you annotate software.",
-    "link": "https://plugins.jetbrains.com/plugin/22759-hans",
-    "repo": "https://github.com/isselab/HAnS",
-    "image": "assets/projects/hans/hans.png",
+    "title": "HAnS-Viz",
+    "description": "HAnS-Viz is an open-source (Apache 2.0) IntelliJ plugin that extends HAnS by visualising feature traceability. <br> HAnS-Viz provides several graphs that visualises the embedded traceability links created with HAnS.",
+    "link": "",
+    "repo": "https://github.com/isselab/HAnS-viz",
+    "image": "assets/projects/hans-viz/TanglingCircular.png",
     "logo": "assets/projects/hans/hans-logo.png",
-    "tags": ["Java", "IntelliJ-plugin", "feature-traceability", "embedded feature traceability"]
+    "tags": ["Java", "IntelliJ-plugin", "feature-traceability", "traceability visualisations"]
   }
 ]
