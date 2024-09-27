@@ -1,13 +1,12 @@
 <div class="projects-container">
-  <div *ngFor="let project of projects; let i = index" class="project-wrapper" [ngClass]="{'reverse': i % 2 !== 0}">
-    <div class="project" [ngClass]="{'reverse': i % 2 !== 0}">
+  <div *ngFor="let project of projects; let i = index" class="project" [ngClass]="{'reverse': i % 2 !== 0}">
       <div class="project-image">
         <img [src]="project.image" alt="{{ project.title }}">
       </div>
-      <div class="project-details">
+      <div class="project-details" [ngClass]="{'reverse': i % 2 !== 0}">
         <div class="project-title">
           <h3>{{ project.title }}</h3>
-          <img class="project-logo" [src]="project.logo" alt="{{ project.title }}">
+          <!--<img class="project-logo" [src]="project.logo" alt="{{ project.title }}">-->
         </div>
         <div class="project-card">
           <p [innerHTML]="project.description"></p>
@@ -25,5 +24,4 @@
         </div>
       </div>
     </div>
-  </div>
 </div>
