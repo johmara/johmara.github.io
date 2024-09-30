@@ -7,7 +7,6 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng deploy --repo=https://github.com/johmara/johmara.github.io.git --base-href=/johmara.github.io/ --name=johmara --email=johan.t.martinson@gmail.com"
   },
   "private": true,
   "dependencies": {
@@ -36,7 +35,6 @@
     "@angular/cli": "^18.2.5",
     "@angular/compiler-cli": "^18.2.5",
     "@types/jasmine": "~5.1.0",
-    "angular-cli-ghpages": "^2.0.1",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
