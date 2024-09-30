@@ -20,6 +20,6 @@ jobs:
             npm install
 
       - name: Deploy to GitHub Pages 🚀
-        run: ng deploy
+        run: npm run deploy
         env:
           github_token: ${{ secrets.GITHUB_TOKEN }}
