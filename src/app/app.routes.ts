@@ -5,4 +5,5 @@ import {PublicationsListComponent} from "./publications-list/publications-list.c
 export const routes: Routes = [
   {path: '', pathMatch: 'full', component: HomeComponent},
   {path: 'publications', component: PublicationsListComponent},
+  { path: '**', redirectTo: '' }  // Wildcard route for a 404 page
 ];
