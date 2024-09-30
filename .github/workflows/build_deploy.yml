@@ -18,10 +18,9 @@ jobs:
       - name: Install and Build 🔧
         run: |
             npm install
-            npm run deploy
+            npm run build -- --prod
 
       - name: Deploy to GitHub Pages 🚀
-        uses: peaceiris/actions-gh-pages@v3
+        run: npm run deploy
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
