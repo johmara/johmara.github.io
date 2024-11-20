@@ -9,6 +9,15 @@
     "tags": ["Java", "IntelliJ-plugin", "feature-traceability", "embedded feature traceability", "language agnostic annotations"]
   },
   {
+    "title": "FM-PRO",
+    "description": "FM-PRO (Feature Modeling Process) is a feature modeling process to systematically create feature models, covering strategies used by companies, when creating platforms from scratch or re-engineering them from existing variants. Feature models obtained from this process can be used for configuration, planning, evolution, reasoning about variants, or keeping an overview of understanding of complex software platforms.",
+    "link": "assets/projects/fmpro/FMPro-v2.pdf",
+    "repo": "",
+    "image": "assets/projects/fmpro/fmpro.png",
+    "logo": "",
+    "tags": ["technical documentation", "feature modeling", "process", "notation agnostic"]
+  },
+  {
     "title": "HAnS-Viz",
     "description": "HAnS-Viz is an open-source (Apache 2.0) IntelliJ plugin that extends HAnS by visualising feature traceability. <br> HAnS-Viz provides several graphs that visualises the embedded traceability links created with HAnS.",
     "link": "",
