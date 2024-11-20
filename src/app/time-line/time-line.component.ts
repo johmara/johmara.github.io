@@ -27,7 +27,7 @@ export class TimeLineComponent {
       tech: [],
       languages: [],
       tools: [],
-      link: 'https://se.ruhr-uni-bochum.de/',
+      link: 'https://se.rub.de/',
       isHovered: false
     },
     {

@@ -29,6 +29,6 @@ export class ProjectsComponent {
   }
 
   isEmpty(value: string): boolean {
-    return value.trim().length === 0;
+    return value === null || value.trim().length === 0;
   }
 }
