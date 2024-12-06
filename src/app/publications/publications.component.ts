@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AuthorNamePipe } from '../pipes/author-name.pipe';
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {AuthorNamePipe} from '../pipes/author-name.pipe';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
-import { BibtexModalComponent } from '../bibtex-modal/bibtex-modal.component';
+import {BibtexModalComponent} from '../bibtex-modal/bibtex-modal.component';
 import {formatBibTeX} from "../utils/bibtex-formatter";
 import {PublicationsService} from "../publications.service";
 import {Publication} from "../models/publication.model";
@@ -36,11 +36,14 @@ export class PublicationsComponent {
     this.publicationsService.getPublications().subscribe(data => {
       this.publications = data;
       this.sortPublicationsByDate();
-      this.showAllPublicationsLink = this.publications.length > 6;
+      this.showAllPublicationsLink = (window.innerWidth < 1397 && window.innerWidth > 1064) && (this.publications.length > 3 && this.publications.length < 6)
+        || this.publications.length > 6;
     });
   }
 
   getPublications() {
+    if ((window.innerWidth < 1397 && window.innerWidth > 1064) && (this.publications.length > 3 && this.publications.length < 6))
+      return this.publications.slice(0, 3);
     return this.publications.slice(0, 6);
   }
 
@@ -64,10 +67,10 @@ export class PublicationsComponent {
       const bibtex = await response.text();
       const formattedBibTex = formatBibTeX(bibtex);
       const dialogConfig = new MatDialogConfig();
-      dialogConfig.data = { bibtex: formattedBibTex };
+      dialogConfig.data = {bibtex: formattedBibTex};
       dialogConfig.width = 'auto';
       dialogConfig.height = 'auto';
-      dialogConfig.position = { top: '10px' };
+      dialogConfig.position = {top: '10px'};
       dialogConfig.panelClass = 'custom-dialog-container';
 
       // Close any open dialogs before opening a new one
