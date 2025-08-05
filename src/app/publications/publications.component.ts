@@ -1,13 +1,13 @@
-import {Component} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {AuthorNamePipe} from '../pipes/author-name.pipe';
-import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
-import {BibtexModalComponent} from '../bibtex-modal/bibtex-modal.component';
-import {formatBibTeX} from "../utils/bibtex-formatter";
-import {PublicationsService} from "../publications.service";
-import {Publication} from "../models/publication.model";
-import {faArrowRight} from "@fortawesome/free-solid-svg-icons";
-import {FaIconComponent} from "@fortawesome/angular-fontawesome";
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AuthorNamePipe } from '../pipes/author-name.pipe';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { BibtexModalComponent } from '../bibtex-modal/bibtex-modal.component';
+import { formatBibTeX } from "../utils/bibtex-formatter";
+import { PublicationsService } from "../publications.service";
+import { Publication } from "../models/publication.model";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
 @Component({
   selector: 'app-publications',
@@ -25,7 +25,7 @@ export class PublicationsComponent {
   showAllPublicationsLink = false;
 
   constructor(private dialog: MatDialog,
-              private publicationsService: PublicationsService) {
+    private publicationsService: PublicationsService) {
   }
 
   ngOnInit() {
@@ -36,14 +36,33 @@ export class PublicationsComponent {
     this.publicationsService.getPublications().subscribe(data => {
       this.publications = data;
       this.sortPublicationsByDate();
-      this.showAllPublicationsLink = (window.innerWidth < 1397 && window.innerWidth > 1064) && (this.publications.length > 3 && this.publications.length < 6)
-        || this.publications.length > 6;
+this.showAllPublicationsLink =
+      (window.innerWidth < 699 && this.publications.length > 3) ||
+      ((window.innerWidth >= 699 && window.innerWidth < 1064) && this.publications.length > 4) ||
+      ((window.innerWidth < 1397 && window.innerWidth > 1064) && (this.publications.length > 3 && this.publications.length < 6)) ||
+      ((window.innerWidth >= 1397 && window.innerWidth < 1729) && this.publications.length > 4) ||
+      (window.innerWidth >= 1729 && window.innerWidth < 2060 && this.publications.length > 5) ||
+      this.publications.length > 6;
     });
   }
 
   getPublications() {
-    if ((window.innerWidth < 1397 && window.innerWidth > 1064) && (this.publications.length > 3 && this.publications.length < 6))
+    console.log(window.innerWidth);
+    if (window.innerWidth < 699) {
       return this.publications.slice(0, 3);
+    }
+    if ((window.innerWidth >= 699 && window.innerWidth < 1064) && this.publications.length > 4) {
+      return this.publications.slice(0, 4);
+    }
+    if ((window.innerWidth < 1397 && window.innerWidth > 1064) && (this.publications.length > 3 && this.publications.length < 6)) {
+      return this.publications.slice(0, 3);
+    }
+    if ((window.innerWidth >= 1397 && window.innerWidth < 1729) && this.publications.length > 4) {
+      return this.publications.slice(0, 4);
+    }
+    if (window.innerWidth >= 1729 && window.innerWidth < 2060 && this.publications.length > 5) {
+      return this.publications.slice(0, 5);
+    }
     return this.publications.slice(0, 6);
   }
 
@@ -67,10 +86,10 @@ export class PublicationsComponent {
       const bibtex = await response.text();
       const formattedBibTex = formatBibTeX(bibtex);
       const dialogConfig = new MatDialogConfig();
-      dialogConfig.data = {bibtex: formattedBibTex};
+      dialogConfig.data = { bibtex: formattedBibTex };
       dialogConfig.width = 'auto';
       dialogConfig.height = 'auto';
-      dialogConfig.position = {top: '10px'};
+      dialogConfig.position = { top: '10px' };
       dialogConfig.panelClass = 'custom-dialog-container';
 
       // Close any open dialogs before opening a new one
