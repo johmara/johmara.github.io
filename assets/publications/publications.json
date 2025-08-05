@@ -1,5 +1,21 @@
 [
   {
+    "date": "2025-09-05",
+    "title": "(Accepted) Visualizing Feature-Oriented Software Evolution",
+    "authors": "Kevin Hermann, Johan Martinson, Thorsten Berger",
+    "description": "Software systems are becoming increasingly complex, and so does their evolution. Development processes often use the notion of features to plan and organize the development of software systems. While features facilitate understanding and communicating about software systems, the connection to code is often lost, challenging their evolution. Developers often need to recover the location of features in code, which is laborious and error-prone, especially for scattered features. The vision of feature-oriented software evolution advocates maintaining traceability between features and the codebase during development, which requires techniques to make features more comprehensible to stakeholders. In this work, we show how traceability links can be utilized to lift the abstraction level of software assets to the feature level. We present a visualization for facilitating comprehension of software evolution by visualizing their evolution through a timeline, addressing a significant gap in realizing the vision of feature-oriented software evolution. Our visualization fosters system evolution comprehension, and improve feature documentation by providing developers with short term benefits of recording feature locations.",
+    "link": "",
+    "doi": ""
+  },
+  {
+    "date": "2025-09-05",
+    "title": "(Accepted) Lightweight Visualization of Software Features with HAnS-viz",
+    "authors": "Johan Martinson, Kevin Hermann, Riman Houbbi, David Stechow, Thorsten Berger",
+    "description": "Features offer a way to plan software development, but their locations in software assets are often not known. Existing techniques, such as feature-oriented software development, enable traceability of features by implementing features modularly, but are hard to adopt, since they require heavyweight tooling. We believe that feature traceability should be added during development, using lightweight tooling close to the developers’ activities. However, adding traceability requires encouragement—ideally in terms of techniques that provide immediate benefits to developers. We present HAnS-viz, an IntelliJ IDE plugin that provides feature-oriented visualizations that support developers understand and reason about software systems at the feature level. The visualizations present different kinds of feature characteristics and their location in code. Building on our previous work, HAnS, it uses embedded feature annotations that developers create as they write features to lift code-level assets to feature-level representations. A demo video is available at https://youtube.com/watch?v=e4j40dvJQiQ.",
+    "link": "",
+    "doi": ""
+  },
+  {
     "date": "2024-12-09",
     "title": "FM-PRO: A Feature Modeling Process",
     "authors": "Johan Martinson, Wardah Mahmood, Jude Gyimah, Thorsten Berger",
