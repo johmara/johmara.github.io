@@ -11,23 +11,57 @@
 .timeline-card {
   display: flex;
   margin-bottom: 20px;
-  border: 1px solid transparent; /* Initially transparent */
+  border: 1px solid transparent;
+  /* Initially transparent */
   border-radius: 5px;
   padding: 10px;
-  transition: border-color 0.3s ease, opacity 0.3s ease, height 0.3s ease; /* Smooth transition */
-  position: relative; /* Create positioning context */
-  width: 100%; /* Set a fixed width */
-  max-width: 600px; /* Optional: Set a maximum width */
+  transition: border-color 0.3s ease, opacity 0.3s ease, height 0.3s ease;
+  /* Smooth transition */
+  position: relative;
+  /* Create positioning context */
+  width: 100%;
+  /* Set a fixed width */
+  max-width: 600px;
+  /* Optional: Set a maximum width */
 }
 
 .timeline-card:hover {
   border-color: var(--background-color-darker);
   box-shadow: 0 4px 8px var(--background-color-darker);
-  height: auto; /* Allow height to adjust based on content */
+  height: auto;
+  /* Allow height to adjust based on content */
 }
 
-.timeline-card:hover ~ .timeline-card {
-  opacity: 0.5; /* Set opacity of subsequent cards to 75% */
+.timeline-card:hover~.timeline-card {
+  opacity: 0.5;
+  /* Set opacity of subsequent cards to 75% */
+}
+
+@media (max-width: 768px) {
+  .timeline{
+    padding: 0.5rem;
+  }
+
+  .timeline-card {
+    flex-direction: column;
+  }
+
+  .timeline-card-left {
+    text-align: left;
+    padding: 0 !important;;
+  }
+
+  .timeline-card-right {
+    text-align: left;
+    padding: 0 !important;;
+  }
+
+  .occupation{
+    margin: 0 !important;;
+  }
+  .title{
+    margin: 0 !important;
+  }
 }
 
 .timeline-card-left {
@@ -43,21 +77,26 @@
 
 .event-date {
   font-family: -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 0.8rem; /* Make the font size smaller */
-  font-weight: lighter; /* Make the font weight less */
-  width: 100px; /* Set a fixed width */
-  flex-shrink: 0; /* Prevent the column from shrinking */
-  white-space: nowrap; /* Prevent text from wrapping */
+  font-size: 0.8rem;
+  /* Make the font size smaller */
+  font-weight: lighter;
+  /* Make the font weight less */
+  width: 100px;
+  /* Set a fixed width */
+  flex-shrink: 0;
+  /* Prevent the column from shrinking */
+  white-space: nowrap;
+  /* Prevent text from wrapping */
 }
 
 .description {
-  font-size: 0.85rem; /* Make the font size smaller */
-  font-weight: lighter; /* Make the font weight less */
+  font-size: 0.85rem;
+  /* Make the font size smaller */
+  font-weight: lighter;
+  /* Make the font weight less */
 }
 
-.timeline-card:hover .tags{
-
-}
+.timeline-card:hover .tags {}
 
 .tags {
   margin-top: 10px;
@@ -67,8 +106,10 @@
   display: inline-block;
   background-color: var(--background-color-darker);
   margin: 0 0.2rem 0.2rem 0;
-  padding: 0.2rem 0.6rem; /* Adjust padding to make it look more like a pill */
-  border-radius: 999px; /* Make the corners fully rounded */
+  padding: 0.2rem 0.6rem;
+  /* Adjust padding to make it look more like a pill */
+  border-radius: 999px;
+  /* Make the corners fully rounded */
   font-size: 0.75rem;
   color: var(--accent-color-1);
 }
@@ -86,38 +127,51 @@
 }
 
 .card-title {
-  color: var(--accent-color-1); /* Inherit the color from the parent element */
+  color: var(--accent-color-1);
+  /* Inherit the color from the parent element */
   font-weight: normal;
-  text-decoration: none; /* Remove underline */
+  text-decoration: none;
+  /* Remove underline */
   display: inline-flex;
   align-items: center;
-  flex-wrap: wrap; /* Allow the entire line to wrap */
+  flex-wrap: wrap;
+  /* Allow the entire line to wrap */
 }
 
 .timeline-card:hover .card-title {
-  color: var(--accent-color-2); /* Use second accent color for the card title */
+  color: var(--accent-color-2);
+  /* Use second accent color for the card title */
 }
 
-.occupation, .title {
-  margin: 0 5px; /* Add a small margin between elements */
+.occupation,
+.title {
+  margin: 0 5px;
+  /* Add a small margin between elements */
 }
 
 .fa-solid.fa-circle {
-  margin: 0 5px; /* Add a small margin around the circle icon */
+  margin: 0 5px;
+  /* Add a small margin around the circle icon */
   font-size: 0.2rem;
 }
 
 .arrow-icon {
-  position: absolute; /* Position the arrow icon absolutely */
-  top: 10px; /* Adjust the top position as needed */
-  right: 10px; /* Adjust the right position as needed */
+  position: absolute;
+  /* Position the arrow icon absolutely */
+  top: 10px;
+  /* Adjust the top position as needed */
+  right: 10px;
+  /* Adjust the right position as needed */
   transition: transform 0.3s ease;
-  transform: rotate(-45deg); /* Rotate the icon by 45 degrees */
-  font-size: 0.75rem; /* Adjust the size of the icon */
+  transform: rotate(-45deg);
+  /* Rotate the icon by 45 degrees */
+  font-size: 0.75rem;
+  /* Adjust the size of the icon */
 }
 
 .timeline-card:hover .arrow-icon {
-  transform: translateY(-5px) rotate(-45deg); /* Maintain the rotation on hover */
+  transform: translateY(-5px) rotate(-45deg);
+  /* Maintain the rotation on hover */
 }
 
 .button-container {
@@ -132,12 +186,17 @@
 }
 
 .arrow {
-  position: absolute; /* Position the arrow icon absolutely */
+  position: absolute;
+  /* Position the arrow icon absolutely */
   transition: transform 0.3s ease;
-  transform: rotate(-45deg); /* Rotate the icon by 45 degrees */
-  font-size: 0.75rem; /* Adjust the size of the icon */
+  transform: rotate(-45deg);
+  /* Rotate the icon by 45 degrees */
+  font-size: 0.75rem;
+  /* Adjust the size of the icon */
   margin-left: 0.2rem;
 }
+
 .view-resume-link:hover .arrow {
-  transform: translateY(-5px) rotate(-45deg); /* Maintain the rotation on hover */
+  transform: translateY(-5px) rotate(-45deg);
+  /* Maintain the rotation on hover */
 }
