@@ -12,7 +12,7 @@
     "title": "(Accepted) Lightweight Visualization of Software Features with HAnS-viz",
     "authors": "Johan Martinson, Kevin Hermann, Riman Houbbi, David Stechow, Thorsten Berger",
     "description": "Features offer a way to plan software development, but their locations in software assets are often not known. Existing techniques, such as feature-oriented software development, enable traceability of features by implementing features modularly, but are hard to adopt, since they require heavyweight tooling. We believe that feature traceability should be added during development, using lightweight tooling close to the developers’ activities. However, adding traceability requires encouragement—ideally in terms of techniques that provide immediate benefits to developers. We present HAnS-viz, an IntelliJ IDE plugin that provides feature-oriented visualizations that support developers understand and reason about software systems at the feature level. The visualizations present different kinds of feature characteristics and their location in code. Building on our previous work, HAnS, it uses embedded feature annotations that developers create as they write features to lift code-level assets to feature-level representations. A demo video is available at https://youtube.com/watch?v=e4j40dvJQiQ.",
-    "link": "assets/publications/2025_visualizing_feature_oriented_software_evolution.pdf",
+    "link": "assets/publications/2025_lightweight_visualization_of_software_features_with_hans_viz.pdf",
     "doi": ""
   },
   {
