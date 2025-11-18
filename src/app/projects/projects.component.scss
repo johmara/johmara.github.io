@@ -346,12 +346,12 @@
   }
 
   .project-card {
-    background-color: #fff; /* White background for the card */
-    //border: 1px solid var(--background-color-darker); /* Light border around the card */
+    background-color: var(--background-color); /* Use CSS variable for background */
+    border: 1px solid var(--background-color-darker); /* Light border around the card */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
     padding: 0.8rem; /* Padding inside the card */
-    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, border-color 0.3s; /* Smooth transition for hover effects */
     font-family: -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 1rem;
     font-weight: normal;
