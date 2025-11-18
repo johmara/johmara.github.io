@@ -22,7 +22,6 @@ import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 })
 export class PublicationsComponent {
   publications: Publication[] = [];
-  showAllPublicationsLink = false;
 
   constructor(private dialog: MatDialog,
     private publicationsService: PublicationsService) {
@@ -34,15 +33,8 @@ export class PublicationsComponent {
 
   loadPublications() {
     this.publicationsService.getPublications().subscribe(data => {
-      this.publications = data;
+      this.publications = data.filter(pub => pub.featured);
       this.sortPublicationsByDate();
-this.showAllPublicationsLink =
-      (window.innerWidth < 699 && this.publications.length > 3) ||
-      ((window.innerWidth >= 699 && window.innerWidth < 1064) && this.publications.length > 4) ||
-      ((window.innerWidth < 1397 && window.innerWidth > 1064) && (this.publications.length > 3 && this.publications.length < 6)) ||
-      ((window.innerWidth >= 1397 && window.innerWidth < 1729) && this.publications.length > 4) ||
-      (window.innerWidth >= 1729 && window.innerWidth < 2060 && this.publications.length > 5) ||
-      this.publications.length > 6;
     });
   }
 
