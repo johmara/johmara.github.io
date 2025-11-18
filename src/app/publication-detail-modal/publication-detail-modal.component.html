@@ -1,28 +1,28 @@
 <div class="modal-overlay" (click)="onOverlayClick($event)">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <div class="modal-header">
-      <h2>{{ publication.title }}</h2>
+      <div class="header-content">
+        <h2>{{ publication.title }}</h2>
+        <p class="authors">{{ publication.authors }}</p>
+        <p class="published-in" *ngIf="publication.publishedIn">
+          <i class="fa fa-book" aria-hidden="true"></i> {{ publication.publishedIn }} ({{ publication.date | date:'yyyy' }})
+        </p>
+      </div>
       <button class="close-btn" (click)="close()" aria-label="Close modal">×</button>
     </div>
-    
+
     <div class="modal-body">
-      <p class="date">{{ publication.date }}</p>
-      <p class="authors">{{ publication.authors }}</p>
-      <p class="published-in" *ngIf="publication.publishedIn">
-        <i class="fa fa-book" aria-hidden="true"></i> {{ publication.publishedIn }}
-      </p>
-      
       <div class="abstract-section" *ngIf="!showBibtex">
         <h3>Abstract</h3>
         <p class="abstract">{{ publication.description }}</p>
       </div>
-      
+
       <div class="bibtex-section" *ngIf="showBibtex">
         <h3>BibTeX</h3>
         <pre class="bibtex-content">{{ bibtex }}</pre>
       </div>
     </div>
-    
+
     <div class="modal-footer">
       <div class="action-buttons-left">
         <button *ngIf="publication.doi" class="action-btn" [class.active]="showBibtex" (click)="toggleBibtex()">
