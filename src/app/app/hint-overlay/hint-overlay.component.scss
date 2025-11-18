@@ -28,6 +28,15 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   animation: hintPulse 0.3s ease-out;
+  transition: all 0.2s ease;
+}
+
+.hint-marker.selected .hint-text {
+  background: linear-gradient(135deg, #00ff00 0%, #7fff00 100%);
+  border-color: #000;
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.3);
+  transform: scale(1.15);
+  font-weight: 900;
 }
 
 @keyframes hintPulse {
@@ -50,4 +59,10 @@
   color: #000;
   border-color: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+:host-context(.dark-mode) .hint-marker.selected .hint-text {
+  background: linear-gradient(135deg, #00ff00 0%, #7fff00 100%);
+  border-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 2px 6px rgba(0, 0, 0, 0.5);
 }

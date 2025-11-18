@@ -19,6 +19,7 @@ export class VimModeService {
   isVimModeEnabled = signal<boolean>(false);
   isHintModeActive = signal<boolean>(false);
   hintElements = signal<HintElement[]>([]);
+  currentHintIndex = signal<number>(0);
   private keydownListener?: (e: KeyboardEvent) => void;
   private currentHintInput = '';
   private lastKeyPress = '';
@@ -175,6 +176,7 @@ export class VimModeService {
   private activateHintMode(): void {
     this.isHintModeActive.set(true);
     this.currentHintInput = '';
+    this.currentHintIndex.set(0);
     
     // Find all clickable/interactive elements
     const selectors = [
@@ -191,7 +193,7 @@ export class VimModeService {
     const elements = document.querySelectorAll(selectors.join(','));
     const hints: HintElement[] = [];
     
-    elements.forEach((el, index) => {
+    elements.forEach((el) => {
       const htmlEl = el as HTMLElement;
       
       // Exclude elements within header controls and vim tooltip toggle
@@ -239,6 +241,54 @@ export class VimModeService {
       return;
     }
 
+    // Tab to cycle forward through hints, Shift+Tab to cycle backward
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      const hints = this.hintElements();
+      if (hints.length === 0) return;
+      
+      if (e.shiftKey) {
+        // Shift+Tab - cycle backward
+        this.currentHintIndex.set((this.currentHintIndex() - 1 + hints.length) % hints.length);
+      } else {
+        // Tab - cycle forward
+        this.currentHintIndex.set((this.currentHintIndex() + 1) % hints.length);
+      }
+      return;
+    }
+
+    // Enter to activate the currently selected hint
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const hints = this.hintElements();
+      const selectedHint = hints[this.currentHintIndex()];
+      if (selectedHint) {
+        this.navigateToElement(selectedHint.element);
+        this.deactivateHintMode();
+      }
+      return;
+    }
+
+    // Allow j/k scrolling in hint mode
+    if (e.key === 'j' || e.key === 'k') {
+      e.preventDefault();
+      const scrollAmount = 100;
+      
+      if (e.key === 'j') {
+        window.scrollBy({ top: scrollAmount, behavior: 'smooth' });
+      } else {
+        window.scrollBy({ top: -scrollAmount, behavior: 'smooth' });
+      }
+      
+      // Regenerate hints after a short delay to account for scroll animation
+      setTimeout(() => {
+        if (this.isHintModeActive()) {
+          this.refreshHints();
+        }
+      }, 150);
+      return;
+    }
+
     // Only process letter keys
     if (e.key.length === 1 && /[a-z]/i.test(e.key)) {
       e.preventDefault();
@@ -266,9 +316,57 @@ export class VimModeService {
         } else {
           // Multiple matches, update the hint list
           this.hintElements.set(filteredHints);
+          // Reset current index when filtering
+          this.currentHintIndex.set(0);
         }
       }
     }
+  }
+
+  private refreshHints(): void {
+    // Clear current input when refreshing
+    this.currentHintInput = '';
+    this.currentHintIndex.set(0);
+    
+    // Find all clickable/interactive elements
+    const selectors = [
+      'a[href]',
+      'button:not([disabled])',
+      'input:not([disabled])',
+      'textarea:not([disabled])',
+      '[role="button"]',
+      '[tabindex]:not([tabindex="-1"])',
+      '.publication-item',
+      '.project-card'
+    ];
+    
+    const elements = document.querySelectorAll(selectors.join(','));
+    const hints: HintElement[] = [];
+    
+    elements.forEach((el) => {
+      const htmlEl = el as HTMLElement;
+      
+      // Exclude elements within header controls and vim tooltip toggle
+      if (htmlEl.closest('.header-controls') || 
+          htmlEl.closest('.vim-tooltip-toggle') ||
+          htmlEl.closest('.vim-tooltip')) {
+        return;
+      }
+      
+      const rect = htmlEl.getBoundingClientRect();
+      
+      // Only include visible elements
+      if (rect.width > 0 && rect.height > 0 && 
+          rect.top < window.innerHeight && rect.bottom > 0) {
+        hints.push({
+          element: htmlEl,
+          hint: this.generateHint(hints.length),
+          rect: rect
+        });
+      }
+    });
+    
+    this.hintElements.set(hints);
   }
 
   private navigateToElement(element: HTMLElement): void {
@@ -294,5 +392,6 @@ export class VimModeService {
     this.isHintModeActive.set(false);
     this.hintElements.set([]);
     this.currentHintInput = '';
+    this.currentHintIndex.set(0);
   }
 }
