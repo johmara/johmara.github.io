@@ -3,7 +3,14 @@
   <div class="button-container">
     <button mat-button class="copy-button" (click)="copyToClipboard()">
       <i class="fas fa-copy"></i> Copy
+      <span class="keyboard-hint">
+        {{ vimModeService.isVimModeEnabled() ? '(yy)' : '(ctrl c)' }}
+      </span>
     </button>
-    <button mat-button class="close-button" (click)="closeDialog()">Close</button>
+    <button mat-button class="close-button" (click)="closeDialog()">
+      Close
+      <span class="keyboard-hint">(esc)</span>
+    </button>
   </div>
 </div>
+
