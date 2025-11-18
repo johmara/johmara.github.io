@@ -193,6 +193,14 @@ export class VimModeService {
     
     elements.forEach((el, index) => {
       const htmlEl = el as HTMLElement;
+      
+      // Exclude elements within header controls and vim tooltip toggle
+      if (htmlEl.closest('.header-controls') || 
+          htmlEl.closest('.vim-tooltip-toggle') ||
+          htmlEl.closest('.vim-tooltip')) {
+        return;
+      }
+      
       const rect = htmlEl.getBoundingClientRect();
       
       // Only include visible elements
@@ -200,7 +208,7 @@ export class VimModeService {
           rect.top < window.innerHeight && rect.bottom > 0) {
         hints.push({
           element: htmlEl,
-          hint: this.generateHint(index),
+          hint: this.generateHint(hints.length),
           rect: rect
         });
       }
