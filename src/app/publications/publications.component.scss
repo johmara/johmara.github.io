@@ -38,6 +38,12 @@
 
 .card-content {
   flex-grow: 1;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.card-content:hover {
+  opacity: 0.8;
 }
 
 .card-content h3 {
@@ -60,6 +66,33 @@ a {
   font-weight: bold;
   color: var(--accent-color-2);
   padding: 0.5rem 0;
+}
+
+.button-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.action-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--text-color);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  background-color: var(--background-color-darker);
+  color: var(--text-color);
+}
+
+.action-btn:hover {
+  background-color: var(--text-color);
+  color: var(--background-color-darker);
+  transform: translateY(-2px);
 }
 
 .cite-btn {
@@ -104,3 +137,4 @@ a {
 .view-all-link:hover .arrow {
   transform: translateY(-5px) rotate(-45deg); /* Maintain the rotation on hover */
 }
+

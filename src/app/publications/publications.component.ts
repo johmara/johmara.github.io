@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AuthorNamePipe } from '../pipes/author-name.pipe';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { BibtexModalComponent } from '../bibtex-modal/bibtex-modal.component';
+import { PublicationDetailModalComponent } from '../publication-detail-modal/publication-detail-modal.component';
 import { formatBibTeX } from "../utils/bibtex-formatter";
 import { PublicationsService } from "../publications.service";
 import { Publication } from "../models/publication.model";
@@ -62,6 +63,21 @@ export class PublicationsComponent {
     this.publications.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   }
 
+  openPublicationDetail(publication: Publication): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = { publication };
+    dialogConfig.width = 'auto';
+    dialogConfig.height = 'auto';
+    dialogConfig.panelClass = 'custom-dialog-container';
+
+    // Close any open dialogs before opening a new one
+    if (this.dialog.openDialogs.length > 0) {
+      this.dialog.closeAll();
+    }
+
+    this.dialog.open(PublicationDetailModalComponent, dialogConfig);
+  }
+
   async fetchBibtex(doi: string) {
     const url = `https://api.crossref.org/works/${encodeURIComponent(doi)}/transform/application/x-bibtex`;
     try {
@@ -97,3 +113,4 @@ export class PublicationsComponent {
 
   protected readonly faArrowUpRight = faArrowRight;
 }
+

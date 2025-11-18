@@ -1,0 +1,30 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>{{ publication.title }}</h2>
+      <button class="close-btn" (click)="close()" aria-label="Close modal">×</button>
+    </div>
+    
+    <div class="modal-body">
+      <p class="date">{{ publication.date }}</p>
+      <p class="authors">{{ publication.authors }}</p>
+      
+      <div class="abstract-section">
+        <h3>Abstract</h3>
+        <p class="abstract">{{ publication.description }}</p>
+      </div>
+    </div>
+    
+    <div class="modal-footer">
+      <button *ngIf="publication.doi" class="action-btn" (click)="copyCitation()">
+        {{ isLoadingBibtex ? 'Loading...' : 'Copy Citation' }}
+      </button>
+      <button class="action-btn" (click)="openPDF()">
+        PDF
+      </button>
+      <button class="action-btn close-action" (click)="close()">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
