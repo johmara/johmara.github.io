@@ -178,7 +178,7 @@ export class VimModeService {
     this.currentHintInput = '';
     this.currentHintIndex.set(0);
     
-    // Find all clickable/interactive elements
+    // Find all clickable/interactive elements on the entire page
     const selectors = [
       'a[href]',
       'button:not([disabled])',
@@ -205,9 +205,8 @@ export class VimModeService {
       
       const rect = htmlEl.getBoundingClientRect();
       
-      // Only include visible elements
-      if (rect.width > 0 && rect.height > 0 && 
-          rect.top < window.innerHeight && rect.bottom > 0) {
+      // Include all elements (not just visible ones), but they must have dimensions
+      if (rect.width > 0 && rect.height > 0) {
         hints.push({
           element: htmlEl,
           hint: this.generateHint(hints.length),
@@ -241,18 +240,24 @@ export class VimModeService {
       return;
     }
 
-    // Tab to cycle forward through hints, Shift+Tab to cycle backward
-    if (e.key === 'Tab') {
+    // Tab/n to cycle forward through hints, Shift+Tab/N to cycle backward
+    if (e.key === 'Tab' || e.key === 'n' || e.key === 'N') {
       e.preventDefault();
       const hints = this.hintElements();
       if (hints.length === 0) return;
       
-      if (e.shiftKey) {
-        // Shift+Tab - cycle backward
+      if (e.shiftKey || e.key === 'N') {
+        // Shift+Tab or N - cycle backward
         this.currentHintIndex.set((this.currentHintIndex() - 1 + hints.length) % hints.length);
       } else {
-        // Tab - cycle forward
+        // Tab or n - cycle forward
         this.currentHintIndex.set((this.currentHintIndex() + 1) % hints.length);
+      }
+      
+      // Scroll to the selected hint
+      const selectedHint = hints[this.currentHintIndex()];
+      if (selectedHint) {
+        selectedHint.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
       return;
     }
@@ -269,7 +274,7 @@ export class VimModeService {
       return;
     }
 
-    // Allow j/k scrolling in hint mode
+    // Allow j/k scrolling in hint mode (without regenerating hints)
     if (e.key === 'j' || e.key === 'k') {
       e.preventDefault();
       const scrollAmount = 100;
@@ -279,18 +284,11 @@ export class VimModeService {
       } else {
         window.scrollBy({ top: -scrollAmount, behavior: 'smooth' });
       }
-      
-      // Regenerate hints after a short delay to account for scroll animation
-      setTimeout(() => {
-        if (this.isHintModeActive()) {
-          this.refreshHints();
-        }
-      }, 150);
       return;
     }
 
-    // Only process letter keys
-    if (e.key.length === 1 && /[a-z]/i.test(e.key)) {
+    // Only process letter keys (excluding n/N which are used for navigation)
+    if (e.key.length === 1 && /[a-mo-z]/i.test(e.key)) {
       e.preventDefault();
       this.currentHintInput += e.key.toLowerCase();
       
