@@ -151,6 +151,11 @@
       background-color: var(--accent-color-3);
       color: var(--background-color);
     }
+
+    &.page {
+      background-color: var(--accent-color-1);
+      color: var(--background-color);
+    }
   }
 
   .result-title {

@@ -2,6 +2,7 @@
   <div class="modal-container">
     <div class="search-header">
       <input 
+        #searchInput
         type="text" 
         class="search-input" 
         [(ngModel)]="searchQuery" 
@@ -25,8 +26,11 @@
         (mouseenter)="selectedIndex = i">
         <div class="result-content">
           <div class="result-header">
-            <span class="result-type" [class.publication]="result.type === 'publication'" [class.project]="result.type === 'project'">
-              {{ result.type === 'publication' ? 'Publication' : 'Project' }}
+            <span class="result-type" 
+                  [class.publication]="result.type === 'publication'" 
+                  [class.project]="result.type === 'project'"
+                  [class.page]="result.type === 'page'">
+              {{ result.type === 'publication' ? 'Publication' : result.type === 'project' ? 'Project' : 'Page' }}
             </span>
           </div>
           <h3 class="result-title">{{ result.title }}</h3>
@@ -42,7 +46,9 @@
     
     <div class="search-footer">
       <div class="keyboard-hints">
-        <span><kbd>↑</kbd><kbd>↓</kbd> Navigate</span>
+        <span *ngIf="vimModeService.isVimModeEnabled()"><kbd>i</kbd> Edit</span>
+        <span *ngIf="vimModeService.isVimModeEnabled()"><kbd>j</kbd><kbd>k</kbd> Navigate</span>
+        <span *ngIf="!vimModeService.isVimModeEnabled()"><kbd>↑</kbd><kbd>↓</kbd> Navigate</span>
         <span><kbd>Enter</kbd> Open</span>
         <span><kbd>Esc</kbd> Close</span>
       </div>

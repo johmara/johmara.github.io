@@ -1,0 +1,8 @@
+<button 
+  class="vim-toggle" 
+  (click)="toggleVimMode()"
+  [attr.aria-label]="vimModeService.isVimModeEnabled() ? 'Disable vim mode' : 'Enable vim mode'"
+  [class.active]="vimModeService.isVimModeEnabled()"
+  type="button">
+  <span class="vim-text">VIM</span>
+</button>

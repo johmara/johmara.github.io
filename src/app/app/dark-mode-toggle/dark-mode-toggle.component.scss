@@ -1,7 +1,4 @@
 .theme-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
   background-color: transparent;
   border: none;
   border-radius: 50%;
@@ -12,7 +9,6 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  z-index: 1000;
   padding: 0;
   opacity: 0.5;
 

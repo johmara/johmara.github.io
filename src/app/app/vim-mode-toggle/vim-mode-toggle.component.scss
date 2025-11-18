@@ -1,0 +1,46 @@
+.vim-toggle {
+  background-color: transparent;
+  border: 1px solid var(--main-color);
+  border-radius: 0.25rem;
+  padding: 0.35rem 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.05);
+    border-color: var(--accent-color-2);
+
+    .vim-text {
+      color: var(--accent-color-2);
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &.active {
+    opacity: 1;
+    background-color: var(--accent-color-2);
+    border-color: var(--accent-color-2);
+
+    .vim-text {
+      color: var(--background-color);
+      font-weight: 600;
+    }
+  }
+
+  .vim-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: monospace;
+    color: var(--main-color);
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+  }
+}
