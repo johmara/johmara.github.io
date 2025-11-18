@@ -1,0 +1,52 @@
+<div class="modal-backdrop" (click)="onBackdropClick($event)">
+  <div class="modal-container">
+    <div class="search-header">
+      <input 
+        type="text" 
+        class="search-input" 
+        [(ngModel)]="searchQuery" 
+        (input)="onSearch()"
+        placeholder="Search publications, projects..."
+        autofocus>
+      <button class="close-btn" (click)="closeModal()" aria-label="Close search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="search-results">
+      <div 
+        *ngFor="let result of filteredResults; let i = index" 
+        class="search-result"
+        [class.selected]="i === selectedIndex"
+        (click)="openResult(result)"
+        (mouseenter)="selectedIndex = i">
+        <div class="result-content">
+          <div class="result-header">
+            <span class="result-type" [class.publication]="result.type === 'publication'" [class.project]="result.type === 'project'">
+              {{ result.type === 'publication' ? 'Publication' : 'Project' }}
+            </span>
+          </div>
+          <h3 class="result-title">{{ result.title }}</h3>
+          <p class="result-metadata">{{ result.metadata }}</p>
+          <p class="result-description">{{ result.description | slice:0:150 }}{{ result.description.length > 150 ? '...' : '' }}</p>
+        </div>
+      </div>
+      
+      <div *ngIf="filteredResults.length === 0" class="no-results">
+        <p>No results found</p>
+      </div>
+    </div>
+    
+    <div class="search-footer">
+      <div class="keyboard-hints">
+        <span><kbd>↑</kbd><kbd>↓</kbd> Navigate</span>
+        <span><kbd>Enter</kbd> Open</span>
+        <span><kbd>Esc</kbd> Close</span>
+      </div>
+    </div>
+  </div>
+</div>
+

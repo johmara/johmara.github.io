@@ -2,3 +2,54 @@
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
+.header-controls {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 2.0rem;
+  z-index: 1000;
+}
+
+.search-trigger {
+  background-color: transparent;
+  border: none;
+  border-radius: 20px;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0 0.75rem;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.05);
+
+    svg,
+    .shortcut-text {
+      color: var(--accent-color-2);
+    }
+  }
+
+  .shortcut-text {
+    font-size: 0.75rem;
+    color: var(--main-color);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--main-color);
+    transition: all 0.2s ease;
+  }
+}
+
