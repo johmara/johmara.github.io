@@ -44,12 +44,24 @@
     position: relative;
     width: 100%;
     height: auto;
-    background-color: var(--accent-color-1);
+    background-color: #333333;
     opacity: 85%;
-    color: var(--background-color);
+    color: #FDFFFC;
     padding: 1rem;
     box-sizing: border-box;
     z-index: 2;
+  }
+
+  .project-title {
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-title h4 {
+    font-family: 'Courier New', Courier, monospace;
+    color: #47BFFF;
+    margin: 0;
+    font-weight: bolder;
   }
 
   .project-title {
@@ -75,9 +87,26 @@
 
   .project-link {
     margin-top: 1.5rem;
-    color: var(--accent-color-2-lighter);
+    color: #47BFFF;
     margin-right: 0.5rem;
     margin-left: 0.5rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    background-color: #F4F5F6;
+    margin: 0 0.2rem 0.2rem 0;
+    padding: 0.2rem 0.6rem; /* Adjust padding to make it look more like a pill */
+    border-radius: 999px; /* Make the corners fully rounded */
+    font-size: 0.8rem;
+    color: #0073b1;
   }
 
   .tags {
@@ -144,12 +173,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background-color: var(--accent-color-1);
+    background-color: #333333;
     opacity: 85%;
-    color: var(--background-color);
+    color: #FDFFFC;
     padding: 1rem;
     box-sizing: border-box;
     z-index: 2; /* Lower z-index to slide over the image */
+  }
+
+  .project-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .project-title h4 {
+    font-family: 'Courier New', Courier, monospace;
+    color: #47BFFF;
+    margin: 0;
+    font-weight: bolder;
   }
 
   .project-title {
@@ -326,7 +369,7 @@
     font-family: 'Courier New', Courier, monospace;
     color: var(--accent-color-2);
     margin: 0;
-    font-weight: bold;
+    font-weight: bolder;
   }
 
   .project-title h2 {
@@ -372,9 +415,27 @@
   }
 
   .project-link {
-    color: var(--accent-color-2);
+    color: #47BFFF;
     margin-right: 0.5rem;
     margin-left: 0.5rem;
+
+  }
+
+  .tags {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    background-color: #F4F5F6;
+    margin: 0 0.2rem 0.2rem 0;
+    padding: 0.2rem 0.6rem; /* Adjust padding to make it look more like a pill */
+    border-radius: 999px; /* Make the corners fully rounded */
+    font-size: 0.75rem;
+    color: #0073b1;
   }
 
   .project.reverse .project-links {
