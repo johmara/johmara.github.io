@@ -4,26 +4,28 @@
     <h1 class="search-container title">All Publications</h1>
   </div>
   <div class="search-container">
-    <input type="text" [(ngModel)]="searchQuery" (input)="search()" placeholder="Search publications..."/>
+    <input type="text" #filterInput [(ngModel)]="searchQuery" (input)="search()" placeholder="Search publications..."/>
   </div>
   <table>
     <thead>
     <tr>
-      <th (click)="setSortField('date')">Date <i class="fa" [ngClass]="getSortIcon('date')"></i></th>
       <th (click)="setSortField('title')">Title <i class="fa" [ngClass]="getSortIcon('title')"></i></th>
       <th>Authors</th>
-      <th>BibTex</th>
+      <th (click)="setSortField('publishedIn')">Published In <i class="fa" [ngClass]="getSortIcon('publishedIn')"></i></th>
+      <th (click)="setSortField('date')">Year <i class="fa" [ngClass]="getSortIcon('date')"></i></th>
+      <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let publication of filteredPublications">
-      <td>{{ publication.date | date:'yyyy-MM-dd' }}</td>
-      <td><a [href]="publication.link">{{ publication.title }}</a></td>
+      <td><a [href]="publication.link" target="_blank">{{ publication.title }}</a></td>
       <td>{{ publication.authors }}</td>
+      <td><i class="fa fa-book" aria-hidden="true"></i> <em>{{ publication.publishedIn }}</em></td>
+      <td>({{ publication.date | date:'yyyy' }})</td>
       <td>
-        <button class="cite-btn" (click)="openBibtexView(publication)"><i class="fa fa-quote-left"
-                                                                       aria-hidden="true"></i> Cite
-        </button>
+        <button class="action-btn" (click)="openAbstractView(publication)">ABS</button>
+        <button class="action-btn" (click)="openBibtexView(publication)">BIB</button>
+        <button class="action-btn" (click)="openPdf(publication)">PDF</button>
       </td>
     </tr>
     </tbody>

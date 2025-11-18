@@ -8,8 +8,8 @@
 }
 
 table {
-  width: auto; /* Allow the table to take up only as much width as needed */
-  max-width: 80%; /* Set a maximum width for the table */
+  width: 80%; /* Fixed width to prevent resizing */
+  table-layout: fixed; /* Fixed layout prevents width changes */
   border-collapse: collapse;
 
   th, td {
@@ -30,48 +30,73 @@ table {
   }
 
   th:first-child, td:first-child {
-    width: 150px; /* Fixed width for Date column */
-  }
-
-  th:nth-child(4), td:nth-child(4) {
-    width: 100px; /* Fixed width for Cite column */
-    text-align: center; /* Center align text in Cite column */
-    vertical-align: top; /* Align text to the top */
+    width: 30%; /* Title column */
   }
 
   th:nth-child(2), td:nth-child(2) {
-    width: 50%; /* Larger width for Title column */
+    width: 20%; /* Authors column */
+  }
+
+  th:nth-child(3), td:nth-child(3) {
+    width: 22%; /* Published In column */
+  }
+
+  th:nth-child(4), td:nth-child(4) {
+    width: 8%; /* Year column */
+    text-align: center;
+  }
+
+  th:nth-child(5), td:nth-child(5) {
+    width: 20%; /* Actions column */
+    text-align: center;
+    vertical-align: top;
   }
 
   td {
     color: var(--main-color); /* Set text color to main color */
   }
 
-  td:nth-child(2) a {
+  td:first-child a {
     color: var(--accent-color-1); /* Set publication title color to accent color 1 */
     text-decoration: none; /* Remove underline */
     cursor: default; /* Change cursor to default */
   }
 
-  td:nth-child(2) a:hover {
+  td:first-child a:hover {
     color: var(--accent-color-2); /* Change color to accent color 2 on hover */
     cursor: pointer; /* Change cursor to pointer on hover */
   }
+
+  td:nth-child(3) {
+    font-style: italic;
+    
+    i {
+      margin-right: 0.25rem;
+      font-style: normal;
+    }
+  }
 }
 
-.cite-btn {
-  background: none;
-  border: none;
-  font-size: 0.9rem;
-  font-weight: normal;
-  color: var(--accent-color-2);
+.action-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--text-color);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
   cursor: pointer;
-  padding: 0;
-  margin-top: 1rem;
+  transition: all 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  background-color: var(--background-color-darker);
+  color: var(--text-color);
+  margin: 0 0.2rem;
 }
 
-.cite-btn:hover {
-  text-decoration: underline;
+.action-btn:hover {
+  background-color: var(--text-color);
+  color: var(--background-color-darker);
+  transform: translateY(-2px);
 }
 
 .header {

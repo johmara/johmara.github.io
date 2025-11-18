@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy, ViewChild, ElementRef} from '@angular/core';
 import {Publication} from '../models/publication.model';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {PublicationsService} from '../publications.service';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {PublicationDetailModalComponent} from "../publication-detail-modal/publication-detail-modal.component";
+import {VimModeService} from '../app/vim-mode.service';
 
 @Component({
   selector: 'app-publications-list',
@@ -13,18 +14,34 @@ import {PublicationDetailModalComponent} from "../publication-detail-modal/publi
   templateUrl: './publications-list.component.html',
   styleUrls: ['./publications-list.component.scss']
 })
-export class PublicationsListComponent implements OnInit {
+export class PublicationsListComponent implements OnInit, OnDestroy {
   publications: Publication[] = [];
   filteredPublications: Publication[] = [];
   searchQuery: string = '';
   sortField: string = 'year';
   sortDirection: 'asc' | 'desc' = 'asc';
 
-  constructor(private dialog: MatDialog, private publicationsService: PublicationsService) {
+  @ViewChild('filterInput') filterInput?: ElementRef<HTMLInputElement>;
+
+  constructor(
+    private dialog: MatDialog, 
+    private publicationsService: PublicationsService,
+    private vimModeService: VimModeService
+  ) {
   }
 
   ngOnInit() {
     this.loadPublications();
+    
+    // Register filter trigger callback for vim mode
+    this.vimModeService.onFilterTrigger = () => {
+      this.focusFilterInput();
+    };
+  }
+
+  ngOnDestroy() {
+    // Clean up callback when component is destroyed
+    this.vimModeService.onFilterTrigger = undefined;
   }
 
   loadPublications() {
@@ -79,6 +96,21 @@ export class PublicationsListComponent implements OnInit {
   return 'fa-sort';
 }
 
+  openAbstractView(publication: Publication): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = { publication, showBibtex: false };
+    dialogConfig.width = 'auto';
+    dialogConfig.height = 'auto';
+    dialogConfig.panelClass = 'custom-dialog-container';
+
+    // Close any open dialogs before opening a new one
+    if (this.dialog.openDialogs.length > 0) {
+      this.dialog.closeAll();
+    }
+
+    this.dialog.open(PublicationDetailModalComponent, dialogConfig);
+  }
+
   openBibtexView(publication: Publication): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = { publication, showBibtex: true };
@@ -92,6 +124,19 @@ export class PublicationsListComponent implements OnInit {
     }
 
     this.dialog.open(PublicationDetailModalComponent, dialogConfig);
+  }
+
+  openPdf(publication: Publication): void {
+    if (publication.link) {
+      window.open(publication.link, '_blank');
+    }
+  }
+
+  focusFilterInput(): void {
+    // Focus the filter input when triggered via vim mode
+    if (this.filterInput) {
+      this.filterInput.nativeElement.focus();
+    }
   }
 }
 

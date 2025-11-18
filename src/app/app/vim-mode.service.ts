@@ -29,6 +29,9 @@ export class VimModeService {
   
   // Callback for search trigger via '/'
   onSearchTrigger?: () => void;
+  
+  // Callback for filter trigger via 'i' (insert mode)
+  onFilterTrigger?: () => void;
 
   constructor() {
     this.initializeVimMode();
@@ -107,6 +110,15 @@ export class VimModeService {
       e.preventDefault();
       if (this.onSearchTrigger) {
         this.onSearchTrigger();
+      }
+      return;
+    }
+
+    // Handle filter trigger with 'i' (insert mode for filter)
+    if (e.key === 'i' && !isSearchInput) {
+      e.preventDefault();
+      if (this.onFilterTrigger) {
+        this.onFilterTrigger();
       }
       return;
     }
