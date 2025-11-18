@@ -165,6 +165,11 @@ export class PublicationDetailModalComponent implements OnInit, OnDestroy {
     this.dialogRef.close();
   }
 
+  onOverlayClick(event: MouseEvent): void {
+    // Close modal when clicking on the overlay (not on the modal content itself)
+    this.close();
+  }
+
   async toggleBibtex(): Promise<void> {
     if (this.showBibtex) {
       // Switch back to abstract

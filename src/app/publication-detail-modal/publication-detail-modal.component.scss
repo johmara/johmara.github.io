@@ -68,7 +68,18 @@
 .authors {
   font-weight: bold;
   color: var(--accent-color-2);
+  margin: 0 0 0.5rem 0;
+}
+
+.published-in {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--accent-color-3);
   margin: 0 0 1.5rem 0;
+}
+
+.published-in i {
+  margin-right: 0.25rem;
 }
 
 .abstract-section h3 {

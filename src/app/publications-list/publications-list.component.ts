@@ -50,9 +50,12 @@ export class PublicationsListComponent implements OnInit {
     this.filteredPublications.sort((a, b) => {
       let comparison = 0;
       const field = this.sortField as keyof Publication;
-      if (a[field] > b[field]) {
+      const aValue = a[field];
+      const bValue = b[field];
+      
+      if (aValue && bValue && aValue > bValue) {
         comparison = 1;
-      } else if (a[field] < b[field]) {
+      } else if (aValue && bValue && aValue < bValue) {
         comparison = -1;
       }
       return this.sortDirection === 'asc' ? comparison : -comparison;

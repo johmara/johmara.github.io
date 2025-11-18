@@ -5,6 +5,9 @@
         <h3 class="paper-title">{{ publication.title }}</h3>
         <p class="date">{{ publication.date }}</p>
         <p class="authors">{{ publication.authors | authorName }}</p>
+        <p class="published-in" *ngIf="publication.publishedIn">
+          <i class="fa fa-book" aria-hidden="true"></i> {{ publication.publishedIn }}
+        </p>
         <p class="description">{{ publication.description | slice:0:300 }}...</p>
       </div>
       <div class="button-container">

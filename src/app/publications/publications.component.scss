@@ -68,6 +68,17 @@ a {
   padding: 0.5rem 0;
 }
 
+.published-in {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--accent-color-3);
+  padding: 0.25rem 0;
+}
+
+.published-in i {
+  margin-right: 0.25rem;
+}
+
 .button-container {
   display: flex;
   gap: 0.5rem;

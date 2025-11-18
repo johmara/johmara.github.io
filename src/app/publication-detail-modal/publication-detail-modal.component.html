@@ -1,5 +1,5 @@
-<div class="modal-overlay">
-  <div class="modal-content">
+<div class="modal-overlay" (click)="onOverlayClick($event)">
+  <div class="modal-content" (click)="$event.stopPropagation()">
     <div class="modal-header">
       <h2>{{ publication.title }}</h2>
       <button class="close-btn" (click)="close()" aria-label="Close modal">×</button>
@@ -8,6 +8,9 @@
     <div class="modal-body">
       <p class="date">{{ publication.date }}</p>
       <p class="authors">{{ publication.authors }}</p>
+      <p class="published-in" *ngIf="publication.publishedIn">
+        <i class="fa fa-book" aria-hidden="true"></i> {{ publication.publishedIn }}
+      </p>
       
       <div class="abstract-section" *ngIf="!showBibtex">
         <h3>Abstract</h3>
