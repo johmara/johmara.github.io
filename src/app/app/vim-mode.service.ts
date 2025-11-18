@@ -5,13 +5,24 @@ export interface VimNavigationEvent {
   preventDefault: () => void;
 }
 
+export interface HintElement {
+  element: HTMLElement;
+  hint: string;
+  rect: DOMRect;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class VimModeService {
   private readonly VIM_MODE_KEY = 'vim-mode-preference';
   isVimModeEnabled = signal<boolean>(false);
+  isHintModeActive = signal<boolean>(false);
+  hintElements = signal<HintElement[]>([]);
   private keydownListener?: (e: KeyboardEvent) => void;
+  private currentHintInput = '';
+  private lastKeyPress = '';
+  private lastKeyTime = 0;
   
   // Callback for search trigger via '/'
   onSearchTrigger?: () => void;
@@ -70,12 +81,23 @@ export class VimModeService {
       return;
     }
 
-    // Don't trigger if modifier keys are pressed (except Shift for 'G')
+    // Handle hint mode
+    if (this.isHintModeActive()) {
+      this.handleHintModeInput(e);
+      return;
+    }
+
+    // Don't trigger if modifier keys are pressed (except Shift for special keys)
     if (e.ctrlKey || e.metaKey || e.altKey) {
       return;
     }
 
     const scrollAmount = 100; // pixels to scroll
+    const now = Date.now();
+    const isDoublePress = this.lastKeyPress === e.key && (now - this.lastKeyTime) < 500;
+    
+    this.lastKeyPress = e.key;
+    this.lastKeyTime = now;
 
     // Handle search trigger with '/'
     if (e.key === '/' && !isSearchInput) {
@@ -83,6 +105,46 @@ export class VimModeService {
       if (this.onSearchTrigger) {
         this.onSearchTrigger();
       }
+      return;
+    }
+
+    // Activate hint mode with 'f' (follow links)
+    if (e.key === 'f') {
+      e.preventDefault();
+      this.activateHintMode();
+      return;
+    }
+
+    // Neovim-style screen position jumps
+    if (e.key === 'H') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    if (e.key === 'M') {
+      e.preventDefault();
+      const middleScroll = (document.documentElement.scrollHeight - window.innerHeight) / 2;
+      window.scrollTo({ top: middleScroll, behavior: 'smooth' });
+      return;
+    }
+
+    if (e.key === 'L') {
+      e.preventDefault();
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      return;
+    }
+
+    // Ctrl+d and Ctrl+u for half page scrolling
+    if (e.key === 'd' && isDoublePress) {
+      e.preventDefault();
+      window.scrollBy({ top: window.innerHeight / 2, behavior: 'smooth' });
+      return;
+    }
+
+    if (e.key === 'u' && isDoublePress) {
+      e.preventDefault();
+      window.scrollBy({ top: -window.innerHeight / 2, behavior: 'smooth' });
       return;
     }
 
@@ -97,13 +159,132 @@ export class VimModeService {
         window.scrollBy({ top: -scrollAmount, behavior: 'smooth' });
         break;
       case 'g':
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // gg to go to top (double-tap g)
+        if (isDoublePress) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
         break;
       case 'G':
         e.preventDefault();
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         break;
     }
+  }
+
+  private activateHintMode(): void {
+    this.isHintModeActive.set(true);
+    this.currentHintInput = '';
+    
+    // Find all clickable/interactive elements
+    const selectors = [
+      'a[href]',
+      'button:not([disabled])',
+      'input:not([disabled])',
+      'textarea:not([disabled])',
+      '[role="button"]',
+      '[tabindex]:not([tabindex="-1"])',
+      '.publication-item',
+      '.project-card'
+    ];
+    
+    const elements = document.querySelectorAll(selectors.join(','));
+    const hints: HintElement[] = [];
+    
+    elements.forEach((el, index) => {
+      const htmlEl = el as HTMLElement;
+      const rect = htmlEl.getBoundingClientRect();
+      
+      // Only include visible elements
+      if (rect.width > 0 && rect.height > 0 && 
+          rect.top < window.innerHeight && rect.bottom > 0) {
+        hints.push({
+          element: htmlEl,
+          hint: this.generateHint(index),
+          rect: rect
+        });
+      }
+    });
+    
+    this.hintElements.set(hints);
+  }
+
+  private generateHint(index: number): string {
+    // Generate hints like: a, b, c, ... z, aa, ab, ac, ...
+    const chars = 'abcdefghijklmnopqrstuvwxyz';
+    let hint = '';
+    let num = index;
+    
+    do {
+      hint = chars[num % chars.length] + hint;
+      num = Math.floor(num / chars.length) - 1;
+    } while (num >= 0);
+    
+    return hint;
+  }
+
+  private handleHintModeInput(e: KeyboardEvent): void {
+    // Escape exits hint mode
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      this.deactivateHintMode();
+      return;
+    }
+
+    // Only process letter keys
+    if (e.key.length === 1 && /[a-z]/i.test(e.key)) {
+      e.preventDefault();
+      this.currentHintInput += e.key.toLowerCase();
+      
+      // Check for exact match
+      const hints = this.hintElements();
+      const match = hints.find(h => h.hint === this.currentHintInput);
+      
+      if (match) {
+        // Navigate to the element
+        this.navigateToElement(match.element);
+        this.deactivateHintMode();
+      } else {
+        // Filter hints to only show matching ones
+        const filteredHints = hints.filter(h => h.hint.startsWith(this.currentHintInput));
+        
+        if (filteredHints.length === 0) {
+          // No matches, exit hint mode
+          this.deactivateHintMode();
+        } else if (filteredHints.length === 1) {
+          // Only one match, navigate to it
+          this.navigateToElement(filteredHints[0].element);
+          this.deactivateHintMode();
+        } else {
+          // Multiple matches, update the hint list
+          this.hintElements.set(filteredHints);
+        }
+      }
+    }
+  }
+
+  private navigateToElement(element: HTMLElement): void {
+    // If it's a link, click it
+    if (element.tagName === 'A') {
+      element.click();
+    } 
+    // If it's a button or has click handler, click it
+    else if (element.tagName === 'BUTTON' || element.onclick || element.getAttribute('role') === 'button') {
+      element.click();
+    }
+    // For inputs, focus them
+    else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+      (element as HTMLInputElement).focus();
+    }
+    // For other elements, try clicking
+    else {
+      element.click();
+    }
+  }
+
+  private deactivateHintMode(): void {
+    this.isHintModeActive.set(false);
+    this.hintElements.set([]);
+    this.currentHintInput = '';
   }
 }

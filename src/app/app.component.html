@@ -11,6 +11,7 @@
 </div>
 
 <app-search-modal *ngIf="isSearchModalOpen" (close)="closeSearchModal()"></app-search-modal>
+<app-hint-overlay></app-hint-overlay>
 
 <!-- Vim mode tooltip toggle button -->
 <button 
@@ -26,11 +27,26 @@
 <!-- Vim mode tooltip -->
 <div class="vim-tooltip" *ngIf="vimModeService.isVimModeEnabled() && isVimTooltipOpen">
   <div class="vim-tooltip-header">Vim Navigation</div>
-  <div class="vim-tooltip-item"><kbd>/</kbd> Open search</div>
-  <div class="vim-tooltip-item"><kbd>j</kbd> Scroll down</div>
-  <div class="vim-tooltip-item"><kbd>k</kbd> Scroll up</div>
-  <div class="vim-tooltip-item"><kbd>g</kbd> Jump to top</div>
-  <div class="vim-tooltip-item"><kbd>G</kbd> Jump to bottom</div>
+  <div class="vim-tooltip-section">
+    <div class="vim-tooltip-section-title">Scroll</div>
+    <div class="vim-tooltip-item"><kbd>j</kbd> Down</div>
+    <div class="vim-tooltip-item"><kbd>k</kbd> Up</div>
+    <div class="vim-tooltip-item"><kbd>dd</kbd> Half page down</div>
+    <div class="vim-tooltip-item"><kbd>uu</kbd> Half page up</div>
+  </div>
+  <div class="vim-tooltip-section">
+    <div class="vim-tooltip-section-title">Jump</div>
+    <div class="vim-tooltip-item"><kbd>gg</kbd> Top</div>
+    <div class="vim-tooltip-item"><kbd>G</kbd> Bottom</div>
+    <div class="vim-tooltip-item"><kbd>H</kbd> High</div>
+    <div class="vim-tooltip-item"><kbd>M</kbd> Middle</div>
+    <div class="vim-tooltip-item"><kbd>L</kbd> Low</div>
+  </div>
+  <div class="vim-tooltip-section">
+    <div class="vim-tooltip-section-title">Actions</div>
+    <div class="vim-tooltip-item"><kbd>f</kbd> Follow links</div>
+    <div class="vim-tooltip-item"><kbd>/</kbd> Search</div>
+  </div>
 </div>
 
 <div class="mx-4">

@@ -114,7 +114,8 @@
   padding: 0.75rem;
   z-index: 999;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  min-width: 180px;
+  min-width: 200px;
+  max-width: 250px;
   opacity: 0.95;
   transition: all 0.2s ease;
   animation: slideUp 0.2s ease-out;
@@ -143,10 +144,24 @@
     padding-bottom: 0.25rem;
   }
 
+  .vim-tooltip-section {
+    margin-top: 0.5rem;
+  }
+
+  .vim-tooltip-section-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent-color-2);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+  }
+
   .vim-tooltip-item {
     font-size: 0.75rem;
     color: var(--main-color);
-    margin: 0.35rem 0;
+    margin: 0.25rem 0;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -157,7 +172,7 @@
       padding: 0.15rem 0.4rem;
       border-radius: 0.25rem;
       font-family: monospace;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 600;
       min-width: 1.5rem;
       text-align: center;

@@ -1,0 +1,11 @@
+@if (vimModeService.isHintModeActive()) {
+  <div class="hint-overlay">
+    @for (hint of vimModeService.hintElements(); track hint.hint) {
+      <div class="hint-marker" 
+           [style.top.px]="hint.rect.top" 
+           [style.left.px]="hint.rect.left">
+        <span class="hint-text">{{ hint.hint }}</span>
+      </div>
+    }
+  </div>
+}
