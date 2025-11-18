@@ -3,8 +3,8 @@
     @for (hint of vimModeService.hintElements(); track hint.hint; let i = $index) {
       <div class="hint-marker" 
            [class.selected]="i === vimModeService.currentHintIndex()"
-           [style.top.px]="hint.rect.top" 
-           [style.left.px]="hint.rect.left">
+           [style.top.px]="hint.absoluteTop" 
+           [style.left.px]="hint.absoluteLeft">
         <span class="hint-text">{{ hint.hint }}</span>
       </div>
     }

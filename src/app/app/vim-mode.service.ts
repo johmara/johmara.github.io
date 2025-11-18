@@ -9,6 +9,8 @@ export interface HintElement {
   element: HTMLElement;
   hint: string;
   rect: DOMRect;
+  absoluteTop: number;
+  absoluteLeft: number;
 }
 
 @Injectable({
@@ -176,7 +178,6 @@ export class VimModeService {
   private activateHintMode(): void {
     this.isHintModeActive.set(true);
     this.currentHintInput = '';
-    this.currentHintIndex.set(0);
     
     // Find all clickable/interactive elements on the entire page
     const selectors = [
@@ -210,12 +211,40 @@ export class VimModeService {
         hints.push({
           element: htmlEl,
           hint: this.generateHint(hints.length),
-          rect: rect
+          rect: rect,
+          absoluteTop: rect.top + window.scrollY,
+          absoluteLeft: rect.left + window.scrollX
         });
       }
     });
     
     this.hintElements.set(hints);
+    
+    // Find the hint closest to the center of the viewport
+    const viewportCenterY = window.innerHeight / 2;
+    const viewportCenterX = window.innerWidth / 2;
+    
+    let closestIndex = 0;
+    let minDistance = Infinity;
+    
+    hints.forEach((hint, index) => {
+      // Calculate center of the hint element
+      const hintCenterY = hint.rect.top + hint.rect.height / 2;
+      const hintCenterX = hint.rect.left + hint.rect.width / 2;
+      
+      // Calculate distance from viewport center
+      const distance = Math.sqrt(
+        Math.pow(hintCenterX - viewportCenterX, 2) + 
+        Math.pow(hintCenterY - viewportCenterY, 2)
+      );
+      
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = index;
+      }
+    });
+    
+    this.currentHintIndex.set(closestIndex);
   }
 
   private generateHint(index: number): string {
@@ -239,6 +268,49 @@ export class VimModeService {
       this.deactivateHintMode();
       return;
     }
+
+    // Handle double-tap 'g' for first hint on page (gg)
+    const now = Date.now();
+    const isDoubleG = this.lastKeyPress === 'g' && e.key === 'g' && (now - this.lastKeyTime) < 500;
+    
+    if (isDoubleG) {
+      e.preventDefault();
+      this.selectFirstHintOnPage();
+      this.lastKeyPress = '';
+      return;
+    }
+
+    // 'G' to select last hint on page
+    if (e.key === 'G') {
+      e.preventDefault();
+      this.selectLastHintOnPage();
+      return;
+    }
+
+    // 'H' to select first hint on screen (high)
+    if (e.key === 'H') {
+      e.preventDefault();
+      this.selectFirstHintOnScreen();
+      return;
+    }
+
+    // 'M' to select hint closest to middle of screen
+    if (e.key === 'M') {
+      e.preventDefault();
+      this.selectClosestHintToCenter();
+      return;
+    }
+
+    // 'L' to select last hint on screen (low)
+    if (e.key === 'L') {
+      e.preventDefault();
+      this.selectLastHintOnScreen();
+      return;
+    }
+
+    // Update last key press for double-tap detection
+    this.lastKeyPress = e.key;
+    this.lastKeyTime = now;
 
     // Tab/n to cycle forward through hints, Shift+Tab/N to cycle backward
     if (e.key === 'Tab' || e.key === 'n' || e.key === 'N') {
@@ -287,8 +359,9 @@ export class VimModeService {
       return;
     }
 
-    // Only process letter keys (excluding n/N which are used for navigation)
-    if (e.key.length === 1 && /[a-mo-z]/i.test(e.key)) {
+    // Only process letter keys (excluding g, n/N which are used for navigation)
+    // Also exclude uppercase letters that are used for navigation (G, H, L, M)
+    if (e.key.length === 1 && /[a-fh-mo-z]/i.test(e.key) && !e.shiftKey) {
       e.preventDefault();
       this.currentHintInput += e.key.toLowerCase();
       
@@ -359,7 +432,9 @@ export class VimModeService {
         hints.push({
           element: htmlEl,
           hint: this.generateHint(hints.length),
-          rect: rect
+          rect: rect,
+          absoluteTop: rect.top + window.scrollY,
+          absoluteLeft: rect.left + window.scrollX
         });
       }
     });
@@ -383,6 +458,134 @@ export class VimModeService {
     // For other elements, try clicking
     else {
       element.click();
+    }
+  }
+
+  private selectFirstHintOnScreen(): void {
+    const hints = this.hintElements();
+    if (hints.length === 0) return;
+
+    // Get fresh bounding rectangles to check current visibility
+    const visibleHints = hints
+      .map((hint, index) => {
+        const currentRect = hint.element.getBoundingClientRect();
+        return { hint, index, currentRect };
+      })
+      .filter(({ currentRect }) => {
+        // Check if element is currently visible in viewport
+        return currentRect.top >= 0 && currentRect.top < window.innerHeight;
+      });
+
+    if (visibleHints.length === 0) return;
+
+    // Find the hint with the smallest top position (first on screen)
+    const firstHint = visibleHints.reduce((prev, curr) => 
+      curr.currentRect.top < prev.currentRect.top ? curr : prev
+    );
+
+    this.currentHintIndex.set(firstHint.index);
+
+    // Scroll to the selected hint
+    if (firstHint.hint) {
+      firstHint.hint.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  private selectLastHintOnScreen(): void {
+    const hints = this.hintElements();
+    if (hints.length === 0) return;
+
+    // Get fresh bounding rectangles to check current visibility
+    const visibleHints = hints
+      .map((hint, index) => {
+        const currentRect = hint.element.getBoundingClientRect();
+        return { hint, index, currentRect };
+      })
+      .filter(({ currentRect }) => {
+        // Check if element is currently visible in viewport
+        return currentRect.bottom > 0 && currentRect.bottom <= window.innerHeight;
+      });
+
+    if (visibleHints.length === 0) return;
+
+    // Find the hint with the largest bottom position (last on screen)
+    const lastHint = visibleHints.reduce((prev, curr) => 
+      curr.currentRect.bottom > prev.currentRect.bottom ? curr : prev
+    );
+
+    this.currentHintIndex.set(lastHint.index);
+
+    // Scroll to the selected hint
+    if (lastHint.hint) {
+      lastHint.hint.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  private selectClosestHintToCenter(): void {
+    const hints = this.hintElements();
+    if (hints.length === 0) return;
+
+    const viewportCenterY = window.innerHeight / 2;
+    const viewportCenterX = window.innerWidth / 2;
+    
+    let closestIndex = 0;
+    let minDistance = Infinity;
+    
+    hints.forEach((hint, index) => {
+      // Get fresh bounding rectangle
+      const currentRect = hint.element.getBoundingClientRect();
+      
+      // Calculate center of the hint element
+      const hintCenterY = currentRect.top + currentRect.height / 2;
+      const hintCenterX = currentRect.left + currentRect.width / 2;
+      
+      // Calculate distance from viewport center
+      const distance = Math.sqrt(
+        Math.pow(hintCenterX - viewportCenterX, 2) + 
+        Math.pow(hintCenterY - viewportCenterY, 2)
+      );
+      
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = index;
+      }
+    });
+    
+    this.currentHintIndex.set(closestIndex);
+    
+    // Scroll to the selected hint
+    const selectedHint = hints[closestIndex];
+    if (selectedHint) {
+      selectedHint.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  private selectFirstHintOnPage(): void {
+    const hints = this.hintElements();
+    if (hints.length === 0) return;
+
+    // Select the very first hint (index 0)
+    this.currentHintIndex.set(0);
+
+    // Scroll to the selected hint
+    const firstHint = hints[0];
+    if (firstHint) {
+      firstHint.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  private selectLastHintOnPage(): void {
+    const hints = this.hintElements();
+    if (hints.length === 0) return;
+
+    // Select the very last hint
+    const lastIndex = hints.length - 1;
+    this.currentHintIndex.set(lastIndex);
+
+    // Scroll to the selected hint
+    const lastHint = hints[lastIndex];
+    if (lastHint) {
+      lastHint.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }
 

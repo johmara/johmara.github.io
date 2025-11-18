@@ -12,3 +12,4 @@ import { VimModeService } from '../vim-mode.service';
 export class HintOverlayComponent {
   constructor(public vimModeService: VimModeService) {}
 }
+

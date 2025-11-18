@@ -14,8 +14,8 @@
 <app-hint-overlay></app-hint-overlay>
 
 <!-- Vim mode tooltip toggle button -->
-<button 
-  class="vim-tooltip-toggle" 
+<button
+  class="vim-tooltip-toggle"
   *ngIf="vimModeService.isVimModeEnabled()"
   (click)="toggleVimTooltip()"
   [class.active]="isVimTooltipOpen"
@@ -26,34 +26,53 @@
 
 <!-- Vim mode tooltip -->
 <div class="vim-tooltip" *ngIf="vimModeService.isVimModeEnabled() && isVimTooltipOpen">
-  <div class="vim-tooltip-header">Vim Navigation</div>
-  <div class="vim-tooltip-section">
-    <div class="vim-tooltip-section-title">Scroll</div>
-    <div class="vim-tooltip-item"><kbd>j</kbd> Down</div>
-    <div class="vim-tooltip-item"><kbd>k</kbd> Up</div>
-    <div class="vim-tooltip-item"><kbd>dd</kbd> Half page down</div>
-    <div class="vim-tooltip-item"><kbd>uu</kbd> Half page up</div>
-  </div>
-  <div class="vim-tooltip-section">
-    <div class="vim-tooltip-section-title">Jump</div>
-    <div class="vim-tooltip-item"><kbd>gg</kbd> Top</div>
-    <div class="vim-tooltip-item"><kbd>G</kbd> Bottom</div>
-    <div class="vim-tooltip-item"><kbd>H</kbd> High</div>
-    <div class="vim-tooltip-item"><kbd>M</kbd> Middle</div>
-    <div class="vim-tooltip-item"><kbd>L</kbd> Low</div>
-  </div>
-  <div class="vim-tooltip-section">
-    <div class="vim-tooltip-section-title">Actions</div>
-    <div class="vim-tooltip-item"><kbd>f</kbd> Follow links</div>
-    <div class="vim-tooltip-item"><kbd>/</kbd> Search</div>
-  </div>
-  <div class="vim-tooltip-section">
-    <div class="vim-tooltip-section-title">Hint Mode</div>
-    <div class="vim-tooltip-item"><kbd>n</kbd> Next hint</div>
-    <div class="vim-tooltip-item"><kbd>N</kbd> Previous hint</div>
-    <div class="vim-tooltip-item"><kbd>Enter</kbd> Activate hint</div>
-    <div class="vim-tooltip-item"><kbd>j/k</kbd> Scroll</div>
-  </div>
+  <div class="vim-tooltip-header">{{ vimModeService.isHintModeActive() ? 'Hint Mode' : 'Vim Navigation' }}</div>
+
+  @if (vimModeService.isHintModeActive()) {
+    <!-- Show only hint mode shortcuts when hint mode is active -->
+    <div class="vim-tooltip-section">
+      <div class="vim-tooltip-section-title">Jump to Hint</div>
+      <div class="vim-tooltip-item"><kbd>gg</kbd> First on page</div>
+      <div class="vim-tooltip-item"><kbd>G</kbd> Last on page</div>
+      <div class="vim-tooltip-item"><kbd>H</kbd> Top of screen</div>
+      <div class="vim-tooltip-item"><kbd>M</kbd> Middle of screen</div>
+      <div class="vim-tooltip-item"><kbd>L</kbd> Bottom of screen</div>
+    </div>
+    <div class="vim-tooltip-section">
+      <div class="vim-tooltip-section-title">Navigate</div>
+      <div class="vim-tooltip-item"><kbd>n</kbd> Next hint</div>
+      <div class="vim-tooltip-item"><kbd>N</kbd> Previous hint</div>
+      <div class="vim-tooltip-item"><kbd>j</kbd> Scroll down</div>
+      <div class="vim-tooltip-item"><kbd>k</kbd> Scroll up</div>
+    </div>
+    <div class="vim-tooltip-section">
+      <div class="vim-tooltip-section-title">Actions</div>
+      <div class="vim-tooltip-item"><kbd>Enter</kbd> Activate hint</div>
+      <div class="vim-tooltip-item"><kbd>esc</kbd> Exit hint mode</div>
+    </div>
+  } @else {
+    <!-- Show all vim shortcuts when hint mode is not active -->
+    <div class="vim-tooltip-section">
+      <div class="vim-tooltip-section-title">Scroll</div>
+      <div class="vim-tooltip-item"><kbd>j</kbd> Down</div>
+      <div class="vim-tooltip-item"><kbd>k</kbd> Up</div>
+      <div class="vim-tooltip-item"><kbd>dd</kbd> Half page down</div>
+      <div class="vim-tooltip-item"><kbd>uu</kbd> Half page up</div>
+    </div>
+    <div class="vim-tooltip-section">
+      <div class="vim-tooltip-section-title">Jump</div>
+      <div class="vim-tooltip-item"><kbd>gg</kbd> Top</div>
+      <div class="vim-tooltip-item"><kbd>G</kbd> Bottom</div>
+      <div class="vim-tooltip-item"><kbd>H</kbd> High</div>
+      <div class="vim-tooltip-item"><kbd>M</kbd> Middle</div>
+      <div class="vim-tooltip-item"><kbd>L</kbd> Low</div>
+    </div>
+    <div class="vim-tooltip-section">
+      <div class="vim-tooltip-section-title">Actions</div>
+      <div class="vim-tooltip-item"><kbd>f</kbd> Follow links</div>
+      <div class="vim-tooltip-item"><kbd>/</kbd> Search</div>
+    </div>
+  }
 </div>
 
 <div class="mx-4">

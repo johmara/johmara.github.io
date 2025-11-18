@@ -26,6 +26,7 @@ body {
   --accent-color-2: #0073b1; /* Second accent color */
   --accent-color-2-lighter: #47BFFF;
   --accent-color-3: #4cef99; /* Second accent color */
+  --accent-color-hint: #ff6b35; /* Hint color - vibrant orange */
   --font-inter: 'Inter', sans-serif; /* Load the Inter font */
   --code-background: #f5f5f5;
   --text-color: #000;
@@ -40,6 +41,7 @@ body {
   --accent-color-2: #4da6ff;
   --accent-color-2-lighter: #66b3ff;
   --accent-color-3: #5dffa7;
+  --accent-color-hint: #ff8c61; /* Lighter orange for dark mode */
   --code-background: #2d2d2d;
   --text-color: #e0e0e0;
 }
