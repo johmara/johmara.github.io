@@ -8,7 +8,7 @@
         <p class="description">{{ publication.description | slice:0:300 }}...</p>
       </div>
       <div class="button-container">
-        <button *ngIf="publication.doi != null" (click)="fetchBibtex(publication.doi)" class="action-btn bib-btn">
+        <button *ngIf="publication.doi != null" (click)="openBibtexView(publication)" class="action-btn bib-btn">
           BIB
         </button>
         <a [href]="publication.link" target="_blank" class="action-btn pdf-btn">

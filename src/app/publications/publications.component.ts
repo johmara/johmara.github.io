@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthorNamePipe } from '../pipes/author-name.pipe';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { BibtexModalComponent } from '../bibtex-modal/bibtex-modal.component';
 import { PublicationDetailModalComponent } from '../publication-detail-modal/publication-detail-modal.component';
-import { formatBibTeX } from "../utils/bibtex-formatter";
 import { PublicationsService } from "../publications.service";
 import { Publication } from "../models/publication.model";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -63,9 +61,9 @@ export class PublicationsComponent {
     this.publications.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   }
 
-  openPublicationDetail(publication: Publication): void {
+  openPublicationDetail(publication: Publication, showBibtex: boolean = false): void {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.data = { publication };
+    dialogConfig.data = { publication, showBibtex };
     dialogConfig.width = 'auto';
     dialogConfig.height = 'auto';
     dialogConfig.panelClass = 'custom-dialog-container';
@@ -78,37 +76,8 @@ export class PublicationsComponent {
     this.dialog.open(PublicationDetailModalComponent, dialogConfig);
   }
 
-  async fetchBibtex(doi: string) {
-    const url = `https://api.crossref.org/works/${encodeURIComponent(doi)}/transform/application/x-bibtex`;
-    try {
-      const response = await fetch(url, {
-        headers: {
-          'Accept': 'application/x-bibtex'
-        }
-      });
-
-      if (!response.ok) {
-        throw new Error(`Error fetching BibTeX: ${response.statusText}`);
-      }
-
-      const bibtex = await response.text();
-      const formattedBibTex = formatBibTeX(bibtex);
-      const dialogConfig = new MatDialogConfig();
-      dialogConfig.data = { bibtex: formattedBibTex };
-      dialogConfig.width = 'auto';
-      dialogConfig.height = 'auto';
-      dialogConfig.position = { top: '10px' };
-      dialogConfig.panelClass = 'custom-dialog-container';
-
-      // Close any open dialogs before opening a new one
-      if (this.dialog.openDialogs.length > 0) {
-        this.dialog.closeAll();
-      }
-
-      this.dialog.open(BibtexModalComponent, dialogConfig);
-    } catch (error) {
-      console.error(error);
-    }
+  openBibtexView(publication: Publication): void {
+    this.openPublicationDetail(publication, true);
   }
 
   protected readonly faArrowUpRight = faArrowRight;

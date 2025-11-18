@@ -21,8 +21,8 @@
       <td><a [href]="publication.link">{{ publication.title }}</a></td>
       <td>{{ publication.authors }}</td>
       <td>
-        <button class="cite-btn" (click)="fetchBibtex(publication.doi)"><i class="fa fa-quote-left"
-                                                                           aria-hidden="true"></i> Cite
+        <button class="cite-btn" (click)="openBibtexView(publication)"><i class="fa fa-quote-left"
+                                                                       aria-hidden="true"></i> Cite
         </button>
       </td>
     </tr>

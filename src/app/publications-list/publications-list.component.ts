@@ -4,8 +4,7 @@ import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {PublicationsService} from '../publications.service';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {formatBibTeX} from "../utils/bibtex-formatter";
-import {BibtexModalComponent} from "../bibtex-modal/bibtex-modal.component";
+import {PublicationDetailModalComponent} from "../publication-detail-modal/publication-detail-modal.component";
 
 @Component({
   selector: 'app-publications-list',
@@ -77,36 +76,19 @@ export class PublicationsListComponent implements OnInit {
   return 'fa-sort';
 }
 
-  async fetchBibtex(doi: string) {
-    const url = `https://api.crossref.org/works/${encodeURIComponent(doi)}/transform/application/x-bibtex`;
-    try {
-      const response = await fetch(url, {
-        headers: {
-          'Accept': 'application/x-bibtex'
-        }
-      });
+  openBibtexView(publication: Publication): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = { publication, showBibtex: true };
+    dialogConfig.width = 'auto';
+    dialogConfig.height = 'auto';
+    dialogConfig.panelClass = 'custom-dialog-container';
 
-      if (!response.ok) {
-        throw new Error(`Error fetching BibTeX: ${response.statusText}`);
-      }
-
-      const bibtex = await response.text();
-      const formattedBibTex = formatBibTeX(bibtex);
-      const dialogConfig = new MatDialogConfig();
-      dialogConfig.data = { bibtex: formattedBibTex };
-      dialogConfig.width = 'auto';
-      dialogConfig.height = 'auto';
-      dialogConfig.position = { top: '10px' };
-      dialogConfig.panelClass = 'custom-dialog-container';
-
-      // Close any open dialogs before opening a new one
-      if (this.dialog.openDialogs.length > 0) {
-        this.dialog.closeAll();
-      }
-
-      this.dialog.open(BibtexModalComponent, dialogConfig);
-    } catch (error) {
-      console.error(error);
+    // Close any open dialogs before opening a new one
+    if (this.dialog.openDialogs.length > 0) {
+      this.dialog.closeAll();
     }
+
+    this.dialog.open(PublicationDetailModalComponent, dialogConfig);
   }
 }
+

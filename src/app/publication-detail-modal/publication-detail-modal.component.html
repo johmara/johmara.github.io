@@ -9,21 +9,31 @@
       <p class="date">{{ publication.date }}</p>
       <p class="authors">{{ publication.authors }}</p>
       
-      <div class="abstract-section">
+      <div class="abstract-section" *ngIf="!showBibtex">
         <h3>Abstract</h3>
         <p class="abstract">{{ publication.description }}</p>
+      </div>
+      
+      <div class="bibtex-section" *ngIf="showBibtex">
+        <h3>BibTeX</h3>
+        <pre class="bibtex-content">{{ bibtex }}</pre>
       </div>
     </div>
     
     <div class="modal-footer">
-      <button *ngIf="publication.doi" class="action-btn" (click)="copyCitation()">
-        {{ isLoadingBibtex ? 'Loading...' : 'Copy Citation' }}
-      </button>
-      <button class="action-btn" (click)="openPDF()">
-        PDF
-      </button>
+      <div class="action-buttons-left">
+        <button *ngIf="publication.doi" class="action-btn" [class.active]="showBibtex" (click)="toggleBibtex()">
+          {{ isLoadingBibtex ? 'Loading...' : (showBibtex ? 'Abstract' : 'BIB') }}
+        </button>
+        <button *ngIf="publication.doi" class="action-btn" (click)="copyCitation()">
+          Copy Citation<span *ngIf="vimModeService.isVimModeEnabled()" class="vim-hint"> (yy)</span>
+        </button>
+        <button class="action-btn" (click)="openPDF()">
+          PDF<span *ngIf="vimModeService.isVimModeEnabled()" class="vim-hint"> (p)</span>
+        </button>
+      </div>
       <button class="action-btn close-action" (click)="close()">
-        Close
+        Close<span *ngIf="vimModeService.isVimModeEnabled()" class="vim-hint"> (q)</span>
       </button>
     </div>
   </div>

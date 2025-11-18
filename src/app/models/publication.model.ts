@@ -5,5 +5,6 @@ export interface Publication {
   description: string;
   link: string;
   doi: string;
+  publishedIn: string;
   featured: boolean;
 }
