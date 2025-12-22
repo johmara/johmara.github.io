@@ -16,17 +16,98 @@ export function parseBibTeX(bibtex: string): BibTeXEntry[] {
     const fieldsString = match[3];
     const fields: { [key: string]: string } = {};
 
-    fieldsString.split(',').forEach(field => {
-      const [key, value] = field.split('=').map(s => s.trim());
-      if (key && value) {
-        fields[key] = value.replace(/[{}]/g, ''); // Remove curly braces
-      }
+    // Parse fields respecting braces and quotes
+    const parsedFields = parseFields(fieldsString);
+    parsedFields.forEach(({ key, value }) => {
+      fields[key] = value;
     });
 
     entries.push({ type, citationKey, fields });
   }
 
   return entries;
+}
+
+function parseFields(fieldsString: string): Array<{ key: string; value: string }> {
+  const fields: Array<{ key: string; value: string }> = [];
+  let currentField = '';
+  let braceDepth = 0;
+  let inQuotes = false;
+  let escaped = false;
+
+  for (let i = 0; i < fieldsString.length; i++) {
+    const char = fieldsString[i];
+
+    if (escaped) {
+      currentField += char;
+      escaped = false;
+      continue;
+    }
+
+    if (char === '\\') {
+      currentField += char;
+      escaped = true;
+      continue;
+    }
+
+    if (char === '"' && braceDepth === 0) {
+      inQuotes = !inQuotes;
+      currentField += char;
+      continue;
+    }
+
+    if (char === '{') {
+      braceDepth++;
+      currentField += char;
+      continue;
+    }
+
+    if (char === '}') {
+      braceDepth--;
+      currentField += char;
+      continue;
+    }
+
+    // Only split on comma when outside braces and quotes
+    if (char === ',' && braceDepth === 0 && !inQuotes) {
+      const parsed = parseField(currentField.trim());
+      if (parsed) {
+        fields.push(parsed);
+      }
+      currentField = '';
+      continue;
+    }
+
+    currentField += char;
+  }
+
+  // Don't forget the last field
+  if (currentField.trim()) {
+    const parsed = parseField(currentField.trim());
+    if (parsed) {
+      fields.push(parsed);
+    }
+  }
+
+  return fields;
+}
+
+function parseField(field: string): { key: string; value: string } | null {
+  const equalIndex = field.indexOf('=');
+  if (equalIndex === -1) {
+    return null;
+  }
+
+  const key = field.substring(0, equalIndex).trim();
+  let value = field.substring(equalIndex + 1).trim();
+
+  // Remove surrounding braces or quotes
+  if ((value.startsWith('{') && value.endsWith('}')) ||
+      (value.startsWith('"') && value.endsWith('"'))) {
+    value = value.substring(1, value.length - 1);
+  }
+
+  return { key, value };
 }
 
 export function formatBibTeXEntry(entry: BibTeXEntry): string {
