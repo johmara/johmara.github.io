@@ -1,6 +1,7 @@
 import { Component, EventEmitter, HostListener, OnInit, Output, inject, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 
 import { PublicationsService } from '../../publications.service';
@@ -37,6 +38,7 @@ export class SearchModalComponent implements OnInit {
   
   private publicationsService = inject(PublicationsService);
   private projectsService = inject(ProjectsService);
+  private router = inject(Router);
   vimModeService = inject(VimModeService);
 
   ngOnInit(): void {
@@ -46,14 +48,14 @@ export class SearchModalComponent implements OnInit {
         type: 'page',
         title: 'Publications',
         description: 'View all publications and research papers',
-        link: '#/publications',
+        link: '/publications',
         metadata: 'All Publications, Research Papers, Academic Work'
       },
       {
         type: 'page',
         title: 'Home',
         description: 'Main page with overview of publications and projects',
-        link: '#/',
+        link: '/',
         metadata: 'Homepage, Overview, Landing Page'
       }
     ];
@@ -181,8 +183,8 @@ export class SearchModalComponent implements OnInit {
 
   openResult(result: SearchResult): void {
     if (result.type === 'page') {
-      // Internal navigation - use router
-      window.location.href = result.link;
+      // Internal navigation - use Angular Router
+      this.router.navigateByUrl(result.link);
     } else {
       // External link - open in new tab
       window.open(result.link, '_blank');
