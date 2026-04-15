@@ -8,11 +8,12 @@ import { VimModeToggleComponent } from './app/vim-mode-toggle/vim-mode-toggle.co
 import { SearchModalComponent } from './app/search-modal/search-modal.component';
 import { HintOverlayComponent } from './app/hint-overlay/hint-overlay.component';
 import { VimModeService } from './app/vim-mode.service';
+import { ToolsDropdownComponent } from './app/tools-dropdown/tools-dropdown.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HomeComponent, DarkModeToggleComponent, VimModeToggleComponent, SearchModalComponent, HintOverlayComponent],
+  imports: [CommonModule, RouterOutlet, HomeComponent, DarkModeToggleComponent, VimModeToggleComponent, SearchModalComponent, HintOverlayComponent, ToolsDropdownComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
