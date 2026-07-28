@@ -99,6 +99,19 @@ table {
   transform: translateY(-2px);
 }
 
+.status-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--background-color-darker);
+  background-color: var(--accent-color-2);
+}
+
 .header {
   align-self: flex-start;
   margin: 0 0 0 10%;

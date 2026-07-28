@@ -2,7 +2,7 @@
   <div class="publications-container">
     <div class="publication-card" *ngFor="let publication of getPublications()">
       <div class="card-content" (click)="openPublicationDetail(publication)">
-        <h3 class="paper-title">{{ publication.title }}</h3>
+        <h3 class="paper-title">{{ publication.title }}<span *ngIf="publication.status === 'accepted'" class="status-badge">Accepted</span></h3>
         <p class="authors">{{ publication.authors | authorName }}</p>
         <p class="published-in" *ngIf="publication.publishedIn">
           <i class="fa fa-book" aria-hidden="true"></i> {{ publication.publishedIn }} ({{ publication.date | date:'yyyy' }})
@@ -14,10 +14,10 @@
         <button class="action-btn abs-btn" (click)="openPublicationDetail(publication)">
           ABS
         </button>
-        <button *ngIf="publication.doi != null" (click)="openBibtexView(publication)" class="action-btn bib-btn">
+        <button *ngIf="publication.doi" (click)="openBibtexView(publication)" class="action-btn bib-btn">
           BIB
         </button>
-        <a [href]="publication.link" target="_blank" class="action-btn pdf-btn">
+        <a *ngIf="publication.link" [href]="publication.link" target="_blank" class="action-btn pdf-btn">
           PDF
         </a>
       </div>

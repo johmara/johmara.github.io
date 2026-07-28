@@ -2,7 +2,7 @@
   <div class="modal-content" (click)="$event.stopPropagation()">
     <div class="modal-header">
       <div class="header-content">
-        <h2>{{ publication.title }}</h2>
+        <h2>{{ publication.title }}<span *ngIf="publication.status === 'accepted'" class="status-badge">Accepted</span></h2>
         <p class="authors">{{ publication.authors }}</p>
         <p class="published-in" *ngIf="publication.publishedIn">
           <i class="fa fa-book" aria-hidden="true"></i> {{ publication.publishedIn }} ({{ publication.date | date:'yyyy' }})
@@ -31,7 +31,7 @@
         <button *ngIf="publication.doi" class="action-btn" (click)="copyCitation()">
           Copy Citation<span *ngIf="vimModeService.isVimModeEnabled()" class="vim-hint"> (yy)</span>
         </button>
-        <button class="action-btn" (click)="openPDF()">
+        <button *ngIf="publication.link" class="action-btn" (click)="openPDF()">
           PDF<span *ngIf="vimModeService.isVimModeEnabled()" class="vim-hint"> (p)</span>
         </button>
       </div>

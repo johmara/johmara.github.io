@@ -41,6 +41,20 @@
   font-size: 1.5rem;
 }
 
+.status-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  vertical-align: middle;
+  color: var(--background-color-darker);
+  background-color: var(--accent-color-2);
+}
+
 .modal-header .authors {
   font-weight: bold;
   color: var(--accent-color-2);

@@ -7,5 +7,6 @@ export interface Publication {
   doi: string;
   publishedIn?: string;
   featured: boolean;
+  status?: 'accepted' | 'published';
 }
 

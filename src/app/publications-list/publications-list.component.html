@@ -18,14 +18,18 @@
     </thead>
     <tbody>
     <tr *ngFor="let publication of filteredPublications">
-      <td><a [href]="publication.link" target="_blank">{{ publication.title }}</a></td>
+      <td>
+        <a *ngIf="publication.link; else noLink" [href]="publication.link" target="_blank">{{ publication.title }}</a>
+        <ng-template #noLink>{{ publication.title }}</ng-template>
+        <span *ngIf="publication.status === 'accepted'" class="status-badge">Accepted</span>
+      </td>
       <td>{{ publication.authors }}</td>
       <td><i class="fa fa-book" aria-hidden="true"></i> <em>{{ publication.publishedIn }}</em></td>
       <td>({{ publication.date | date:'yyyy' }})</td>
       <td>
         <button class="action-btn" (click)="openAbstractView(publication)">ABS</button>
-        <button class="action-btn" (click)="openBibtexView(publication)">BIB</button>
-        <button class="action-btn" (click)="openPdf(publication)">PDF</button>
+        <button *ngIf="publication.doi" class="action-btn" (click)="openBibtexView(publication)">BIB</button>
+        <button *ngIf="publication.link" class="action-btn" (click)="openPdf(publication)">PDF</button>
       </td>
     </tr>
     </tbody>

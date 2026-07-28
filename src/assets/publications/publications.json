@@ -7,7 +7,8 @@
     "link": "",
     "doi": "",
     "publishedIn": "IEEE/ACM International Conference on Automated Software Engineering (ASE)",
-    "featured": false
+    "featured": false,
+    "status": "accepted"
   },
   {
     "date": "2026-09-29",
@@ -17,7 +18,8 @@
     "link": "",
     "doi": "",
     "publishedIn": "International Working Conference on Variability Modelling of Software-Intensive Systems (Variability)",
-    "featured": true
+    "featured": true,
+    "status": "accepted"
   },
   {
     "date": "2026-09-29",
@@ -27,7 +29,8 @@
     "link": "",
     "doi": "",
     "publishedIn": "International Working Conference on Variability Modelling of Software-Intensive Systems (Variability)",
-    "featured": true
+    "featured": true,
+    "status": "accepted"
   },
   {
     "date": "2026-09-29",
@@ -37,7 +40,8 @@
     "link": "",
     "doi": "",
     "publishedIn": "International Working Conference on Variability Modelling of Software-Intensive Systems (Variability) — Doctoral Symposium",
-    "featured": true
+    "featured": true,
+    "status": "accepted"
   },
   {
     "date": "2025-09-01",

@@ -224,6 +224,8 @@ export class PublicationDetailModalComponent implements OnInit, OnDestroy {
   }
 
   openPDF(): void {
-    window.open(this.publication.link, '_blank');
+    if (this.publication.link) {
+      window.open(this.publication.link, '_blank');
+    }
   }
 }
