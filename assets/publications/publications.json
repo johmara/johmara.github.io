@@ -1,5 +1,49 @@
 [
   {
+    "date": "2026-10-12",
+    "title": "Agent-HAnS: Maintaining Feature and Code Traceability in Agentic Development",
+    "authors": "Johan Martinson, Jacob Bengtsson, Moltas Hultin, Kevin Hermann, Thorsten Berger",
+    "description": "Agentic coding tools using LLMs enable developers to quickly generate software. However, developers quickly lose the overview over their increasingly complex codebases. During code generation, no knowledge about what features exist or where they are implemented is documented. We present Agent-HAnS, an agentic workflow which instructs the LLM to update a feature model and generate embedded feature annotations after each code-generation step. It visualizes the evolving structure on a live dashboard served via a Model Context Protocol server. We demonstrate Agent-HAnS on a C#/.NET 9 web API evolved through 27 prompts across 10 evolution steps, while automatically maintaining the feature model with no active annotation effort from the developer. A demo video is available at https://youtu.be/Nb-eDrGokI8. Code and data are available at https://github.com/johmara/agentic-traceability-maintenance-dataset.",
+    "link": "",
+    "doi": "",
+    "publishedIn": "IEEE/ACM International Conference on Automated Software Engineering (ASE)",
+    "featured": false,
+    "status": "accepted"
+  },
+  {
+    "date": "2026-09-29",
+    "title": "Towards Decentralized Feature Models",
+    "authors": "Mukelabai Mukelabai, Johan Martinson, Wardah Mahmood, Thorsten Berger, Rafael Capilla",
+    "description": "Feature models are foundational to variability management, yet most existing techniques assume a conceptually single feature model—even when technically partitioned across files or views. This assumption is increasingly misaligned with modular and ecosystem-scale development, where variability is distributed across subsystems owned and evolved by different teams. In this paper, we advance the notion of decentralized feature modeling, in which multiple asset-level feature models coexist, each with an explicit scope and owner, and global consistency being achieved through capability-based cross-model constraints rather than reconstruction of a monolithic model. We demonstrate how decentralized models can be structured, how capabilities express cross-team dependencies, and how distributed configuration ensures global satisfiability while preserving local autonomy. In fact, no existing modular, multi-view, or multi-level feature modeling technique fully addresses placement, independent configuration, and incremental analysis in an integrated manner. We derive requirements for decentralized modeling and identify research challenges around decomposition, capability governance, cross-model reasoning, and scalable distributed analysis.",
+    "link": "",
+    "doi": "",
+    "publishedIn": "International Working Conference on Variability Modelling of Software-Intensive Systems (Variability)",
+    "featured": true,
+    "status": "accepted"
+  },
+  {
+    "date": "2026-09-29",
+    "title": "Overhead of Recording Feature Locations with Embedded Annotations",
+    "authors": "Johan Martinson, Kevin Hermann, Thorsten Berger",
+    "description": "Development processes are often organized around features. Whether to maintain or evolve features, developers frequently need to find their locations in the codebase. However, these locations are rarely recorded, which results in a substantial effort in locating features—a challenge that will intensify with the increase of AI-generated code. Many techniques, such as automatic feature location, external traceability databases, or modular feature-oriented programming, facilitate feature location, but are either imprecise, require extensive maintenance, or are hard to adopt in practice. Embedded feature annotations offer a lightweight alternative that enables developers to record feature locations directly in implementation assets as they write them. While prior work has demonstrated long-term benefits of embedded feature annotations by reducing feature location overhead, the time and workload required to create them during development remains unknown. We conducted a controlled experiment with 15 professional developers recording feature locations in an industrial software system using embedded feature annotations. Our results show that creating embedded feature annotations entails only small overhead, requiring only 6.27% of development time with no meaningful increase in perceived workload. Although participants recognized their long-term value, they still expressed challenges in adopting them into their usual workflow—calling for more immediate benefits during development, and better tool support to reduce the effort of creating annotations.",
+    "link": "",
+    "doi": "",
+    "publishedIn": "International Working Conference on Variability Modelling of Software-Intensive Systems (Variability)",
+    "featured": true,
+    "status": "accepted"
+  },
+  {
+    "date": "2026-09-29",
+    "title": "Generative Feature Re-Engineering in Microservice Architectures",
+    "authors": "Johan Martinson",
+    "description": "Managing variant-rich systems from a single, evolving microservice codebase demands that developers know where features live, how their implementations are distributed across services, and how to make a located feature optional at runtime. Each layer compounds the previous: feature location fades as knowledge leaves the organization, centralized feature models do not scale across independently-owned repositories, and the re-engineering step that turns a located feature into a runtime variation point has no automated support. We present an ongoing PhD research program that develops and evaluates GRETA (Generative Re-Engineering via Traceability Annotations), an LLM-driven workflow in which AI agents guided by embedded feature annotations and a distributed feature model automatically introduce runtime variation points into existing microservice code. The approach is validated through a longitudinal case study at an industrial logistics platform running more than one hundred microservices. Preliminary results show that annotation recording costs 6.27% of task time with negligible workload increase, that agent-maintained annotations are achievable at zero marginal cost, that commercial LLMs succeed at featurization in 46.7% of cases without fine-tuning, and that decentralized per-repository feature modeling is theoretically sound. These results establish the annotation and model foundations on which the GRETA re-engineering agent is being built.",
+    "link": "",
+    "doi": "",
+    "publishedIn": "International Working Conference on Variability Modelling of Software-Intensive Systems (Variability) — Doctoral Symposium",
+    "featured": true,
+    "status": "accepted"
+  },
+  {
     "date": "2025-09-01",
     "title": "Visualizing Feature-Oriented Software Evolution",
     "authors": "Kevin Hermann, Johan Martinson, Thorsten Berger",
@@ -7,7 +51,7 @@
     "link": "assets/publications/2025_visualizing_feature_oriented_software_evolution.pdf",
     "doi": "10.1145/3744915.3748471",
     "publishedIn": "ACM International Systems and Software Product Line Conference (SPLC)",
-    "featured": true
+    "featured": false
   },
   {
     "date": "2025-09-01",
@@ -17,7 +61,7 @@
     "link": "assets/publications/2025_lightweight_visualization_of_software_features_with_hans_viz.pdf",
     "doi": "10.1145/3748269.3748487",
     "publishedIn": "ACM International Systems and Software Product Line Conference (SPLC)",
-    "featured": true
+    "featured": false
   },
   {
     "date": "2024-12-09",
@@ -30,13 +74,24 @@
     "featured": true
   },
   {
+    "date": "2024-10-30",
+    "title": "On Using Large Language Models to 'Featurize' Software",
+    "authors": "Johan Martinson, Yannic Noller, Thorsten Berger",
+    "description": "Software systems often need to exist in different variants to account for diverse user requirements, such as hardware, runtime environments, or pricing strategies. Ideally, users could select the desired features and automatically obtain a customized variant. However, this requires adding variability into the software—implementation techniques that realize variation points controlled by configuration options (a.k.a. features). With variability, features can be selected by users in configurator tools, which enables or disables the code that belongs to features. Unfortunately, features are often scattered across the codebase, interact with each other, depend on each other, and vary in their granularity. Unless for simple features, where implementation techniques such as feature toggles or conditional compilation with preprocessors suffice, more complex features typically require design patterns or more sophisticated implementations to realize variability. We call this process 'featurization'—making features optional in code via dedicated implementation techniques. Towards building automated, AI-assisted techniques, we present initial results from exploratory experiments of featurizing software with large language models (LLMs). We determine the potential and the limitations of current LLMs. We conduct a series of experiments designed to evaluate the effectiveness and correctness of LLMs in transforming code to featurize it. Effectiveness means that the transformation actually makes the code variable, while also accounting for non-functional properties, such as readability or maintainability of the code. Correctness refers to the transformations being semantics-preserving. We examine these properties qualitatively, with metrics, and using test-case generation techniques. Specifically, we explore open source LLMs (e.g., Llama3 or CodeLlama) and commercial LLMs (e.g., GPT4-turbo or Gemini). Our experiments are conducted on four different subject systems: a C# Invoicing API, a Java Rental system, a Java Airplane Reservation system, and a Python Google integration project. Each system is tested with different variability implementation techniques, including simple conditional compilation with preprocessors, feature toggles (IF statements), and more complex techniques using design patterns. Our findings provide insights into the capabilities and limitations of LLMs in transforming code for software featurization. To improve their effectiveness, we also discuss potential fine-tuning strategies, such as training on more diverse codebases and incorporating feedback loops from developers. Furthermore, we discuss how tool support could be designed to aid developers during the featurization process.",
+    "link": "",
+    "doi": "",
+    "publishedIn": "International Symposium on Leveraging Applications of Formal Methods, Verification and Validation (AISoLA)",
+    "featured": false
+  },
+  {
     "date": "2024-09-02",
     "title": "An IDE Plugin for Clone Management",
     "authors": "Ahmad Al Shihabi, Jan Sollmann, Johan Martinson, Wardah Mahmood, Thorsten Berger",
     "description": "Development and maintenance in variant-rich systems often involves the replication of specific software code, known as software cloning. This process allows for code reuse but presents challenges in managing independently evolving variants. This paper discusses the necessity of effective clone management tools to maintain code quality and efficiency. We present an extension to the HAnS IDE plugin. This extension enhances the plugin by supporting basic clone management, and by facilitating the tracking and synchronization of cloned assets and features through a well-designed, lightweight trace database. The plugin is evaluated through unit and integration testing, as well as user experiments, demonstrating its effectiveness in addressing the challenges associated with software cloning. The evaluation results indicate that 80% of participants rated the trace database as intuitive, and 100% rated the notification system as both intuitive and user-friendly.",
     "link": "assets/publications/An-IDE-Plugin-for-Clone-Management.pdf",
     "publishedIn": "ACM International Systems and Software Product Line Conference (SPLC)",
-    "doi": "10.1145/3646548.3678298"
+    "doi": "10.1145/3646548.3678298",
+    "featured": false
   },
   {
     "date": "2021-09-06",
