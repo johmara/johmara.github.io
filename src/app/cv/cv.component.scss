@@ -20,6 +20,37 @@
     }
   }
 
+  .lang-toggle {
+    display: flex;
+    border: 1px solid var(--main-color);
+    border-radius: 0.25rem;
+    overflow: hidden;
+
+    button {
+      background-color: transparent;
+      border: none;
+      color: var(--main-color);
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        color: var(--accent-color-2);
+      }
+
+      &.active {
+        background-color: var(--accent-color-2);
+        color: var(--background-color);
+      }
+
+      &:not(:last-child) {
+        border-right: 1px solid var(--main-color);
+      }
+    }
+  }
+
   .print-button {
     background-color: var(--accent-color-2);
     color: var(--background-color);

@@ -1,34 +1,38 @@
 <div class="cv-page" *ngIf="extra as data">
   <div class="cv-actions no-print">
-    <a routerLink="/" class="back-link">&larr; Back to site</a>
-    <button class="print-button" (click)="print()" type="button">Download / Print PDF</button>
+    <a routerLink="/" class="back-link">&larr; {{ t['backToSite'] }}</a>
+    <div class="lang-toggle">
+      <button type="button" [class.active]="lang === 'en'" (click)="setLang('en')">EN</button>
+      <button type="button" [class.active]="lang === 'sv'" (click)="setLang('sv')">SV</button>
+    </div>
+    <button class="print-button" (click)="print()" type="button">{{ t['print'] }}</button>
   </div>
 
   <div class="cv-sheet">
     <header class="cv-header">
       <h1>{{ data.name }}</h1>
-      <h2>{{ data.title }}</h2>
+      <h2>{{ title }}</h2>
       <div class="contact-line">
         <span *ngIf="data.contact.email">{{ data.contact.email }}</span>
         <span *ngIf="data.contact.phone">{{ data.contact.phone }}</span>
-        <span *ngIf="data.contact.location">{{ data.contact.location }}</span>
+        <span *ngIf="location">{{ location }}</span>
         <span *ngIf="data.contact.website">{{ data.contact.website }}</span>
       </div>
     </header>
 
-    <section class="cv-section" *ngIf="data.summary">
-      <h3>Summary</h3>
-      <p>{{ data.summary }}</p>
+    <section class="cv-section" *ngIf="summary">
+      <h3>{{ t['summary'] }}</h3>
+      <p>{{ summary }}</p>
     </section>
 
     <section class="cv-section" *ngIf="workEvents.length">
-      <h3>Experience</h3>
+      <h3>{{ t['experience'] }}</h3>
       <div class="cv-entry" *ngFor="let event of workEvents">
         <div class="cv-entry-header">
-          <span class="cv-entry-title">{{ event.occupation }} &middot; {{ event.title }}</span>
+          <span class="cv-entry-title">{{ occupationText(event) }} &middot; {{ event.title }}</span>
           <span class="cv-entry-date">{{ formatRange(event) }}</span>
         </div>
-        <p class="cv-entry-description">{{ event.description }}</p>
+        <p class="cv-entry-description">{{ descriptionText(event) }}</p>
         <div class="cv-entry-tags" *ngIf="event.languages.length || event.tools.length || event.tech.length">
           <span class="tag" *ngFor="let tag of event.languages">{{ tag }}</span>
           <span class="tag" *ngFor="let tag of event.tools">{{ tag }}</span>
@@ -38,45 +42,45 @@
     </section>
 
     <section class="cv-section" *ngIf="educationEvents.length">
-      <h3>Education</h3>
+      <h3>{{ t['education'] }}</h3>
       <div class="cv-entry" *ngFor="let event of educationEvents">
         <div class="cv-entry-header">
-          <span class="cv-entry-title">{{ event.occupation }} &middot; {{ event.title }}</span>
+          <span class="cv-entry-title">{{ occupationText(event) }} &middot; {{ event.title }}</span>
           <span class="cv-entry-date">{{ formatRange(event) }}</span>
         </div>
-        <p class="cv-entry-description">{{ event.description }}</p>
+        <p class="cv-entry-description">{{ descriptionText(event) }}</p>
       </div>
     </section>
 
     <section class="cv-section" *ngIf="publications.length">
-      <h3>Publications</h3>
+      <h3>{{ t['publications'] }}</h3>
       <div class="cv-publication" *ngFor="let pub of publications">
         <div class="cv-publication-title">
           {{ pub.title }}
-          <span class="cv-publication-status" *ngIf="pub.status === 'accepted'">(accepted)</span>
+          <span class="cv-publication-status" *ngIf="pub.status === 'accepted'">{{ t['accepted'] }}</span>
         </div>
         <div class="cv-publication-meta">{{ pub.authors }}</div>
         <div class="cv-publication-venue" *ngIf="pub.publishedIn">{{ pub.publishedIn }}, {{ pub.date | date: 'yyyy' }}</div>
       </div>
       <p class="cv-more-note" *ngIf="morePublicationsCount > 0">
-        + {{ morePublicationsCount }} more publication{{ morePublicationsCount === 1 ? '' : 's' }} — see
-        <a routerLink="/publications">full publication list</a>.
+        {{ morePublicationsText() }}
+        <a routerLink="/publications">{{ t['fullPublicationList'] }}</a>.
       </p>
     </section>
 
     <section class="cv-section" *ngIf="positionsOfTrust.length">
-      <h3>Positions of Trust</h3>
+      <h3>{{ t['positionsOfTrust'] }}</h3>
       <div class="cv-entry" *ngFor="let position of positionsOfTrust">
         <div class="cv-entry-header">
-          <span class="cv-entry-title">{{ position.title }} &middot; {{ position.organization }}</span>
+          <span class="cv-entry-title">{{ posTitle(position) }} &middot; {{ position.organization }}</span>
           <span class="cv-entry-date">{{ formatPositionRange(position) }}</span>
         </div>
-        <p class="cv-entry-description" *ngIf="position.description">{{ position.description }}</p>
+        <p class="cv-entry-description" *ngIf="posDescription(position)">{{ posDescription(position) }}</p>
       </div>
     </section>
 
     <section class="cv-section" *ngIf="certificates.length">
-      <h3>Certificates</h3>
+      <h3>{{ t['certificates'] }}</h3>
       <div class="cv-entry" *ngFor="let cert of certificates">
         <div class="cv-entry-header">
           <span class="cv-entry-title">
@@ -90,15 +94,15 @@
     </section>
 
     <section class="cv-section" *ngIf="data.skills?.length">
-      <h3>Skills</h3>
+      <h3>{{ t['skills'] }}</h3>
       <div class="cv-entry-tags">
         <span class="tag" *ngFor="let skill of data.skills">{{ skill }}</span>
       </div>
     </section>
 
-    <section class="cv-section" *ngFor="let extraSection of data.extraSections">
-      <h3>{{ extraSection.heading }}</h3>
-      <p *ngFor="let item of extraSection.items">{{ item }}</p>
+    <section class="cv-section" *ngFor="let section of data.extraSections">
+      <h3>{{ extraSection(section).heading }}</h3>
+      <p *ngFor="let item of extraSection(section).items">{{ item }}</p>
     </section>
   </div>
 </div>

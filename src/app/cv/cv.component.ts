@@ -6,13 +6,22 @@ import { PublicationsService } from '../publications.service';
 import { Publication } from '../models/publication.model';
 import { getTimelineEvents, TimelineEvent } from '../data/timeline-data';
 
+type Lang = 'en' | 'sv';
+
+interface LocalizedText {
+  title: string;
+  description?: string;
+}
+
 interface RawTimelineEvent {
   category: 'work' | 'education';
   occupation: string;
+  occupation_sv?: string;
   title: string;
   from_date: string;
   to_date: string | null;
   description: string;
+  description_sv?: string;
   languages?: string[];
   tools?: string[];
   tech?: string[];
@@ -26,30 +35,60 @@ interface Certificate {
   link?: string;
 }
 
-interface PositionOfTrust {
-  title: string;
+interface RawPositionOfTrust {
   organization: string;
   from_date: string;
   to_date: string | null;
-  description?: string;
+  en: LocalizedText;
+  sv: LocalizedText;
 }
 
 interface CvExtra {
   name: string;
-  title: string;
-  summary: string;
+  en: { title: string; summary: string; location: string };
+  sv: { title: string; summary: string; location: string };
   contact: {
     email: string;
     phone: string;
-    location: string;
     website: string;
   };
   skills: string[];
   extraTimelineEvents: RawTimelineEvent[];
   certificates: Certificate[];
-  positionsOfTrust: PositionOfTrust[];
-  extraSections: { heading: string; items: string[] }[];
+  positionsOfTrust: RawPositionOfTrust[];
+  extraSections: { en: { heading: string; items: string[] }; sv: { heading: string; items: string[] } }[];
 }
+
+const STRINGS: Record<Lang, Record<string, string>> = {
+  en: {
+    backToSite: 'Back to site',
+    print: 'Download / Print PDF',
+    summary: 'Summary',
+    experience: 'Experience',
+    education: 'Education',
+    publications: 'Publications',
+    positionsOfTrust: 'Positions of Trust',
+    certificates: 'Certificates',
+    skills: 'Skills',
+    present: 'Present',
+    accepted: '(accepted)',
+    fullPublicationList: 'full publication list'
+  },
+  sv: {
+    backToSite: 'Tillbaka till webbplatsen',
+    print: 'Ladda ner / Skriv ut PDF',
+    summary: 'Sammanfattning',
+    experience: 'Erfarenhet',
+    education: 'Utbildning',
+    publications: 'Publikationer',
+    positionsOfTrust: 'Förtroendeuppdrag',
+    certificates: 'Certifikat',
+    skills: 'Kompetenser',
+    present: 'Nutid',
+    accepted: '(accepterad)',
+    fullPublicationList: 'fullständig publikationslista'
+  }
+};
 
 @Component({
   selector: 'app-cv',
@@ -65,7 +104,8 @@ export class CvComponent implements OnInit {
   workEvents: TimelineEvent[] = [];
   educationEvents: TimelineEvent[] = [];
   certificates: (Certificate & { dateObj: Date })[] = [];
-  positionsOfTrust: (PositionOfTrust & { fromObj: Date; toObj: Date | null })[] = [];
+  positionsOfTrust: (RawPositionOfTrust & { fromObj: Date; toObj: Date | null })[] = [];
+  lang: Lang = 'en';
   private now = new Date(Date.now());
 
   constructor(
@@ -82,7 +122,9 @@ export class CvComponent implements OnInit {
         to_date: e.to_date ? new Date(e.to_date) : this.now,
         title: e.title,
         occupation: e.occupation,
+        occupation_sv: e.occupation_sv,
         description: e.description,
+        description_sv: e.description_sv,
         category: e.category,
         tech: e.tech ?? [],
         languages: e.languages ?? [],
@@ -112,21 +154,68 @@ export class CvComponent implements OnInit {
     });
   }
 
+  get t(): Record<string, string> {
+    return STRINGS[this.lang];
+  }
+
+  get title(): string {
+    return this.extra ? this.extra[this.lang].title : '';
+  }
+
+  get summary(): string {
+    return this.extra ? this.extra[this.lang].summary : '';
+  }
+
+  get location(): string {
+    return this.extra ? this.extra[this.lang].location : '';
+  }
+
+  setLang(lang: Lang): void {
+    this.lang = lang;
+  }
+
   print(): void {
     window.print();
+  }
+
+  occupationText(event: TimelineEvent): string {
+    return this.lang === 'sv' && event.occupation_sv ? event.occupation_sv : event.occupation;
+  }
+
+  descriptionText(event: TimelineEvent): string {
+    return this.lang === 'sv' && event.description_sv ? event.description_sv : event.description;
+  }
+
+  posTitle(position: RawPositionOfTrust): string {
+    return position[this.lang].title;
+  }
+
+  posDescription(position: RawPositionOfTrust): string | undefined {
+    return position[this.lang].description;
+  }
+
+  extraSection(section: { en: { heading: string; items: string[] }; sv: { heading: string; items: string[] } }) {
+    return section[this.lang];
+  }
+
+  morePublicationsText(): string {
+    const n = this.morePublicationsCount;
+    return this.lang === 'sv'
+      ? `+ ${n} publikation${n === 1 ? '' : 'er'} till — se`
+      : `+ ${n} more publication${n === 1 ? '' : 's'} — see`;
   }
 
   formatRange(event: TimelineEvent): string {
     const from = event.from_date.getFullYear();
     return event.to_date === this.now
-      ? `${from} – Present`
+      ? `${from} – ${this.t['present']}`
       : `${from} – ${event.to_date.getFullYear()}`;
   }
 
   formatPositionRange(position: { fromObj: Date; toObj: Date | null }): string {
     const from = position.fromObj.getFullYear();
     return position.toObj === null
-      ? `${from} – Present`
+      ? `${from} – ${this.t['present']}`
       : `${from} – ${position.toObj.getFullYear()}`;
   }
 }
