@@ -1,6 +1,6 @@
 import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { DarkModeToggleComponent } from './app/dark-mode-toggle/dark-mode-toggle.component';
@@ -13,7 +13,7 @@ import { ToolsDropdownComponent } from './app/tools-dropdown/tools-dropdown.comp
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HomeComponent, DarkModeToggleComponent, VimModeToggleComponent, SearchModalComponent, HintOverlayComponent, ToolsDropdownComponent],
+  imports: [CommonModule, RouterLink, RouterOutlet, HomeComponent, DarkModeToggleComponent, VimModeToggleComponent, SearchModalComponent, HintOverlayComponent, ToolsDropdownComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

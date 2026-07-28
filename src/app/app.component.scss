@@ -53,6 +53,34 @@
   }
 }
 
+.cv-button {
+  background-color: transparent;
+  border: 1px solid var(--main-color);
+  border-radius: 0.25rem;
+  padding: 0.35rem 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.5;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--main-color);
+  text-decoration: none;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.05);
+    border-color: var(--accent-color-2);
+    color: var(--accent-color-2);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
 .vim-tooltip-toggle {
   position: fixed;
   bottom: 1rem;

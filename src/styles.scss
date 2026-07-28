@@ -3,10 +3,7 @@
 /* You can add global styles to this file, and also import other style files */
 body, html {
   margin: 0;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100%;
 }
 
 
@@ -51,5 +48,11 @@ body {
   --mdc-dialog-container-color: var(--background-color);
   background-color: var(--background-color);
   color: var(--main-color);
+}
+
+@media print {
+  .header-controls, .vim-tooltip-toggle, .vim-tooltip {
+    display: none !important;
+  }
 }
 
