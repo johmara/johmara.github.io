@@ -1,11 +1,18 @@
 {
   "name": "Johan Martinson",
-  "title": "PhD Student Researcher and Software Engineer",
-  "summary": "Fullstack software developer and PhD candidate. My research focuses on automating the complex process of featurization in software systems using large language models to introduce and manage variability, making code adaptable to diverse user requirements.",
+  "en": {
+    "title": "PhD Student Researcher and Software Engineer",
+    "summary": "Fullstack software developer and PhD candidate. My research focuses on automating the complex process of featurization in software systems using large language models to introduce and manage variability, making code adaptable to diverse user requirements.",
+    "location": "Gothenburg/Borås"
+  },
+  "sv": {
+    "title": "Doktorand och mjukvaruutvecklare",
+    "summary": "Fullstackutvecklare och doktorand. Min forskning fokuserar på att automatisera den komplexa processen att featurisera mjukvarusystem med hjälp av stora språkmodeller (LLM) för att introducera och hantera variation, vilket gör koden anpassningsbar till olika användarkrav.",
+    "location": "Göteborg/Borås"
+  },
   "contact": {
     "email": "johan@martinson.phd",
     "phone": "",
-    "location": "Gothenburg/Borås",
     "website": "https://johmara.github.io"
   },
   "skills": [
@@ -23,45 +30,81 @@
   ],
   "positionsOfTrust": [
     {
-      "title": "Head of Education, H-section Student Union Board",
       "organization": "Chalmers Studentkår",
       "from_date": "2018-07-01",
       "to_date": "2019-06-30",
-      "description": "Served as Head of Education on the H-section's student union board at Chalmers. Responsibilities included overseeing how students in the section could influence their education through student representatives, and giving those representatives a solid basis for voicing their fellow students' opinions. As Head of Education on the board, I also held the role of chairman of SnH (the Study Council, H-section). The chairman of SnH convenes meetings, assigns tasks to the group for events, promotion and course evaluations, and manages the group's finances."
+      "en": {
+        "title": "Head of Education, H-section Student Union Board",
+        "description": "Served as Head of Education on the H-section's student union board at Chalmers. Responsibilities included overseeing how students in the section could influence their education through student representatives, and giving those representatives a solid basis for voicing their fellow students' opinions. As Head of Education on the board, I also held the role of chairman of SnH (the Study Council, H-section). The chairman of SnH convenes meetings, assigns tasks to the group for events, promotion and course evaluations, and manages the group's finances."
+      },
+      "sv": {
+        "title": "Utbildningsansvarig i H-sektionens styrelse",
+        "description": "Arbetade som utbildningsansvarig i H-sektionens styrelse på Chalmers. Arbetsuppgifterna innefattade att se över hur studenterna vid sektionen kan påverka sin utbildning genom studentrepresentanter samt ge dessa en bra grund för att föra fram sina medstuderandes åsikter. Som utbildningsansvarig i styrelsen hade jag även uppdraget som ordförande i SnH (Studienämnden H). Ordföranden i SnH har till uppgift att sammankalla möten, tilldela uppgifter till gruppen för arrangemang, promotion och kursutvärderingar samt ansvara för gruppens ekonomi."
+      }
     },
     {
-      "title": "Chairman",
       "organization": "H-sektionens Datorförening (HD)",
       "from_date": "2017-04-01",
       "to_date": "2018-03-31",
-      "description": "Chaired H-sektionen's computer association."
+      "en": {
+        "title": "Chairman",
+        "description": "Chaired H-sektionen's computer association."
+      },
+      "sv": {
+        "title": "Ordförande",
+        "description": "Ordförande i H-sektionens Datorförening (HD)."
+      }
     },
     {
-      "title": "PR-group Leader & Sponsorship Strategy Lead",
       "organization": "Chalmersspexet",
       "from_date": "2021-01-01",
       "to_date": "2022-12-31",
-      "description": "Responsible for the overarching marketing plan and leader of the PR group. Led the strategy for obtaining sponsorships. Second year, worked as audio engineer during the shows."
+      "en": {
+        "title": "PR-group Leader & Sponsorship Strategy Lead",
+        "description": "Responsible for the overarching marketing plan and leader of the PR group. Led the strategy for obtaining sponsorships. Second year, worked as audio engineer during the shows."
+      },
+      "sv": {
+        "title": "Ledare för PR-gruppen och sponsringsstrategi",
+        "description": "Ansvarig för den övergripande marknadsföringsplanen och ledare för PR-gruppen. Ledde även arbetet med strategin för att skaffa sponsorer. Under det andra året arbetade jag som ljudtekniker under föreställningarna."
+      }
     },
     {
-      "title": "Board Member",
       "organization": "Chalmers Handbollsklubb",
       "from_date": "2019-07-01",
       "to_date": "2020-06-30",
-      "description": "Recruited new players, presented the club to Chalmers Student Union members, and arranged activities during the reception and throughout the season. Set up G Suite and built a new website for the club."
+      "en": {
+        "title": "Board Member",
+        "description": "Recruited new players, presented the club to Chalmers Student Union members, and arranged activities during the reception and throughout the season. Set up G Suite and built a new website for the club."
+      },
+      "sv": {
+        "title": "Styrelsemedlem",
+        "description": "Arbetade med att rekrytera nya spelare, visa upp klubben för Chalmers Studentkårs medlemmar samt arrangera aktiviteter under mottagningen och resten av säsongen. Jag arbetade även med att sätta upp G Suite och skapa en ny webbplats för klubben."
+      }
     },
     {
-      "title": "Study Council Representative",
       "organization": "Studienämnden på H-sektionen (dataingenjörsprogrammet)",
       "from_date": "2016-07-01",
       "to_date": "2017-06-30",
-      "description": "Represented the Computer Engineering programme in the H-section study council."
+      "en": {
+        "title": "Study Council Representative",
+        "description": "Represented the Computer Engineering programme in the H-section study council."
+      },
+      "sv": {
+        "title": "Studienämndsrepresentant",
+        "description": "Representerade dataingenjörsprogrammet i H-sektionens studienämnd."
+      }
     }
   ],
   "extraSections": [
     {
-      "heading": "References",
-      "items": ["Available upon request."]
+      "en": {
+        "heading": "References",
+        "items": ["Available upon request."]
+      },
+      "sv": {
+        "heading": "Referenser",
+        "items": ["Tillgängligt på begäran."]
+      }
     }
   ]
 }
