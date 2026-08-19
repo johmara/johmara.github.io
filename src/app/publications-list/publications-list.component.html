@@ -28,7 +28,7 @@
       <td>({{ publication.date | date:'yyyy' }})</td>
       <td>
         <button class="action-btn" (click)="openAbstractView(publication)">ABS</button>
-        <button *ngIf="publication.doi" class="action-btn" (click)="openBibtexView(publication)">BIB</button>
+        <button class="action-btn" (click)="openBibtexView(publication)">BIB</button>
         <button *ngIf="publication.link" class="action-btn" (click)="openPdf(publication)">PDF</button>
       </td>
     </tr>

@@ -2,7 +2,7 @@ import { Component, Inject, OnInit, OnDestroy, HostListener } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Publication } from '../models/publication.model';
-import { formatBibTeX } from '../utils/bibtex-formatter';
+import { formatBibTeX, generateBibTeXWithoutDoi } from '../utils/bibtex-formatter';
 import { VimModeService } from '../app/vim-mode.service';
 
 @Component({
@@ -196,7 +196,12 @@ export class PublicationDetailModalComponent implements OnInit, OnDestroy {
   }
 
   async fetchBibtex(): Promise<void> {
-    if (!this.publication.doi || this.bibtex) {
+    if (this.bibtex) {
+      return;
+    }
+
+    if (!this.publication.doi) {
+      this.bibtex = generateBibTeXWithoutDoi(this.publication);
       return;
     }
 

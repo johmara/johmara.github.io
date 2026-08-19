@@ -16,14 +16,5 @@
     "image": "assets/projects/fmpro/fmpro.png",
     "logo": "",
     "tags": ["technical report", "feature modeling", "process", "notation agnostic"]
-  },
-  {
-    "title": "HAnS-Viz",
-    "description": "HAnS-Viz is an open-source (Apache 2.0) IntelliJ plugin that extends HAnS by visualising feature traceability. <br> HAnS-Viz provides several graphs that visualises the embedded traceability links created with HAnS.",
-    "link": "",
-    "repo": "https://github.com/isselab/HAnS-viz",
-    "image": "assets/projects/hans-viz/TanglingCircular.png",
-    "logo": "assets/projects/hans/hans-logo.png",
-    "tags": ["Java", "IntelliJ-plugin", "feature-traceability", "traceability visualisations"]
   }
 ]

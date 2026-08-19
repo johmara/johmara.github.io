@@ -14,7 +14,7 @@
         <button class="action-btn abs-btn" (click)="openPublicationDetail(publication)">
           ABS
         </button>
-        <button *ngIf="publication.doi" (click)="openBibtexView(publication)" class="action-btn bib-btn">
+        <button (click)="openBibtexView(publication)" class="action-btn bib-btn">
           BIB
         </button>
         <a *ngIf="publication.link" [href]="publication.link" target="_blank" class="action-btn pdf-btn">

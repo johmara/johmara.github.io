@@ -25,7 +25,7 @@
 
     <div class="modal-footer">
       <div class="action-buttons-left">
-        <button *ngIf="publication.doi" class="action-btn" [class.active]="showBibtex" (click)="toggleBibtex()">
+        <button class="action-btn" [class.active]="showBibtex" (click)="toggleBibtex()">
           {{ isLoadingBibtex ? 'Loading...' : (showBibtex ? 'Abstract' : 'BIB') }}
         </button>
         <button *ngIf="publication.doi" class="action-btn" (click)="copyCitation()">

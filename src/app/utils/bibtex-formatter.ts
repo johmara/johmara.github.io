@@ -1,4 +1,6 @@
 // src/app/utils/bibtex-formatter.ts
+import { Publication } from '../models/publication.model';
+
 export interface BibTeXEntry {
   type: string;
   citationKey: string;
@@ -121,4 +123,40 @@ export function formatBibTeXEntry(entry: BibTeXEntry): string {
 export function formatBibTeX(bibtex: string): string {
   const entries = parseBibTeX(bibtex);
   return entries.map(formatBibTeXEntry).join('\n\n');
+}
+
+function toBibAuthorName(fullName: string): string {
+  const parts = fullName.trim().split(/\s+/);
+  if (parts.length < 2) {
+    return fullName;
+  }
+  const last = parts[parts.length - 1];
+  const first = parts.slice(0, -1).join(' ');
+  return `${last}, ${first}`;
+}
+
+export function generateBibTeXWithoutDoi(publication: Publication): string {
+  const year = new Date(publication.date).getFullYear();
+  const authors = publication.authors.split(',').map(a => a.trim()).filter(Boolean);
+  const bibAuthors = authors.map(toBibAuthorName).join(' and ');
+  const firstAuthorSurname = authors[0]?.trim().split(/\s+/).pop() ?? 'unknown';
+  const citationKey = `${firstAuthorSurname.toLowerCase()}${year}`;
+
+  const isJournal = /journal|transactions/i.test(publication.publishedIn ?? '');
+  const entryType = isJournal ? 'article' : 'inproceedings';
+  const venueKey = isJournal ? 'journal' : 'booktitle';
+
+  const fields: { [key: string]: string } = {
+    author: bibAuthors,
+    title: publication.title,
+    year: `${year}`,
+  };
+  if (publication.publishedIn) {
+    fields[venueKey] = publication.publishedIn;
+  }
+  if (publication.status === 'accepted') {
+    fields['note'] = 'Accepted for publication';
+  }
+
+  return formatBibTeXEntry({ type: entryType, citationKey, fields });
 }
