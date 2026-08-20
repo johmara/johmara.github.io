@@ -3,24 +3,35 @@
   <div class="header">
     <div class="image-content">
       <img [src]="'assets/profileimg.jpg'" alt="Profile" class="profile-img">
+      <app-socials></app-socials>
     </div>
     <div class="text-content">
       <h1 [class]="'name'">Johan Martinson</h1>
       <h3 class="subtitle">PhD Student Researcher and Software Engineer</h3>
-      <p class="text">Fullstack software developer and PhD candidate.
-        My research focuses on automating the complex process of featurization
-        in software systems using large language models to introduce and manage variability,
-        making code adaptable to diverse user requirements</p>
-      <app-socials></app-socials>
+      <p class="text">Software developer at Centiro and PhD candidate at Ruhr University Bochum.</p>
+
+      <h4 class="section-heading">Research Agenda</h4>
+      <p class="text">My research explores how LLM agents, guided by lightweight embedded feature
+        annotations and distributed feature models, can turn existing features in large microservice
+        codebases into runtime-configurable variation points, raising the level at which organizations
+        manage variant-rich software from the code level to the feature level. The work builds on
+        tooling for recording where features live in code and modeling them across many independently
+        owned repositories, and is validated through a longitudinal case study on an industrial
+        logistics platform running more than one hundred microservices. The research is conducted in
+        collaboration with Centiro.</p>
+
+      <div class="action-buttons">
+        <a routerLink="/cv" class="action-btn">View full CV</a>
+        <a routerLink="/publications" class="action-btn">Publications</a>
+        <a href="#projects" class="action-btn">Projects</a>
+      </div>
     </div>
   </div>
-
-  <app-time-line></app-time-line>
 
   <span class="publications">Selected Publications</span>
   <app-publications></app-publications>
 
-  <span class="projects">Projects</span>
+  <span id="projects" class="projects">Projects</span>
   <app-projects></app-projects>
 
 </div>

@@ -18,22 +18,59 @@
 .header {
   display: flex;
   flex-wrap: wrap; /* Allow items to wrap */
-  align-items: center; /* Center items vertically */
+  align-items: flex-start; /* Align columns to the top */
   justify-content: center; /* Center items horizontally */
+  gap: 2rem;
   width: 100%;
-  margin: 0 auto; /* Center the content */
+  max-width: 62rem;
+  margin: 0 auto 3rem; /* Center the content, add space before Selected Publications */
 }
 
 .text-content {
   flex: 2;
-  margin-left: 1.25rem; /* Add some space between the image and the text content */
+}
+
+.text {
+  max-width: 38rem;
+}
+
+.section-heading {
+  margin: 1.25rem 0 0.4rem;
+  font-size: 1.05rem;
+  color: var(--accent-color-1);
 }
 
 .image-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  gap: 0.75rem;
   flex: 1;
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.action-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--text-color);
+  border-radius: 4px;
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--text-color);
+    color: var(--background-color-darker);
+    transform: translateY(-2px);
+  }
 }
 
 .title {
@@ -44,9 +81,10 @@
 }
 
 .profile-img {
-  width: 14.0625rem; /* 225px converted to rem (225 / 16) */
-  height: 14.0625rem; /* 225px converted to rem (225 / 16) */
-  border-radius: 50%;
+  width: 16rem;
+  aspect-ratio: 310 / 413;
+  height: auto;
+  border-radius: 0.75rem;
   object-fit: cover;
   margin: 1.25rem 0; /* 20px converted to rem (20 / 16) */
 }
@@ -96,8 +134,7 @@
   }
 
   .profile-img {
-    width: 10rem; /* Scale down the image */
-    height: 10rem; /* Scale down the image */
+    width: 11rem; /* Scale down the image */
   }
 
   .name {
@@ -110,5 +147,10 @@
 
   .text {
     font-size: 0.9rem; /* Adjust font size */
+    margin: 0 auto;
+  }
+
+  .action-buttons {
+    justify-content: center;
   }
 }
