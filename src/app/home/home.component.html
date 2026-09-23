@@ -2,7 +2,11 @@
   <h2 class="title"></h2>
   <div class="header">
     <div class="image-content">
-      <img [src]="'assets/Johan_Martinson.jpg'" alt="Profile" class="profile-img">
+        <div class="image-wrapper">
+          <img [src]="'assets/Johan_Martinson.jpg'" alt="Profile" class="profile-img">
+          <div class="overlay"></div>
+          <img [src]="'assets/monogram-tb.png'" alt="signature" class="signature">
+        </div>
       <app-socials></app-socials>
     </div>
     <div class="text-content">

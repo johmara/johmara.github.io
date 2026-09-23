@@ -89,6 +89,40 @@
   margin: 1.25rem 0; /* 20px converted to rem (20 / 16) */
 }
 
+.image-sign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.image-wrapper {
+  position: relative;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signature {
+  position: absolute;
+  width: 6rem;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  bottom: -0.7rem;
+  right: -2rem;
+  z-index: 10;
+  padding: 0.25rem;
+  box-sizing: border-box;
+  filter: invert(34%) sepia(98%) saturate(1212%) hue-rotate(178deg) brightness(93%) contrast(102%);
+}
+
+:host-context(.dark-mode) .signature {
+  filter: invert(1);
+}
+
 .subtitle {
   white-space: wrap; /* Prevent the text from wrapping */
   width: auto; /* Allow the element to take up the space it needs */
