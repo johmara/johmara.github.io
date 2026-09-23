@@ -1,10 +1,11 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {SocialsComponent} from "../socials/socials.component";
 import {ProjectsComponent} from "../projects/projects.component";
 import {PublicationsComponent} from "../publications/publications.component";
 import {NgOptimizedImage} from "@angular/common";
 import {PublicationsService} from '../publications.service';
+import {ThemeService} from '../app/theme.service';
 
 
 @Component({
@@ -17,5 +18,11 @@ import {PublicationsService} from '../publications.service';
 })
 export class HomeComponent {
   title = 'johmara'
+  private readonly themeService = inject(ThemeService);
 
+  get profileImage(): string {
+    return this.themeService.isDarkMode()
+      ? 'assets/Johan_Martinson(B&W).jpg'
+      : 'assets/Johan_Martinson.jpg';
+  }
 }
