@@ -37,10 +37,10 @@
     "authors": "Johan Martinson",
     "description": "Managing variant-rich systems from a single, evolving microservice codebase demands that developers know where features live, how their implementations are distributed across services, and how to make a located feature optional at runtime. Each layer compounds the previous: feature location fades as knowledge leaves the organization, centralized feature models do not scale across independently-owned repositories, and the re-engineering step that turns a located feature into a runtime variation point has no automated support. We present an ongoing PhD research program that develops and evaluates GRETA (Generative Re-Engineering via Traceability Annotations), an LLM-driven workflow in which AI agents guided by embedded feature annotations and a distributed feature model automatically introduce runtime variation points into existing microservice code. The approach is validated through a longitudinal case study at an industrial logistics platform running more than one hundred microservices. Preliminary results show that annotation recording costs 6.27% of task time with negligible workload increase, that agent-maintained annotations are achievable at zero marginal cost, that commercial LLMs succeed at featurization in 46.7% of cases without fine-tuning, and that decentralized per-repository feature modeling is theoretically sound. These results establish the annotation and model foundations on which the GRETA re-engineering agent is being built.",
     "link": "assets/publications/2026_generative_feature_re_engineering_in_microservice_architectures.pdf",
-    "doi": "",
+    "doi": "https://doi.org/10.1007/978-3-032-40421-3_23",
     "publishedIn": "International Working Conference on Variability Modelling of Software-Intensive Systems (Variability) — Doctoral Symposium",
     "featured": true,
-    "status": "accepted"
+    "status": "published"
   },
   {
     "date": "2025-09-01",
