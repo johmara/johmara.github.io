@@ -2,7 +2,7 @@
   font-family: -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Full height of the viewport */
+  min-height: 100vh; /* Full height of the viewport */
   justify-content: flex-start; /* Align content to the top */
   align-items: center; /* Center the table horizontally */
 }
