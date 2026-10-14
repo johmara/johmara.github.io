@@ -1,5 +1,21 @@
 [
   {
+    "title": "Decentralized Feature Models",
+    "description": "An interactive site for learning decentralized feature models, the approach from the paper <em>Towards Decentralized Feature Models</em>. Each scope owns its own feature model, and models coordinate only through named capabilities (requires/provides) instead of a shared global model. <br> Explore worked examples (a phone, a microservice webshop, an open-source distro), configure scopes independently, and watch a decentralized resolver notify only the scope that can fix a missing capability. A sandbox lets you build your own models, including cross-scope global rules.",
+    "link": "https://johmara.github.io/decentralized-featuremodels/",
+    "repo": "https://github.com/johmara/decentralized-featuremodels",
+    "image": "assets/projects/decentralized-fm/decentralized-fm.png",
+    "logo": "",
+    "tags": [
+      "Angular",
+      "TypeScript",
+      "feature models",
+      "variability",
+      "decentralized feature models",
+      "interactive"
+    ]
+  },
+  {
     "title": "HAnS",
     "description": "HAnS (Helping Annotate Software) is an open-source (Apache 2.0) IntelliJ plugin that simplifies feature annotation. <br> HAnS provides autocompletion, quick fixes, a feature model view, and a metrics view (lines of feature code, scattering degree, tangling degree, and annotated files). HAnS is programming language-agnostic.",
     "link": "https://plugins.jetbrains.com/plugin/22759-hans",
