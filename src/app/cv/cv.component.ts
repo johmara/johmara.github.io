@@ -61,7 +61,6 @@ interface CvExtra {
 
 const STRINGS: Record<Lang, Record<string, string>> = {
   en: {
-    backToSite: 'Back to site',
     print: 'Download / Print PDF',
     summary: 'Summary',
     experience: 'Experience',
@@ -75,7 +74,6 @@ const STRINGS: Record<Lang, Record<string, string>> = {
     fullPublicationList: 'full publication list'
   },
   sv: {
-    backToSite: 'Tillbaka till webbplatsen',
     print: 'Ladda ner / Skriv ut PDF',
     summary: 'Sammanfattning',
     experience: 'Erfarenhet',

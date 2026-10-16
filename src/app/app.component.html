@@ -1,3 +1,13 @@
+@if (showBackLink) {
+  <a routerLink="/" class="ds-back-link ds-back-link--fixed" aria-label="Back to site">
+    <svg class="ds-back-link__arrow" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+    <img class="ds-back-link__mark" src="assets/monogram-tb.png" alt="" height="28">
+  </a>
+}
+
 <div class="header-controls">
   <button class="ds-btn ds-btn--ghost search-trigger" (click)="openSearchModal()" aria-label="Search publications">
     <span class="shortcut-text">{{ vimModeService.isVimModeEnabled() ? '/' : 'ctrl k' }}</span>
@@ -9,7 +19,9 @@
   <app-dark-mode-toggle></app-dark-mode-toggle>
   <app-tools-dropdown></app-tools-dropdown>
   <app-vim-mode-toggle></app-vim-mode-toggle>
-  <a routerLink="/cv" class="ds-btn ds-btn--outline" aria-label="View CV">CV</a>
+  @if (!isCvPage) {
+    <a routerLink="/cv" class="ds-btn ds-btn--outline" aria-label="View CV">CV</a>
+  }
 </div>
 
 <app-search-modal *ngIf="isSearchModalOpen" (close)="closeSearchModal()"></app-search-modal>

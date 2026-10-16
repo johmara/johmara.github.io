@@ -1,6 +1,5 @@
 <div class="cv-page" *ngIf="extra as data">
   <div class="cv-actions no-print">
-    <a routerLink="/" class="back-link">&larr; {{ t['backToSite'] }}</a>
     <div class="ds-segmented">
       <button type="button" class="ds-segmented__item" [class.is-active]="lang === 'en'" (click)="setLang('en')">EN</button>
       <button type="button" class="ds-segmented__item" [class.is-active]="lang === 'sv'" (click)="setLang('sv')">SV</button>

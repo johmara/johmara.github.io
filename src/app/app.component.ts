@@ -1,6 +1,6 @@
 import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { DarkModeToggleComponent } from './app/dark-mode-toggle/dark-mode-toggle.component';
@@ -24,6 +24,20 @@ export class AppComponent implements OnInit {
   
   // Inject to ensure VimModeService is initialized
   vimModeService = inject(VimModeService);
+  private router = inject(Router);
+
+  private get path(): string {
+    return this.router.url.split(/[?#]/)[0];
+  }
+
+  get isCvPage(): boolean {
+    return this.path === '/cv';
+  }
+
+  // Every page except home links back to it.
+  get showBackLink(): boolean {
+    return this.path !== '/';
+  }
 
   ngOnInit(): void {
     // Register search trigger callback for vim mode '/' key
