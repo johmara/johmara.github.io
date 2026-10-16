@@ -42,17 +42,8 @@
 }
 
 .status-badge {
-  display: inline-block;
   margin-left: 0.5rem;
-  padding: 0.1rem 0.5rem;
-  border-radius: 999px;
-  font-size: 0.65rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
   vertical-align: middle;
-  color: var(--background-color-darker);
-  background-color: var(--accent-color-2);
 }
 
 .modal-header .authors {
@@ -120,29 +111,8 @@
   gap: 0.5rem;
 }
 
-.action-btn {
-  padding: 0.5rem 1rem;
-  border: 2px solid var(--text-color);
-  border-radius: 4px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
-  background-color: var(--background-color-darker);
-  color: var(--text-color);
-}
 
-.action-btn:hover {
-  background-color: var(--text-color);
-  color: var(--background-color-darker);
-  transform: translateY(-2px);
-}
 
-.action-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
 
 .vim-hint {
   font-size: 0.75rem;
@@ -170,11 +140,6 @@
   word-break: break-word;
 }
 
-.action-btn.active {
-  background-color: var(--accent-color-1);
-  color: var(--background-color);
-  border-color: var(--accent-color-1);
-}
 
 @media (max-width: 768px) {
   .modal-content {
@@ -195,7 +160,7 @@
     flex-wrap: wrap;
   }
 
-  .action-btn {
+  .ds-btn {
     flex: 1 1 auto;
   }
 }

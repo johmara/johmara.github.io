@@ -4,7 +4,7 @@
     <h1 class="search-container title">All Publications</h1>
   </div>
   <div class="search-container">
-    <input type="text" #filterInput [(ngModel)]="searchQuery" (input)="search()" placeholder="Search publications..."/>
+    <input type="text" class="ds-input" #filterInput [(ngModel)]="searchQuery" (input)="search()" placeholder="Search publications..."/>
   </div>
   <table>
     <thead>
@@ -21,15 +21,15 @@
       <td>
         <a *ngIf="publication.link; else noLink" [href]="publication.link" target="_blank">{{ publication.title }}</a>
         <ng-template #noLink>{{ publication.title }}</ng-template>
-        <span *ngIf="publication.status === 'accepted'" class="status-badge">Accepted</span>
+        <span *ngIf="publication.status === 'accepted'" class="ds-badge status-badge">Accepted</span>
       </td>
       <td>{{ publication.authors }}</td>
       <td><i class="fa fa-book" aria-hidden="true"></i> <em>{{ publication.publishedIn }}</em></td>
       <td>({{ publication.date | date:'yyyy' }})</td>
       <td>
-        <button class="action-btn" (click)="openAbstractView(publication)">ABS</button>
-        <button class="action-btn" (click)="openBibtexView(publication)">BIB</button>
-        <button *ngIf="publication.link" class="action-btn" (click)="openPdf(publication)">PDF</button>
+        <button class="ds-btn" (click)="openAbstractView(publication)">ABS</button>
+        <button class="ds-btn" (click)="openBibtexView(publication)">BIB</button>
+        <button *ngIf="publication.link" class="ds-btn" (click)="openPdf(publication)">PDF</button>
       </td>
     </tr>
     </tbody>

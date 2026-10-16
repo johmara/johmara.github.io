@@ -2,7 +2,7 @@
   <div class="modal-content" (click)="$event.stopPropagation()">
     <div class="modal-header">
       <div class="header-content">
-        <h2>{{ publication.title }}<span *ngIf="publication.status === 'accepted'" class="status-badge">Accepted</span></h2>
+        <h2>{{ publication.title }}<span *ngIf="publication.status === 'accepted'" class="ds-badge status-badge">Accepted</span></h2>
         <p class="authors">{{ publication.authors }}</p>
         <p class="published-in" *ngIf="publication.publishedIn">
           <i class="fa fa-book" aria-hidden="true"></i> {{ publication.publishedIn }} ({{ publication.date | date:'yyyy' }})
@@ -25,17 +25,17 @@
 
     <div class="modal-footer">
       <div class="action-buttons-left">
-        <button class="action-btn" [class.active]="showBibtex" (click)="toggleBibtex()">
+        <button class="ds-btn" [class.is-active]="showBibtex" (click)="toggleBibtex()">
           {{ isLoadingBibtex ? 'Loading...' : (showBibtex ? 'Abstract' : 'BIB') }}
         </button>
-        <button *ngIf="publication.doi" class="action-btn" (click)="copyCitation()">
+        <button *ngIf="publication.doi" class="ds-btn" (click)="copyCitation()">
           Copy Citation<span *ngIf="vimModeService.isVimModeEnabled()" class="vim-hint"> (yy)</span>
         </button>
-        <button *ngIf="publication.link" class="action-btn" (click)="openPDF()">
+        <button *ngIf="publication.link" class="ds-btn" (click)="openPDF()">
           PDF<span *ngIf="vimModeService.isVimModeEnabled()" class="vim-hint"> (p)</span>
         </button>
       </div>
-      <button class="action-btn close-action" (click)="close()">
+      <button class="ds-btn close-action" (click)="close()">
         Close<span *ngIf="vimModeService.isVimModeEnabled()" class="vim-hint"> (q)</span>
       </button>
     </div>

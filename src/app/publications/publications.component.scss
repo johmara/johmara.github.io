@@ -53,17 +53,8 @@
 }
 
 .status-badge {
-  display: inline-block;
   margin-left: 0.5rem;
-  padding: 0.1rem 0.5rem;
-  border-radius: 999px;
-  font-size: 0.65rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
   vertical-align: middle;
-  color: var(--background-color-darker);
-  background-color: var(--accent-color-2);
 }
 
 .card-content p {
@@ -71,7 +62,7 @@
   color: var(--main-color);
 }
 
-a {
+a:not(.ds-btn) {
   text-decoration: none;
   color: inherit;
 }
@@ -110,26 +101,7 @@ a {
   margin-top: 1rem;
 }
 
-.action-btn {
-  padding: 0.5rem 1rem;
-  border: 2px solid var(--text-color);
-  border-radius: 4px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  background-color: var(--background-color-darker);
-  color: var(--text-color);
-}
 
-.action-btn:hover {
-  background-color: var(--text-color);
-  color: var(--background-color-darker);
-  transform: translateY(-2px);
-}
 
 .cite-btn {
   background: none;

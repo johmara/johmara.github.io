@@ -14,7 +14,7 @@
         <p [innerHTML]="project.description"></p>
       </div>
       <div class="tags">
-        <span *ngFor="let tag of project.tags" class="pill">{{ tag }}</span>
+        <span *ngFor="let tag of project.tags" class="ds-pill pill">{{ tag }}</span>
       </div>
       <div class="project-links">
         <a class="project-link" *ngIf="!isEmpty(project.repo)" [href]="project.repo" target="_blank">

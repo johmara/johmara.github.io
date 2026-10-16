@@ -87,7 +87,7 @@
 
   .project-link {
     margin-top: 1.5rem;
-    color: #47BFFF;
+    color: var(--accent-color-2);
     margin-right: 0.5rem;
     margin-left: 0.5rem;
   }
@@ -100,14 +100,6 @@
     flex-wrap: wrap;
   }
 
-  .pill {
-    background-color: #F4F5F6;
-    margin: 0 0.2rem 0.2rem 0;
-    padding: 0.2rem 0.6rem; /* Adjust padding to make it look more like a pill */
-    border-radius: 999px; /* Make the corners fully rounded */
-    font-size: 0.8rem;
-    color: #0073b1;
-  }
 
   .tags {
     display: flex;
@@ -117,14 +109,6 @@
     flex-wrap: wrap;
   }
 
-  .pill {
-    background-color: var(--background-color-darker);
-    margin: 0 0.2rem 0.2rem 0;
-    padding: 0.2rem 0.6rem; /* Adjust padding to make it look more like a pill */
-    border-radius: 999px; /* Make the corners fully rounded */
-    font-size: 0.8rem;
-    color: var(--accent-color-2);
-  }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -233,7 +217,7 @@
   }
 
   .project-link {
-    color: var(--accent-color-2-lighter);
+    color: var(--accent-color-2);
     margin-right: 0.5rem;
     margin-left: 0.5rem;
 
@@ -247,14 +231,6 @@
     flex-wrap: wrap;
   }
 
-  .pill {
-    background-color: var(--background-color-darker);
-    margin: 0 0.2rem 0.2rem 0;
-    padding: 0.2rem 0.6rem; /* Adjust padding to make it look more like a pill */
-    border-radius: 999px; /* Make the corners fully rounded */
-    font-size: 0.75rem;
-    color: var(--accent-color-2);
-  }
 }
 
 @media (min-width: 1024px) and (max-width: 1250px) {
@@ -415,7 +391,7 @@
   }
 
   .project-link {
-    color: #47BFFF;
+    color: var(--accent-color-2);
     margin-right: 0.5rem;
     margin-left: 0.5rem;
 
@@ -429,14 +405,6 @@
     flex-wrap: wrap;
   }
 
-  .pill {
-    background-color: #F4F5F6;
-    margin: 0 0.2rem 0.2rem 0;
-    padding: 0.2rem 0.6rem; /* Adjust padding to make it look more like a pill */
-    border-radius: 999px; /* Make the corners fully rounded */
-    font-size: 0.75rem;
-    color: #0073b1;
-  }
 
   .project.reverse .project-links {
     justify-content: flex-start;
@@ -454,12 +422,8 @@
     justify-content: flex-start;
   }
 
-  .pill {
-    background-color: var(--background-color-darker);
-    margin: 0 0.2rem 0.2rem 0;
-    padding: 0.2rem 0.6rem; /* Adjust padding to make it look more like a pill */
-    border-radius: 999px; /* Make the corners fully rounded */
-    font-size: 0.75rem;
-    color: var(--accent-color-2);
-  }
+}
+
+.pill {
+  margin: 0 0.2rem 0.2rem 0;
 }
