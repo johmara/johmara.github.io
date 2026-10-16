@@ -1,13 +1,13 @@
 <div class="publications">
   <div class="publications-container">
-    <div class="publication-card" *ngFor="let publication of getPublications()">
+    <div class="ds-card ds-card--lift publication-card" *ngFor="let publication of getPublications()">
       <div class="card-content" (click)="openPublicationDetail(publication)">
         <h3 class="paper-title">{{ publication.title }}<span *ngIf="publication.status === 'accepted'" class="ds-badge status-badge">Accepted</span></h3>
         <p class="authors">{{ publication.authors | authorName }}</p>
         <p class="published-in" *ngIf="publication.publishedIn">
           <i class="fa fa-book" aria-hidden="true"></i> {{ publication.publishedIn }} ({{ publication.date | date:'yyyy' }})
         </p>
-        <hr>
+        <hr class="ds-card__divider">
         <p class="description">{{ publication.description | slice:0:300 }}...</p>
       </div>
       <div class="button-container">

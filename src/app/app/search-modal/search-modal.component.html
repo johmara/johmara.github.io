@@ -1,5 +1,5 @@
-<div class="modal-backdrop" (click)="onBackdropClick($event)">
-  <div class="modal-container">
+<div class="ds-modal-backdrop modal-backdrop" (click)="onBackdropClick($event)">
+  <div class="ds-modal ds-modal--palette modal-container">
     <div class="search-header">
       <input 
         #searchInput
@@ -9,7 +9,7 @@
         (input)="onSearch()"
         placeholder="Search publications, projects..."
         autofocus>
-      <button class="close-btn" (click)="closeModal()" aria-label="Close search">
+      <button class="ds-btn ds-btn--ghost close-btn" (click)="closeModal()" aria-label="Close search">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -26,10 +26,10 @@
         (mouseenter)="selectedIndex = i">
         <div class="result-content">
           <div class="result-header">
-            <span class="result-type" 
-                  [class.publication]="result.type === 'publication'" 
-                  [class.project]="result.type === 'project'"
-                  [class.page]="result.type === 'page'">
+            <span class="ds-chip result-type"
+                  [class.ds-chip--primary]="result.type === 'publication'"
+                  [class.ds-chip--success]="result.type === 'project'"
+                  [class.ds-chip--neutral]="result.type === 'page'">
               {{ result.type === 'publication' ? 'Publication' : result.type === 'project' ? 'Project' : 'Page' }}
             </span>
           </div>
@@ -46,11 +46,11 @@
     
     <div class="search-footer">
       <div class="keyboard-hints">
-        <span *ngIf="vimModeService.isVimModeEnabled()"><kbd>i</kbd> Edit</span>
-        <span *ngIf="vimModeService.isVimModeEnabled()"><kbd>j</kbd><kbd>k</kbd> Navigate</span>
-        <span *ngIf="!vimModeService.isVimModeEnabled()"><kbd>↑</kbd><kbd>↓</kbd> Navigate</span>
-        <span><kbd>Enter</kbd> Open</span>
-        <span><kbd>Esc</kbd> Close</span>
+        <span *ngIf="vimModeService.isVimModeEnabled()"><kbd class="ds-kbd ds-kbd--outline">i</kbd> Edit</span>
+        <span *ngIf="vimModeService.isVimModeEnabled()"><kbd class="ds-kbd ds-kbd--outline">j</kbd><kbd class="ds-kbd ds-kbd--outline">k</kbd> Navigate</span>
+        <span *ngIf="!vimModeService.isVimModeEnabled()"><kbd class="ds-kbd ds-kbd--outline">↑</kbd><kbd class="ds-kbd ds-kbd--outline">↓</kbd> Navigate</span>
+        <span><kbd class="ds-kbd ds-kbd--outline">Enter</kbd> Open</span>
+        <span><kbd class="ds-kbd ds-kbd--outline">Esc</kbd> Close</span>
       </div>
     </div>
   </div>

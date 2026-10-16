@@ -33,12 +33,6 @@
   max-width: 38rem;
 }
 
-.section-heading {
-  margin: 1.25rem 0 0.4rem;
-  font-size: 1.05rem;
-  color: var(--accent-color-1);
-}
-
 .image-content {
   display: flex;
   flex-direction: column;
@@ -53,7 +47,6 @@
   gap: 0.75rem;
   margin-top: 1rem;
 }
-
 
 .title {
   color: var(--accent-color-2);
@@ -171,7 +164,3 @@
   }
 }
 
-// ds-btn default has a filled background; the home actions stay transparent until hovered.
-.action-buttons .ds-btn:not(:hover) {
-  background-color: transparent;
-}

@@ -1,4 +1,4 @@
-.mx-4{
+.mx-4 {
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -10,74 +10,28 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  z-index: 1000;
+  z-index: var(--ds-z-header);
 }
 
+// Layout only; colour, opacity and hover come from ds-btn--ghost.
 .search-trigger {
-  background-color: transparent;
-  border: none;
-  border-radius: 20px;
-  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 0 0;
-  opacity: 0.5;
-
-  &:hover {
-    opacity: 1;
-    transform: scale(1.05);
-
-    svg,
-    .shortcut-text {
-      color: var(--accent-color-2);
-    }
-  }
+  height: 2.5rem;
+  padding: 0;
+  border-radius: 20px;
 
   .shortcut-text {
     font-size: 0.75rem;
-    color: var(--main-color);
-    transition: all 0.2s ease;
-    white-space: nowrap;
     font-weight: 500;
+    white-space: nowrap;
   }
 
   svg {
     width: 1.25rem;
     height: 1.25rem;
-    color: var(--main-color);
-    transition: all 0.2s ease;
-  }
-}
-
-.cv-button {
-  background-color: transparent;
-  border: 1px solid var(--main-color);
-  border-radius: 0.25rem;
-  padding: 0.35rem 0.6rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  opacity: 0.5;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--main-color);
-  text-decoration: none;
-
-  &:hover {
-    opacity: 1;
-    transform: scale(1.05);
-    border-color: var(--accent-color-2);
-    color: var(--accent-color-2);
-  }
-
-  &:active {
-    transform: scale(0.95);
   }
 }
 
@@ -85,50 +39,16 @@
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  background-color: transparent;
-  border: 1px solid var(--accent-color-2);
-  border-radius: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  z-index: 1000;
-  opacity: 0.5;
-
-  &:hover {
-    opacity: 1;
-    transform: scale(1.05);
-    background-color: var(--accent-color-2);
-    
-    .vim-icon {
-      color: var(--background-color);
-    }
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-
-  &.active {
-    opacity: 1;
-    background-color: var(--accent-color-2);
-    border-color: var(--accent-color-2);
-
-    .vim-icon {
-      color: var(--background-color);
-      font-weight: 700;
-    }
-  }
+  z-index: var(--ds-z-header);
 
   .vim-icon {
     font-size: 1rem;
     font-weight: 600;
     font-family: monospace;
-    color: var(--accent-color-2);
-    transition: all 0.2s ease;
+  }
+
+  &.is-active .vim-icon {
+    font-weight: 700;
   }
 }
 
@@ -136,40 +56,13 @@
   position: fixed;
   bottom: 4.5rem;
   right: 1rem;
-  background-color: var(--background-color);
-  border: 1px solid var(--accent-color-2);
-  border-radius: 0.5rem;
-  padding: 0.75rem;
   z-index: 999;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  min-width: 200px;
-  max-width: 250px;
   opacity: 0.95;
   transition: all 0.2s ease;
-  animation: slideUp 0.2s ease-out;
-
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 0.95;
-      transform: translateY(0);
-    }
-  }
+  animation: ds-slide-up 0.2s ease-out;
 
   &:hover {
     opacity: 1;
-  }
-
-  .vim-tooltip-header {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--accent-color-2);
-    margin-bottom: 0.5rem;
-    border-bottom: 1px solid var(--accent-color-2);
-    padding-bottom: 0.25rem;
   }
 
   .vim-tooltip-section {
@@ -195,13 +88,6 @@
     gap: 0.5rem;
 
     kbd {
-      background-color: var(--accent-color-2);
-      color: var(--background-color);
-      padding: 0.15rem 0.4rem;
-      border-radius: 0.25rem;
-      font-family: monospace;
-      font-size: 0.65rem;
-      font-weight: 600;
       min-width: 1.5rem;
       text-align: center;
     }
