@@ -15,10 +15,10 @@
     "authors": "Mukelabai Mukelabai, Johan Martinson, Wardah Mahmood, Thorsten Berger, Rafael Capilla",
     "description": "Feature models are foundational to variability management, yet most existing techniques assume a conceptually single feature model—even when technically partitioned across files or views. This assumption is increasingly misaligned with modular and ecosystem-scale development, where variability is distributed across subsystems owned and evolved by different teams. In this paper, we advance the notion of decentralized feature modeling, in which multiple asset-level feature models coexist, each with an explicit scope and owner, and global consistency being achieved through capability-based cross-model constraints rather than reconstruction of a monolithic model. We demonstrate how decentralized models can be structured, how capabilities express cross-team dependencies, and how distributed configuration ensures global satisfiability while preserving local autonomy. In fact, no existing modular, multi-view, or multi-level feature modeling technique fully addresses placement, independent configuration, and incremental analysis in an integrated manner. We derive requirements for decentralized modeling and identify research challenges around decomposition, capability governance, cross-model reasoning, and scalable distributed analysis.",
     "link": "assets/publications/2026_towards_decentralized_feature_models.pdf",
-    "doi": "",
+    "doi": "https://doi.org/10.1007/978-3-032-40763-4_12",
     "publishedIn": "International Working Conference on Variability Modelling of Software-Intensive Systems (Variability)",
     "featured": true,
-    "status": "accepted"
+    "status": "published"
   },
   {
     "date": "2026-09-29",
@@ -26,10 +26,10 @@
     "authors": "Johan Martinson, Kevin Hermann, Thorsten Berger",
     "description": "Development processes are often organized around features. Whether to maintain or evolve features, developers frequently need to find their locations in the codebase. However, these locations are rarely recorded, which results in a substantial effort in locating features—a challenge that will intensify with the increase of AI-generated code. Many techniques, such as automatic feature location, external traceability databases, or modular feature-oriented programming, facilitate feature location, but are either imprecise, require extensive maintenance, or are hard to adopt in practice. Embedded feature annotations offer a lightweight alternative that enables developers to record feature locations directly in implementation assets as they write them. While prior work has demonstrated long-term benefits of embedded feature annotations by reducing feature location overhead, the time and workload required to create them during development remains unknown. We conducted a controlled experiment with 15 professional developers recording feature locations in an industrial software system using embedded feature annotations. Our results show that creating embedded feature annotations entails only small overhead, requiring only 6.27% of development time with no meaningful increase in perceived workload. Although participants recognized their long-term value, they still expressed challenges in adopting them into their usual workflow—calling for more immediate benefits during development, and better tool support to reduce the effort of creating annotations.",
     "link": "assets/publications/2026_overhead_of_recording_feature_locations_with_embedded_annotations.pdf",
-    "doi": "",
+    "doi": "https://doi.org/10.1007/978-3-032-40763-4_11",
     "publishedIn": "International Working Conference on Variability Modelling of Software-Intensive Systems (Variability)",
     "featured": true,
-    "status": "accepted"
+    "status": "published"
   },
   {
     "date": "2026-09-29",
